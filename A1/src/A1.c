@@ -8,25 +8,51 @@
 #include <string.h>
 #include <signal.h>
 #include <ctype.h>
+#include "fio.h"
 
-int main (void){
+int main (int argc, char ** argv){
     pid_t processID;
     int status = 0;
-    char* testString = "test";
+    char * input;
+    char ** inputArr;
+    char * temp;
+    int i = 0;
 
-    processID = fork();
+    input = malloc(sizeof(char)*256);
+    inputArr = malloc(sizeof(char*)*256);
+    printf(">> ");
+    gets(input);
 
-    if(processID >= 0){
-        if(processID == 0){
-            printf("this is the child process. My PID is %d\n", getpid());
-            printf("%s\n", testString);
-            exit(0);
+    while((strstr(input,"exit()") == NULL) && (strstr(input,"kill()") == NULL)){
+        temp = strtok(input," ");
+        i = 0;
+        do{
+            inputArr[i] = temp;
+            temp = strtok(NULL," ");
+            i++;
+        }while(temp != NULL);
+        inputArr[i] = temp;
+        processID = fork();
+        if(processID >= 0){
+            if(processID == 0){
+                printf("Created new process. PID: %d\n", getpid());
+                execvp(inputArr[0],inputArr);
+                exit(0);
+            }else{
+                if((strstr("&",inputArr[(i-1)]))){
+//                    waitpid(processID, &status, 0);
+                    printf("had &");
+                }else{
+                    waitpid(processID, &status, 0);
+                    printf("had no &");
+                }
+                printf("\nthe command \"%s\" was run\n", input);
+            }
         }else{
-            printf("this is the parent process. My PID is %d\n", getpid());
-            waitpid(processID, &status, 0);
-            printf("%s\n My child has quit\n", testString);
+            printf("failed to fork\n");
         }
-    }else{
-        printf("failed to fork\n");
+        printf("\n>> ");
+        gets(input);
     }
+    free(inputArr);
 }
