@@ -1,2 +1,11 @@
-#include<stdio.h>
-#include"fio.c"
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <stdbool.h>
+#include <errno.h>
+#include <stdlib.h>
+#include <sys/wait.h>
+#include <string.h>
+#include <signal.h>
+#include <ctype.h>
+#include "fio.h"
