@@ -1,5 +1,5 @@
-//#ifndef _AFELTHAM_HEADERH
-//#define _AFELTHAM_HEADERH
+#ifndef _AFELTHAM_HEADERH
+#define _AFELTHAM_HEADERH
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -14,5 +14,7 @@
 
 void catchSig(int sig, siginfo_t * signalInfo, void *hold);
 
+void source(int pipe[2], char ** cmdArr);
 
-//#endif
+void dest(int pipe[2], char ** cmdArr);
+#endif
