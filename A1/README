@@ -1,0 +1,7 @@
+CIS1130 Assignment 1
+Author: Alpheaus Feltham ID# 0903594
+References:
+	-The signals code packet uploaded to courselink -> used as a reference on how to catch signals and act upon them.
+	-the website: https://www.cs.rutgers.edu/~pxk/416/notes/c-tutorials/pipe.html -> used as a reference on how to pipe between to child processes.
+	
+This Code should be able to complete sections 1 and 2 of the assignment, with only minor errors present in the last part of both section 1 and 2.
