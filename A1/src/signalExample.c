@@ -39,11 +39,11 @@ int main(int argc, char** argv){
     		//this is the parent process
     		printf("I am parent process. My PID: %d\n", getpid());
 
-            // Registered for SIGCHLD 
+            // Registered for SIGCHLD
             sigaction(SIGCHLD, &test, NULL);
 
-            while(i<10) {
-                printf("parent waiting...\n");
+            while(i<15) {
+                printf("parent waiting...   %d\n",i);
                 sleep(1);
                 i++;
             }

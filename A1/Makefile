@@ -5,6 +5,8 @@ test:
 testEdit:
 	nano src/signalExample.c
 testRun:
+	./src/sigEx
+testRunBg:
 	./src/sigEx &
 self:
 	nano Makefile
