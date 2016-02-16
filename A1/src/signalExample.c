@@ -13,12 +13,12 @@ void endSignalRoutine(int signal, siginfo_t *signalInfo, void *hold);
 
 int main(int argc, char** argv){
     pid_t childPID;
-
-    if(argc < 2) {
+    int i = 0;
+/*    if(argc < 2) {
         printf("\nUsage: enter the number of seconds for child process to sleep as a command line argument.\n\n");
         exit(-1);
     }
-
+*/
     //declare our signal handler.
     struct sigaction test;
 
@@ -31,7 +31,8 @@ int main(int argc, char** argv){
     		//This is the child process
     		printf("I am child process. My PID: %d.\n", getpid());
 
-            execvp("sleep", argv);
+//            execvp("sleep", argv);
+            sleep(10);
 
             exit(0);
     	} else {
@@ -41,9 +42,10 @@ int main(int argc, char** argv){
             // Registered for SIGCHLD 
             sigaction(SIGCHLD, &test, NULL);
 
-            while(1) {
+            while(i<10) {
                 printf("parent waiting...\n");
                 sleep(1);
+                i++;
             }
     	}
     } else {

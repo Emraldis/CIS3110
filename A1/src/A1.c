@@ -26,10 +26,10 @@ int main (int argc, char ** argv){
     int k = 0;
     char * buffer;
     int len;
-	
-	struct sigaction sigCatcher;
-	
-	sigCatcher.sa_sigaction = catchSig;
+
+    struct sigaction sigCatcher;
+
+    sigCatcher.sa_sigaction = catchSig;
 
     buffer = malloc(sizeof(char)*256);
     input = malloc(sizeof(char)*256);
@@ -138,7 +138,7 @@ int main (int argc, char ** argv){
                         realloc(pIDArr,sizeof(pid_t)*(bProcess + 1));
                         pIDArr[bProcess] = processID;
                         bProcess++;
-					    sigaction(SIGCHLD, &sigCatcher, NULL);
+                        sigaction(SIGCHLD, &sigCatcher, NULL);
                     }else{
                         waitpid(processID, &status, 0);
                     }

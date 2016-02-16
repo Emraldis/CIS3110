@@ -1,5 +1,5 @@
-#ifndef _AFELTHAM_HEADERH
-#define _AFELTHAM_HEADERH
+//#ifndef _AFELTHAM_HEADERH
+//#define _AFELTHAM_HEADERH
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -12,8 +12,7 @@
 #include <ctype.h>
 
 
-
-#endif
-
-
 void catchSig(int sig, siginfo_t * signalInfo, void *hold);
+
+
+//#endif

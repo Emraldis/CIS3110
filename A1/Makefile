@@ -1,5 +1,11 @@
 all:
-	gcc src/A1.c -Wall -pedantic -std=c99 -Iinclude -o src/A1
+	gcc src/A1.c src/pipe.c -Wall -pedantic -std=gnu99 -Iinclude -o src/A1
+test:
+	gcc src/signalExample.c -Wall -pedantic -std=gnu99 -Iinclude -o src/sigEx
+testEdit:
+	nano src/signalExample.c
+testRun:
+	./src/sigEx &
 self:
 	nano Makefile
 run:
@@ -7,8 +13,10 @@ run:
 main:
 	nano src/A1.c
 header:
-	nano include/fio.h
+	nano include/pipe.h
 fio:
 	nano src/fio.c
 text:
 	nano test.txt
+pipe:
+	nano src/pipe.c
