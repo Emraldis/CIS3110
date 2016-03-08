@@ -1,3 +1,5 @@
+#ifndef _AFELTHAM_HEADERH
+#define _AFELTHAM_HEADERH
 #include <stdio.h>
 #include <string.h>
 
@@ -26,3 +28,4 @@ process * processParse(char * input);
 thread * threadParse(char * input);
 
 burst * burstParse(char * parse);
+#endif
