@@ -14,11 +14,15 @@ typedef struct threadInfo{
     int	threadNum;
     int arrivalTime;
     int numBursts;
+    thread * nextThread;
+    burst * nextBurst;
 }thread;
 
 typedef struct processInfo{
     int processNum;
     int numThreads;
+    process * nextProcess;
+    thread* nextThread;
 }process;
 
 void parse(FILE * input);
