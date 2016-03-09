@@ -1,14 +1,19 @@
 #include "fio.h"
 
-process * processParse(char * input){
+void * processParse(char * input){
 	
 }
 
-thread * threadParse(char * input){
+void * threadParse(char * input){
 	
 }
 
-burst * burstParse(char * parse){
+void * burstParse(char * parse){
 	
 }
 
+process * createProcess(){
+    process * newProcess;
+
+    return(newProcess);
+}

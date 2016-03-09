@@ -27,11 +27,10 @@ typedef struct processInfo{
 
 void parse(FILE * input);
 
-void * processParse(char * input);
+process * processParse(char * input);
 
-void * threadParse(char * input);
+thread * threadParse(char * input);
 
-void * burstParse(char * parse);
+burst * burstParse(char * parse);
 
-process* createProcess();
 #endif
