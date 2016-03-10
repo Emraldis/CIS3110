@@ -1,0 +1,23 @@
+#include "fio.h"
+
+void * processParse(char * input){
+	
+}
+
+void * threadParse(char * input){
+	
+}
+
+void * burstParse(char * parse){
+	
+}
+
+process * createProcess(char * input){
+    process * newProcess;
+
+    tempString = strtok(input, " ");
+    newProcess.processNum = atoi(tempString);
+
+
+    return(newProcess);
+}

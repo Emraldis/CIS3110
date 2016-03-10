@@ -1,5 +1,5 @@
 all:
-
+	gcc src/main.c src/fio.c src/process.c src/linkedList.c -Wall -std=c99 -pedantic -Iinclude -o bin/A2
 self:
 	nano Makefile
 main:
@@ -17,3 +17,4 @@ process:
 processh:
 	nano include/process.h
 run:
+	./bin/A2

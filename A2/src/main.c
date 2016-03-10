@@ -4,7 +4,7 @@
 #include "linkedList.h"
 #include "process.h"
 
-int main void (int argc, char ** argv){
+int main void(int argc, char ** argv){
 
     char * fileName;
     int processTrans;
@@ -14,8 +14,11 @@ int main void (int argc, char ** argv){
     int threadNum;
     char * tempString;
     int i;
+    int j;
+    int k;
     FILE * file;
-    process ** processArr;
+    process * processHead;
+    process * currentProcess;
 
     fileName = argv[argc];
     file * fopen(fileName,"r");
@@ -34,6 +37,9 @@ int main void (int argc, char ** argv){
         }
         for(i=0;i<processNum;i++){
             if(fgets(input,256,file) != NULL){
+                currentProcess.next = createProcess(input);
+                for(j=0;j<
+
             }
         }
     }

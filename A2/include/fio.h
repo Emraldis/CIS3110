@@ -1,29 +1,30 @@
-#ifndef _AFELTHAM_HEADERH
+	#ifndef _AFELTHAM_HEADERH
 #define _AFELTHAM_HEADERH
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
-typedef struct burstInfo{
+typedef struct Burst {
     int burstNum;
     int CPUTime;
     int IOTime;
-    burst * next;
-}burst;
+    Burst * nextBurst;
+};
 
-typedef struct threadInfo{
+typedef struct Thread {
     int	threadNum;
     int arrivalTime;
     int numBursts;
-    thread * nextThread;
-    burst * nextBurst;
-}thread;
+    Thread * nextThread;
+    Burst * nextBurst;
+};
 
-typedef struct processInfo{
+typedef struct Process {
     int processNum;
     int numThreads;
-    process * nextProcess;
-    thread* nextThread;
-}process;
+    Process * nextProcess;
+    Thread * nextThread;
+};
 
 void parse(FILE * input);
 
@@ -31,7 +32,11 @@ void * processParse(char * input);
 
 void * threadParse(char * input);
 
-void * burstParse(char * parse);
+void * burstParse(char * input);
 
-process* createProcess();
+Process * createProcess(char * input);
+
+Thread * createThread(char * input);
+
+Burst * createBurst(char * burst);
 #endif

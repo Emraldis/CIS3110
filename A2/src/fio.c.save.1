@@ -8,7 +8,7 @@ void * threadParse(char * input){
 	
 }
 
-void * burstParse(char * input){
+void * burstParse(char * parse){
 	
 }
 
@@ -16,12 +16,13 @@ Process * createProcess(char * input){
     Process newProcess;
     char * tempString;
 
-    newProcess = malloc(sizeof(Process));
+    newProcess = malloc(sizeof(process));
 
     tempString = strtok(input, " ");
-    newProcess.processNum = atoi(tempString);
+    newProcess->
+processNum = atoi(tempString);
     tempString = strtok(input, " ");
-    newProcess.numThreads = atoi(tempString);
+    newProcess->numThreads = atoi(tempString);
 
     return(newProcess);
 }
