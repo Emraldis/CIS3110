@@ -41,7 +41,7 @@ int main (int argc, char * argv[]){
         if (tempString != NULL){
             threadTrans = atoi(tempString);
         }
-        //printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
+        printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
 		if(fgets(input,256,inputFile)){
 			ProcessList = createProcess(input,inputFile);
 			currentProcess = ProcessList;
@@ -54,6 +54,7 @@ int main (int argc, char * argv[]){
             }
         }
     }
+	currentProcess->nextProcess = NULL;
 	currentProcess = ProcessList->nextProcess;
 	while(currentProcess->nextProcess != NULL){
 		printf("\nProcess Number: %d\nNumber of Threads: %d",currentProcess->processNum,currentProcess->numThreads);
