@@ -62,7 +62,9 @@ int main (int argc, char * argv[]){
 		k = 1;
 		while(k != 0){
 			printf("\n\tThread Number: %d\n\t Arrival Time: %d \n\tNumber of Bursts: %d\n",currentThread->threadNum,currentThread->arrivalTime,currentThread->numBursts);
-			printf("\n\tNext Thread Number: %d\n",currentThread->nextThread->threadNum);
+			if(currentThread->nextThread != NULL){
+				printf("\n\tNext Thread Number: %d\n",currentThread->nextThread->threadNum);
+			}
 			currentBurst = currentThread->nextBurst;
 			j = 1;
 			while(j != 0){
