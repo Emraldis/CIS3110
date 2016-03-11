@@ -60,7 +60,7 @@ int main (int argc, char * argv[]){
 		printf("\nProcess Number: %d\nNumber of Threads: %d",currentProcess->processNum,currentProcess->numThreads);
 		currentThread = currentProcess->nextThread;
 		while(currentThread->nextThread != NULL){
-			printf("\n\tNext Thread Number: %d\n",currentThread->nextThread.threadNum);
+			printf("\n\tNext Thread Number: %d\n",currentThread->nextThread->threadNum);
 			//printf("\n\tThread Number: %d\n\t Arrival Time: %d \n\tNumber of Bursts: %d\n",currentThread->threadNum,currentThread->arrivalTime,currentThread->numBursts);
 			currentBurst = currentThread->nextBurst;
 			while(currentBurst->nextBurst != NULL){
