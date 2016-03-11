@@ -61,11 +61,15 @@ int main (int argc, char * argv[]){
     }
 	currentProcess->nextProcess = NULL;
 	currentProcess = ProcessList;
+	/***************************************************************************************************************************************
+	List Debug Code:
+	***************************************************************************************************************************************/
+	
 	if(debug == 1){
         printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
 		i = 1;
 		while(i != 0){
-			printf("\nProcess Number: %d\nNumber of Threads: %d",currentProcess->processNum,currentProcess->numThreads);
+			printf("\nProcess Number: %d\nNumber of Threads: %d\n",currentProcess->processNum,currentProcess->numThreads);
 			currentThread = currentProcess->nextThread;
 			k = 1;
 			while(k != 0){
