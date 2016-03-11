@@ -20,5 +20,7 @@ run:
 	./bin/A2 input.txt 0
 input:
 	nano input.txt
-debug:
+debugList:
 	./bin/A2 input.txt 1
+debugInput:
+	./bin/A2 input.txt 2
