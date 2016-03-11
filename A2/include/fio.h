@@ -32,9 +32,9 @@ void * threadParse(char * input);
 
 void * burstParse(char * input);
 
-Process * createProcess(char * input);
+Process * createProcess(char * input, FILE * inputFile);
 
-Thread * createThread(char * input);
+Thread * createThread(char * input, FILE * inputFile);
 
-Burst * createBurst(char * burst);
+Burst * createBurst(char * burst, FILE * inputFile);
 #endif

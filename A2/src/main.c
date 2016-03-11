@@ -41,13 +41,13 @@ int main (int argc, char * argv[]){
         }
         printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
 		if(fgets(input,256,inputFile)){
-			ProcessList = createProcess(input);
+			ProcessList = createProcess(input,inputFile);
 			currentProcess = ProcessList;
 		}
         for(i=0;i<processNum;i++){
         	printf("Process Number: %d\n",(currentProcess->processNum));
             if(fgets(input,256,inputFile) != NULL){
-                currentProcess->nextProcess = createProcess(input);
+                currentProcess->nextProcess = createProcess(input,inputFile);
 				currentProcess = currentProcess->nextProcess;
             }
         }

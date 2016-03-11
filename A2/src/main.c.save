@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <string.h>
+#include "fio.h"
+#include "linkedList.h"
+#include "process.h"
+
+int main (int argc, char ** argv){
+
+    char * fileName;
+    int processTrans;
+    int threadTrans;
+    char * input;
+    int processNum;
+    int threadNum;
+    char * tempString;
+    int i;
+    int j;
+    int k;
+    FILE * inputFile;
+    Process * readyQ;
+//    Process * currentProcess;
+    Process * processList;
+
+    fileName = argv[argc];
+    inputFile = fopen(fileName,"r");
+    while(fgets(input,256,inputFile) != NULL){
+        tempString = strtok(input, " ");
+        if(tempString != NULL){
+            processNum = atoi(tempString);
+        }
+        tempString = strtok(input, " ");
+        if (tempString != NULL){
+            processTrans = atoi(tempString);
+        }
+        tempString = strtok(input, " ");
+        if (tempString != NULL){
+            threadTrans = atoi(tempString);
+        }
+/*        if(fgets(input,256,inputFile) != NULL){
+           processList = createProcess(input);
+           printf("\n);
+        }        for(i=0;i<processNum;i++){
+            if(fgets(input,256,inputFile) != NULL){
+//                currentProcess.next = createProcess(input);
+//                processList
+//                for(j=0;j<
+
+            }
+        }
+    }
+
+    return(0);
+}
