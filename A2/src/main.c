@@ -56,7 +56,8 @@ int main (int argc, char * argv[]){
     }
 	currentProcess->nextProcess = NULL;
 	currentProcess = ProcessList;
-	while(currentProcess->nextProcess != NULL){
+	i = 1;
+	while(i != 0){
 		printf("\nProcess Number: %d\nNumber of Threads: %d",currentProcess->processNum,currentProcess->numThreads);
 		currentThread = currentProcess->nextThread;
 		k = 1;
@@ -79,8 +80,13 @@ int main (int argc, char * argv[]){
 			if(currentThread->nextThread != NULL){
 				currentThread = currentThread->nextThread;
 			}else{
-				k =0;
+				k = 0;
 			}
+		}
+		if(currentProcess->nextProcess != NULL){
+			currentProcess = currentProcess->nextProcess;
+		}else{
+			i = 0;
 		}
 	}
 
