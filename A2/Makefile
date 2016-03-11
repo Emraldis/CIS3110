@@ -3,18 +3,20 @@ all:
 self:
 	nano Makefile
 main:
-	nano src/main.c
+	nano -T4 -i src/main.c
 fio:
-	nano src/fio.c
+	nano -T4 -i src/fio.c
 fioh:
-	nano include/fio.h
+	nano -T4 -i include/fio.h
 List:
-	nano src/linkedList.c
+	nano -T4 -i src/linkedList.c
 Listh:
-	nano include/linkedList.h
+	nano -T4 -i include/linkedList.h
 process:
-	nano src/process.c
+	nano -T4 -i src/process.c
 processh:
-	nano include/process.h
+	nano -T4 -i include/process.h
 run:
-	./bin/A2
+	./bin/A2 input.txt
+input:
+	nano input.txt

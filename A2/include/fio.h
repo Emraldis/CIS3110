@@ -8,25 +8,23 @@ typedef struct BurstInfo {
     int burstNum;
     int CPUTime;
     int IOTime;
-    Burst * nextBurst;
+    struct BurstInfo * nextBurst;
 }Burst;
 
 typedef struct ThreadInfo {
     int	threadNum;
     int arrivalTime;
     int numBursts;
-    Thread * nextThread;
-    Burst * nextBurst;
+    struct ThreadInfo * nextThread;
+    struct BurstInfo * nextBurst;
 }Thread;
 
 typedef struct ProcessInfo {
     int processNum;
     int numThreads;
-    Process * nextProcess;
-    Thread * nextThread;
+    struct ProcessInfo * nextProcess;
+    struct ThreadInfo * nextThread;
 }Process;
-
-void parse(FILE * input);
 
 void * processParse(char * input);
 

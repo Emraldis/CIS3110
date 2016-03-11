@@ -13,15 +13,23 @@ void * burstParse(char * input){
 }
 
 Process * createProcess(char * input){
-    Process newProcess;
+    Process * newProcess;
     char * tempString;
 
     newProcess = malloc(sizeof(Process));
 
     tempString = strtok(input, " ");
-    newProcess.processNum = atoi(tempString);
-    tempString = strtok(input, " ");
-    newProcess.numThreads = atoi(tempString);
+    newProcess->processNum = atoi(tempString);
+    tempString = strtok(NULL, " ");
+    newProcess->numThreads = atoi(tempString);
 
     return(newProcess);
+}
+
+Thread * createThread(char * input){
+    Thread * newThread;
+
+    newThread = malloc(sizeof(Thread));
+
+    return(newThread);
 }
