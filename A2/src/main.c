@@ -44,8 +44,8 @@ int main (int argc, char * argv[]){
 			ProcessList = createProcess(input,inputFile);
 			currentProcess = ProcessList;
 		}
-        for(i=0;i<processNum;i++){
-        	printf("Process Number: %d\n",(currentProcess->processNum));
+        for(i=0;i<(processNum - 1);i++){
+        	printf("\n");
             if(fgets(input,256,inputFile) != NULL){
                 currentProcess->nextProcess = createProcess(input,inputFile);
 				currentProcess = currentProcess->nextProcess;
