@@ -59,14 +59,25 @@ int main (int argc, char * argv[]){
 	while(currentProcess->nextProcess != NULL){
 		printf("\nProcess Number: %d\nNumber of Threads: %d",currentProcess->processNum,currentProcess->numThreads);
 		currentThread = currentProcess->nextThread;
-		while(currentThread->nextThread != NULL){
+		k = 1;
+		while(k != 0){
 			printf("\n\tThread Number: %d\n\t Arrival Time: %d \n\tNumber of Bursts: %d\n",currentThread->threadNum,currentThread->arrivalTime,currentThread->numBursts);
 			printf("\n\tNext Thread Number: %d\n",currentThread->nextThread->threadNum);
 			currentBurst = currentThread->nextBurst;
-			while(currentBurst->nextBurst != NULL){
+			j = 1;
+			while(j != 0){
 				printf("\n\t\tBurst Number: %d\n\t\tCPU Time: %d\n\t\tIO Time: %d\n",currentBurst->burstNum, currentBurst->CPUTime, currentBurst->IOTime);
-				currentBurst = currentBurst->nextBurst;
+				if(currentBurst->nextBurst != NULL){
+					currentBurst = currentBurst->nextBurst;
+				}else{
+					j = 0;
+				}
 				getchar();
+			}
+			if(currentThread->nextThread != NULL){
+				currentThread = currentThread->nextThread;
+			}else{
+				k =0;
 			}
 		}
 	}
