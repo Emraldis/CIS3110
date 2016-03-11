@@ -61,11 +61,6 @@ Thread * createThread(char * input, FILE * inputFile){
 			tempBurst = tempBurst->nextBurst;
 		}
 	}
-	if(tempBurst->nextBurst != NULL){
-		printf("\nDEBUG: %d\n",tempBurst->nextBurst->burstNum);
-	}else{
-		printf("\n\t\tLast Burst\n");
-	}
 	tempBurst->nextBurst = NULL;
 	tempBurst = newThread->nextBurst;
 
