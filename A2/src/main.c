@@ -16,7 +16,7 @@ int main (int argc, char * argv[]){
     int i;
     int j;
     int k;
-	int structDebug = 0;
+	int debug = 0;
     FILE * inputFile;
     Process * readyQ;
     Process * currentProcess;
@@ -28,9 +28,11 @@ int main (int argc, char * argv[]){
 
     fileName = argv[1];
 	if (argv[2] != NULL){
-		structDebug = atoi(argv[2]);
+		debug = atoi(argv[2]);
 	}
-    printf("\nDataFile: %s",fileName);
+	if (debug == 2){
+		printf("\nDataFile: %s",fileName);
+	}
     inputFile = fopen(fileName,"r");
 	if(fgets(input,256,inputFile) != NULL){
         tempString = strtok(input, " ");
@@ -60,7 +62,8 @@ int main (int argc, char * argv[]){
     }
 	currentProcess->nextProcess = NULL;
 	currentProcess = ProcessList;
-	if(structDebug == 1){
+	if(debug == 1){
+        printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
 		i = 1;
 		while(i != 0){
 			printf("\nProcess Number: %d\nNumber of Threads: %d",currentProcess->processNum,currentProcess->numThreads);
