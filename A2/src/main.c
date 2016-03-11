@@ -60,7 +60,7 @@ int main (int argc, char * argv[]){
     }
 	currentProcess->nextProcess = NULL;
 	currentProcess = ProcessList;
-	if(structDebug = 1){
+	if(structDebug == 1){
 		i = 1;
 		while(i != 0){
 			printf("\nProcess Number: %d\nNumber of Threads: %d",currentProcess->processNum,currentProcess->numThreads);
