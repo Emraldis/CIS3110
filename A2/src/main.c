@@ -20,6 +20,8 @@ int main (int argc, char * argv[]){
     Process * readyQ;
     Process * currentProcess;
     Process * ProcessList;
+	Thread * currentThread;
+	Burst * currentBurst;
 
     input = malloc(sizeof(char)*256);
 
@@ -39,7 +41,7 @@ int main (int argc, char * argv[]){
         if (tempString != NULL){
             threadTrans = atoi(tempString);
         }
-        printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
+        //printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
 		if(fgets(input,256,inputFile)){
 			ProcessList = createProcess(input,inputFile);
 			currentProcess = ProcessList;
@@ -52,6 +54,20 @@ int main (int argc, char * argv[]){
             }
         }
     }
+	currentProcess = ProcessList->nextProcess;
+	while(currentProcess->nextProcess != NULL){
+		printf("\nProcess Number: %d\nNumber of Threads: %d",currentProcess->processNum,currentProcess->numThreads);
+		currentThread = currentProcess->nextThread;
+		while(currentThread->nextThread != NULL){
+			printf("\n\tThread Number: %d\n\t Arrival Time: %d \n\tNumber of Bursts: %d\n",currentThread->threadNum,currentThread->arrivalTime,currentThread->numBursts);
+			currentBurst = currentThread->nextBurst;
+			while(currentBurst->nextBurst != NULL){
+				printf("\n\t\tBurst Number: %d\n\t\tCPU Time: %d\n\t\tIO Time: %d\n",currentBurst->burstNum, currentBurst->CPUTime, currentBurst->IOTime);
+				currentBurst = currentBurst->nextBurst;
+			}
+			
+		}
+	}
 
     return(0);
 }

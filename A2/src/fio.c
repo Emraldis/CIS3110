@@ -28,9 +28,9 @@ Process * createProcess(char * input, FILE * inputFile){
     	}
     }
 	tempThread = newProcess->nextThread;
-	while(tempThread->nextThread != NULL){
+	/*while(tempThread->nextThread != NULL){
 		printf("\n\tThread Number: %d\n\tArrival Time: %d\n\tNumber of CPU Bursts: %d\n",tempThread->threadNum,tempThread->arrivalTime,tempThread->numBursts);
-	}
+	}*/
 
     return(newProcess);
 }
