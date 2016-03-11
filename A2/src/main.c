@@ -55,7 +55,7 @@ int main (int argc, char * argv[]){
         }
     }
 	currentProcess->nextProcess = NULL;
-	currentProcess = ProcessList->nextProcess;
+	currentProcess = ProcessList;
 	while(currentProcess->nextProcess != NULL){
 		printf("\nProcess Number: %d\nNumber of Threads: %d",currentProcess->processNum,currentProcess->numThreads);
 		currentThread = currentProcess->nextThread;
