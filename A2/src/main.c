@@ -16,6 +16,7 @@ int main (int argc, char * argv[]){
     int i;
     int j;
     int k;
+	int structDebug = 0;
     FILE * inputFile;
     Process * readyQ;
     Process * currentProcess;
@@ -26,6 +27,9 @@ int main (int argc, char * argv[]){
     input = malloc(sizeof(char)*256);
 
     fileName = argv[1];
+	if (argv[2] != NULL){
+		structDebug = atoi(argv[2]);
+	}
     printf("\nDataFile: %s",fileName);
     inputFile = fopen(fileName,"r");
 	if(fgets(input,256,inputFile) != NULL){
@@ -56,37 +60,36 @@ int main (int argc, char * argv[]){
     }
 	currentProcess->nextProcess = NULL;
 	currentProcess = ProcessList;
-	i = 1;
-	while(i != 0){
-		printf("\nProcess Number: %d\nNumber of Threads: %d",currentProcess->processNum,currentProcess->numThreads);
-		currentThread = currentProcess->nextThread;
-		k = 1;
-		while(k != 0){
-			printf("\n\tThread Number: %d\n\t Arrival Time: %d \n\tNumber of Bursts: %d\n",currentThread->threadNum,currentThread->arrivalTime,currentThread->numBursts);
-			if(currentThread->nextThread != NULL){
-				printf("\n\tNext Thread Number: %d\n",currentThread->nextThread->threadNum);
-			}
-			currentBurst = currentThread->nextBurst;
-			j = 1;
-			while(j != 0){
-				printf("\n\t\tBurst Number: %d\n\t\tCPU Time: %d\n\t\tIO Time: %d\n",currentBurst->burstNum, currentBurst->CPUTime, currentBurst->IOTime);
-				if(currentBurst->nextBurst != NULL){
-					currentBurst = currentBurst->nextBurst;
-				}else{
-					j = 0;
+	if(structDebug = 1){
+		i = 1;
+		while(i != 0){
+			printf("\nProcess Number: %d\nNumber of Threads: %d",currentProcess->processNum,currentProcess->numThreads);
+			currentThread = currentProcess->nextThread;
+			k = 1;
+			while(k != 0){
+				printf("\n\tThread Number: %d\n\t Arrival Time: %d \n\tNumber of Bursts: %d\n",currentThread->threadNum,currentThread->arrivalTime,currentThread->numBursts);
+				currentBurst = currentThread->nextBurst;
+				j = 1;
+				while(j != 0){
+					printf("\n\t\tBurst Number: %d\n\t\tCPU Time: %d\n\t\tIO Time: %d\n",currentBurst->burstNum, currentBurst->CPUTime, currentBurst->IOTime);
+					if(currentBurst->nextBurst != NULL){
+						currentBurst = currentBurst->nextBurst;
+					}else{
+						j = 0;
+					}
+					getchar();
 				}
-				getchar();
+				if(currentThread->nextThread != NULL){
+					currentThread = currentThread->nextThread;
+				}else{
+					k = 0;
+				}
 			}
-			if(currentThread->nextThread != NULL){
-				currentThread = currentThread->nextThread;
+			if(currentProcess->nextProcess != NULL){
+				currentProcess = currentProcess->nextProcess;
 			}else{
-				k = 0;
+				i = 0;
 			}
-		}
-		if(currentProcess->nextProcess != NULL){
-			currentProcess = currentProcess->nextProcess;
-		}else{
-			i = 0;
 		}
 	}
 
