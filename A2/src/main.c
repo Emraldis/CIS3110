@@ -17,8 +17,10 @@ int main (int argc, char * argv[]){
     int j;
     int k;
 	int debug = 0;
+	int tick = 0;
+	int complete = 0;
     FILE * inputFile;
-    Process * readyQ;
+    Burst * readyQ;
     Process * currentProcess;
     Process * ProcessList;
 	Thread * currentThread;
@@ -71,7 +73,16 @@ int main (int argc, char * argv[]){
 	Ordering the bursts for FCFS:
 	***************************************************************************************************************************************/
 	
-	
+	while(complete == 0){
+		for(i=0;i<processNum;i++){
+		}
+		currentProcess = readyQ;
+		tick++;
+		for(i=0;i<processNum;i++){
+			complete = currentProcess->complete;
+			currentProcess = currentProcess->nextProcess;
+		}
+	}
 	
 	/***************************************************************************************************************************************
 	List Debug Code:

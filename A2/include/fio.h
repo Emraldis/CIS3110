@@ -6,6 +6,8 @@
 
 typedef struct BurstInfo {
     int burstNum;
+	int threadNum;
+	int processNum;
     int CPUTime;
     int IOTime;
     struct BurstInfo * nextBurst;
@@ -13,6 +15,7 @@ typedef struct BurstInfo {
 
 typedef struct ThreadInfo {
     int	threadNum;
+	int processNum;
     int arrivalTime;
     int numBursts;
     struct ThreadInfo * nextThread;
@@ -22,6 +25,7 @@ typedef struct ThreadInfo {
 typedef struct ProcessInfo {
     int processNum;
     int numThreads;
+	int complete;
     struct ProcessInfo * nextProcess;
     struct ThreadInfo * nextThread;
 }Process;

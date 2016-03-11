@@ -18,16 +18,19 @@ Process * createProcess(char * input, FILE * inputFile){
 
 	if(fgets(input,256,inputFile) != NULL){
 		tempThread = createThread(input, inputFile);
+		tempThread->processNum = newProcess->processNum;
 	}
 	newProcess->nextThread = tempThread;
 	for(i=0;i < (newProcess->numThreads - 1);i++){
 	    if(fgets(input,256,inputFile) != NULL){
 			tempThread->nextThread = createThread(input,inputFile);
+			tempThread->processNum = newProcess->processNum;
 			tempThread = tempThread->nextThread;
     	}
     }
 	tempThread->nextThread = NULL;
 	tempThread = newProcess->nextThread;
+	newProcess->complete = 0;
 	/*while(tempThread->nextThread != NULL){
 		printf("\n\tThread Number: %d\n\tArrival Time: %d\n\tNumber of CPU Bursts: %d\n",tempThread->threadNum,tempThread->arrivalTime,tempThread->numBursts);
 	}*/
@@ -53,6 +56,8 @@ Thread * createThread(char * input, FILE * inputFile){
 
 	if(fgets(input,256,inputFile) != NULL){
 		tempBurst = createBurst(input);
+		tempBurst->processNum = newThread->processNum;
+		tempBurst->threadNum = newThread->threadNum;
 	}
 	newThread->nextBurst = tempBurst;
 	for(i = 0;i < (newThread->numBursts - 1);i++){
