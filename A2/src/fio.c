@@ -59,6 +59,11 @@ Thread * createThread(char * input, FILE * inputFile){
 		if(fgets(input,256,inputFile)){
 			tempBurst->nextBurst = createBurst(input);
 			tempBurst = tempBurst->nextBurst;
+			if(tempBurst->nextBurst != NULL){
+				printf("\nDEBUG: %d\n",tempBurst->nextBurst->burstNum);
+			}else{
+				printf("\nCurrent Burst Number: %d Next burst is null\n",tempBurst->burstNum);
+			}
 		}
 	}
 	if(tempBurst->nextBurst != NULL){
