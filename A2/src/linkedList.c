@@ -39,7 +39,7 @@ Burst * addItem(Burst * list, Burst * item){
 	Burst * currentBurst;
 	
 	currentBurst = list;
-	if(list->nextBurst !=NULL){
+	if(list != NULL){
 		while(currentBurst->nextBurst != NULL){
 			currentBurst = currentBurst->nextBurst;
 			printf("\nInterpolating, currentBurst = %d next Burst = %d CPU Time = %d",currentBurst->burstNum,currentBurst->nextBurst->burstNum, currentBurst->nextBurst->CPUTime);

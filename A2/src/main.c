@@ -92,7 +92,7 @@ int main (int argc, char * argv[]){
 					}else{
 						j = 0;
 					}
-					getchar();
+					//getchar();
 				}
 				if(currentThread->nextThread != NULL){
 					currentThread = currentThread->nextThread;
