@@ -42,13 +42,19 @@ Burst * addItem(Burst * list, Burst * item){
 	
 	while(currentBurst->nextBurst != NULL){
 		currentBurst = currentBurst->nextBurst;
-		printf("\nInterpolating, next Burst = %d CPU Time = %d",currentBurst->nextBurst->burstNum, currentBurst->nextBurst->CPUTime);
+		printf("\nInterpolating, currentBurst = %d next Burst = %d CPU Time = %d",currentBurst->burstNum,currentBurst->nextBurst->burstNum, currentBurst->nextBurst->CPUTime);
 		getchar();
 	}
 	if(currentBurst->nextBurst ==  NULL){
 		currentBurst->nextBurst = item;
 		item->nextBurst = NULL;
 		printf("\nAdded Item, Burst number: %d = %d", currentBurst->nextBurst->burstNum,item->burstNum);
+		if(currentBurst->nextBurst->nextBurst == NULL){
+			printf("\nNext Item properly set");
+		}else{
+			printf("\nnope");
+		}
+		
 	}else{
 		printf("\nERROR in addItem function\n");
 		exit(0);
