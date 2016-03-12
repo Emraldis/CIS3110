@@ -34,7 +34,7 @@ Burst * insertItem(Burst * insertLoc, Burst * item){
 
 }
 
-Burst * addItem(Burst * list, Burst * Item){
+Burst * addItem(Burst * list, Burst * item){
 	
 	Burst * currentBurst;
 	
