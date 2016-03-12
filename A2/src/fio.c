@@ -58,7 +58,7 @@ Thread * createThread(char * input, FILE * inputFile){
 		tempBurst = createBurst(input);
 		tempBurst->processNum = newThread->processNum;
 		tempBurst->threadNum = newThread->threadNum;
-		tempBurst->readyTime = newThread->ArrivalTime;
+		tempBurst->readyTime = newThread->arrivalTime;
 	}
 	newThread->nextBurst = tempBurst;
 	for(i = 0;i < (newThread->numBursts - 1);i++){

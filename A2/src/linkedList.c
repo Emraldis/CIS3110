@@ -6,13 +6,13 @@ Burst * moveToBack(Burst * list){
 	Burst * currentBurst;
 	
 	tempBurst = list;
-	currentBurst = list.nextBurst;
+	currentBurst = list->nextBurst;
 	list = currentBurst;
 	while(currentBurst->nextBurst != NULL){
 		currentBurst = currentBurst->nextBurst;
 	}
 	if(currentBurst->nextBurst == NULL){
-		currentBusrt->nextBurst == tempBurst;
+		currentBurst->nextBurst == tempBurst;
 	}
 	
 	return(list);
@@ -25,7 +25,7 @@ Burst * insertItem(Burst * insertLoc, Burst * item){
 	
 	tempBurst = insertLoc->nextBurst;
 	insertLoc->nextBurst = item;
-	item->next Burst = tempBurst;
+	item->nextBurst = tempBurst;
 
 	return(insertLoc);
 
