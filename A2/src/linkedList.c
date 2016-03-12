@@ -48,7 +48,7 @@ Burst * addItem(Burst * list, Burst * item){
 	if(currentBurst->nextBurst ==  NULL){
 		currentBurst->nextBurst = item;
 		item->nextBurst = NULL;
-		printf("\nAdded Item");
+		printf("\nAdded Item, Burst number: %d = %d", currentBurst->nextBurst->burstNum,item->burstNum);
 	}else{
 		printf("\nERROR in addItem function\n");
 		exit(0);
