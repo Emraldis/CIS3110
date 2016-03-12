@@ -60,7 +60,7 @@ Burst * addItem(Burst * list, Burst * item){
 			exit(0);
 		}
 	}else{
-		list->nextBurst = item;
+		list = item;
 	}
 	
 	return(list);
