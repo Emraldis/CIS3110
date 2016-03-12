@@ -12,7 +12,7 @@ Burst * moveToBack(Burst * list){
 		currentBurst = currentBurst->nextBurst;
 	}
 	if(currentBurst->nextBurst == NULL){
-		currentBurst->nextBurst == tempBurst;
+		currentBurst->nextBurst = tempBurst;
 	}else{
 		printf("\nERROR in moveToBack function\n");
 		exit(0);
