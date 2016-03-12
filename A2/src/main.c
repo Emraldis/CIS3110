@@ -83,7 +83,7 @@ int main (int argc, char * argv[]){
 		printf("\nDEBUGGING ReadyQ\n");
 		currentBurst = readyQ;
 		while(currentBurst->nextBurst != NULL){
-			printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",);
+			printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
 		}
 	}
 	
