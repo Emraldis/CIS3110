@@ -49,7 +49,7 @@ Burst * addItem(Burst * list, Burst * item){
 		currentBurst->nextBurst = item;
 		item->nextBurst = NULL;
 		printf("\nAdded Item, Burst number: %d = %d", currentBurst->nextBurst->burstNum,item->burstNum);
-		if((currentBurst->nextBurst->nextBurst == NULL) && (currentBust->nextBurst != NULL)){
+		if((currentBurst->nextBurst->nextBurst == NULL) && (currentBurst->nextBurst != NULL)){
 			printf("\nNext Item properly set");
 		}else{
 			printf("\nnope");
