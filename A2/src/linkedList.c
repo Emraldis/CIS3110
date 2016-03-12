@@ -45,8 +45,13 @@ Burst * addItem(Burst * list, Burst * item){
 	getchar();
 	if(list != NULL){
 		printf("\nlist was not null");
+		printf("\nCurrent burst num: %d", currentBurst->burstNum);
+		getchar();
+		printf("\nCurrent burst num: %d", currentBurst->burstNum);
 		getchar();
 		while(currentBurst->nextBurst != NULL){
+			printf("\nI got here");
+			getchar();
 			currentBurst = currentBurst->nextBurst;
 			printf("\nInterpolating, currentBurst = %d next Burst = %d CPU Time = %d",currentBurst->burstNum,currentBurst->nextBurst->burstNum, currentBurst->nextBurst->CPUTime);
 			getchar();
