@@ -121,11 +121,11 @@ int main (int argc, char * argv[]){
 			if(debug == 3){
 				printf("\nIn a loop\n");
 			}
-			readyQ->nextBurst = addItem(readyQ,currentProcess->nextThread->nextBurst);
+			readyQ = addItem(readyQ,currentProcess->nextThread->nextBurst);
 		}
 		if(debug == 3){
 			printf("\nend of a loop\n");
-			printf("\nReadyQ first member: %d\n",readyQ->nextBurst->burstNum);
+			printf("\nReadyQ first member: %d\n",readyQ->burstNum);
 		}
 	}
 	if(debug == 3){
