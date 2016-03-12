@@ -39,25 +39,28 @@ Burst * addItem(Burst * list, Burst * item){
 	Burst * currentBurst;
 	
 	currentBurst = list;
-	
-	while(currentBurst->nextBurst != NULL){
-		currentBurst = currentBurst->nextBurst;
-		printf("\nInterpolating, currentBurst = %d next Burst = %d CPU Time = %d",currentBurst->burstNum,currentBurst->nextBurst->burstNum, currentBurst->nextBurst->CPUTime);
-		getchar();
-	}
-	if(currentBurst->nextBurst ==  NULL){
-		currentBurst->nextBurst = item;
-		item->nextBurst = NULL;
-		printf("\nAdded Item, Burst number: %d = %d", currentBurst->nextBurst->burstNum,item->burstNum);
-		if((currentBurst->nextBurst->nextBurst == NULL) && (currentBurst->nextBurst != NULL)){
-			printf("\nNext Item properly set");
-		}else{
-			printf("\nnope");
+	if(list->nextBurst !=Null){
+		while(currentBurst->nextBurst != NULL){
+			currentBurst = currentBurst->nextBurst;
+			printf("\nInterpolating, currentBurst = %d next Burst = %d CPU Time = %d",currentBurst->burstNum,currentBurst->nextBurst->burstNum, currentBurst->nextBurst->CPUTime);
+			getchar();
 		}
+		if(currentBurst->nextBurst ==  NULL){
+			currentBurst->nextBurst = item;
+			item->nextBurst = NULL;
+			printf("\nAdded Item, Burst number: %d = %d", currentBurst->nextBurst->burstNum,item->burstNum);
+			if((currentBurst->nextBurst->nextBurst == NULL) && (currentBust->nextBurst != NULL)){
+				printf("\nNext Item properly set");
+			}else{
+				printf("\nnope");
+			}
 		
-	}else{
-		printf("\nERROR in addItem function\n");
-		exit(0);
+		}else{
+			printf("\nERROR in addItem function\n");
+			exit(0);
+		}
+	}else(){
+		list->nextBurst = item;
 	}
 	
 	return(list);
