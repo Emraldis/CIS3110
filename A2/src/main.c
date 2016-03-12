@@ -74,6 +74,9 @@ int main (int argc, char * argv[]){
 	Running FCFS Simulation:
 	***************************************************************************************************************************************/
 	tick = 0;
+	if(debug == 3){
+		printf("\nGot here\n");
+	}
 	for(i=0;i<processNum;i++){
 		if(currentProcess->nextThread->arrivalTime == 0){
 			readyQ->nextBurst = addItem(readyQ,currentProcess->nextThread->nextBurst);
