@@ -121,6 +121,7 @@ int main (int argc, char * argv[]){
 			if(debug == 3){
 				printf("\nIn a loop\n");
 			}
+			getchar();
 			readyQ = addItem(readyQ,currentProcess->nextThread->nextBurst);
 		}
 		if(debug == 3){
