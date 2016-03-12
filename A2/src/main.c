@@ -75,6 +75,7 @@ int main (int argc, char * argv[]){
 	***************************************************************************************************************************************/
 	tick = 0;
 	if(debug == 3){
+	if(debug == 3){
 		printf("\nGot here\n");
 	}
 	for(i=0;i<processNum;i++){
@@ -99,7 +100,7 @@ int main (int argc, char * argv[]){
 			printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
 		}
 	}
-	
+	}
 	/*while(complete == 0){
 		
 		
