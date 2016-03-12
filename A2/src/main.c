@@ -125,6 +125,7 @@ int main (int argc, char * argv[]){
 		}
 		if(debug == 3){
 			printf("\nend of a loop\n");
+			printf("\nReadyQ first member: %d\n",readyQ->nextBurst->burstNum);
 		}
 	}
 	if(debug == 3){
