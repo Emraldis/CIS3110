@@ -42,11 +42,11 @@ Burst * addItem(Burst * list, Burst * item){
 	
 	while(currentBurst->nextBurst != NULL){
 		currentBurst = currentBurst->nextBurst;
-		printf("\ninterpolating\n");
 	}
 	if(currentBurst->nextBurst ==  NULL){
 		currentBurst->nextBurst = item;
 		item->nextBurst = NULL;
+		printf("\nAdded Item");
 	}else{
 		printf("\nERROR in addItem function\n");
 		exit(0);
