@@ -79,6 +79,9 @@ int main (int argc, char * argv[]){
 	}
 	for(i=0;i<processNum;i++){
 		if(currentProcess->nextThread->arrivalTime == 0){
+			if(debug == 3){
+				printf("\nIn a loop\n");
+			}
 			readyQ->nextBurst = addItem(readyQ,currentProcess->nextThread->nextBurst);
 		}
 	}
