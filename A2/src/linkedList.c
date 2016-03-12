@@ -71,6 +71,7 @@ Burst * addItem(Burst * list, Burst * item){
 		list = item;
 		printf("\nassigned list");
 		getchar();
+		getchar();
 	}
 	
 	return(list);
