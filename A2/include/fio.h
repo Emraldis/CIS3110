@@ -10,6 +10,9 @@ typedef struct BurstInfo {
 	int processNum;
     int CPUTime;
     int IOTime;
+	int readyTime;
+	int entryTime;
+	int exitTime;
     struct BurstInfo * nextBurst;
 }Burst;
 

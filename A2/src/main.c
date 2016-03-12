@@ -16,8 +16,8 @@ int main (int argc, char * argv[]){
     int i;
     int j;
     int k;
+	int tick;
 	int debug = 0;
-	int tick = 0;
 	int complete = 0;
     FILE * inputFile;
     Burst * readyQ;
@@ -74,10 +74,7 @@ int main (int argc, char * argv[]){
 	***************************************************************************************************************************************/
 	
 	while(complete == 0){
-		for(i=0;i<processNum;i++){
-		}
-		currentProcess = readyQ;
-		tick++;
+		
 		for(i=0;i<processNum;i++){
 			complete = currentProcess->complete;
 			currentProcess = currentProcess->nextProcess;
