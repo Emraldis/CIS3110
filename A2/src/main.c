@@ -84,6 +84,9 @@ int main (int argc, char * argv[]){
 			}
 			readyQ->nextBurst = addItem(readyQ,currentProcess->nextThread->nextBurst);
 		}
+		if(debug == 3){
+			printf("\nend of a loop\n");
+		}
 	}
 	if(debug == 3){
 		printf("\nGot here\n");
