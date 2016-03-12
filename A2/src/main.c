@@ -27,7 +27,7 @@ int main (int argc, char * argv[]){
 	Burst * currentBurst;
 
     input = malloc(sizeof(char)*256);
-	readyQ = malloc(sizeof(Burst));
+	//readyQ = malloc(sizeof(Burst));
 
 	/***************************************************************************************************************************************
 	Creating the Lists:
