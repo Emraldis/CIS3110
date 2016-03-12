@@ -71,48 +71,10 @@ int main (int argc, char * argv[]){
 	
 	
 	/***************************************************************************************************************************************
-	Running FCFS Simulation:
-	***************************************************************************************************************************************/
-	tick = 0;
-	if(debug == 3){
-	if(debug == 3){
-		printf("\nGot here\n");
-	}
-	for(i=0;i<processNum;i++){
-		if(currentProcess->nextThread->arrivalTime == 0){
-			if(debug == 3){
-				printf("\nIn a loop\n");
-			}
-			readyQ->nextBurst = addItem(readyQ,currentProcess->nextThread->nextBurst);
-		}
-		if(debug == 3){
-			printf("\nend of a loop\n");
-		}
-	}
-	if(debug == 3){
-		printf("\nGot here\n");
-	}
-	
-	if(debug == 3){
-		printf("\nDEBUGGING ReadyQ\n");
-		currentBurst = readyQ->nextBurst;
-		while(currentBurst->nextBurst != NULL){
-			printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
-		}
-	}
-	}
-	/*while(complete == 0){
-		
-		
-		
-		tick++;
-	}*/
-	
-	/***************************************************************************************************************************************
 	List Debug Code:
 	***************************************************************************************************************************************/
 	
-	if(debug == 1){
+	//if(debug == 1){
         printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
 		i = 1;
 		while(i != 0){
@@ -144,7 +106,44 @@ int main (int argc, char * argv[]){
 				i = 0;
 			}
 		}
-	}
+	//}
 
+	
+	/***************************************************************************************************************************************
+	Running FCFS Simulation:
+	***************************************************************************************************************************************/
+	tick = 0;
+	if(debug == 3){
+		printf("\nGot here\n");
+	}
+	for(i=0;i<processNum;i++){
+		if(currentProcess->nextThread->arrivalTime == 0){
+			if(debug == 3){
+				printf("\nIn a loop\n");
+			}
+			readyQ->nextBurst = addItem(readyQ,currentProcess->nextThread->nextBurst);
+		}
+		if(debug == 3){
+			printf("\nend of a loop\n");
+		}
+	}
+	if(debug == 3){
+		printf("\nGot here\n");
+	}
+	
+	if(debug == 3){
+		printf("\nDEBUGGING ReadyQ\n");
+		currentBurst = readyQ->nextBurst;
+		while(currentBurst->nextBurst != NULL){
+			printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
+		}
+	}
+	/*while(complete == 0){
+		
+		
+		
+		tick++;
+	}*/
+	
     return(0);
 }
