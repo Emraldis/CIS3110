@@ -28,6 +28,7 @@ int main (int argc, char * argv[]){
 
     input = malloc(sizeof(char)*256);
 	//readyQ = malloc(sizeof(Burst));
+	readyQ = NULL;
 
 	/***************************************************************************************************************************************
 	Creating the Lists:
