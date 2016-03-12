@@ -38,12 +38,14 @@ Burst * addItem(Burst * list, Burst * item){
 	
 	Burst * currentBurst;
 	
-	printf("starting");
+	printf("\nstarting");
 	getchar();
 	currentBurst = list;
-	printf("assigned");
+	printf("\nassigned");
 	getchar();
 	if(list != NULL){
+		printf("\nlist was not null");
+		getchar();
 		while(currentBurst->nextBurst != NULL){
 			currentBurst = currentBurst->nextBurst;
 			printf("\nInterpolating, currentBurst = %d next Burst = %d CPU Time = %d",currentBurst->burstNum,currentBurst->nextBurst->burstNum, currentBurst->nextBurst->CPUTime);
@@ -64,7 +66,11 @@ Burst * addItem(Burst * list, Burst * item){
 			exit(0);
 		}
 	}else{
+		printf("\nlist was null");
+		getchar();
 		list = item;
+		printf("\nassigned list");
+		getchar();
 	}
 	
 	return(list);
