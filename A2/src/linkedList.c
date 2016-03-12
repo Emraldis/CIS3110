@@ -41,6 +41,8 @@ Burst * addItem(Burst * list, Burst * item){
 	printf("starting");
 	getchar();
 	currentBurst = list;
+	printf("assigned");
+	getchar();
 	if(list != NULL){
 		while(currentBurst->nextBurst != NULL){
 			currentBurst = currentBurst->nextBurst;
