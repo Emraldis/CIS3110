@@ -13,6 +13,9 @@ Burst * moveToBack(Burst * list){
 	}
 	if(currentBurst->nextBurst == NULL){
 		currentBurst->nextBurst == tempBurst;
+	}else{
+		printf("\nERROR in moveToBack function\n");
+		exit();
 	}
 	
 	return(list);
@@ -29,4 +32,24 @@ Burst * insertItem(Burst * insertLoc, Burst * item){
 
 	return(insertLoc);
 
+}
+
+Burst * addItem(Burst * list, Burst * Item){
+	
+	burst * currentBurst;
+	
+	currentBurst = list;
+	
+	while(currentBurst->nextBurst != NULL){
+		currentBurst = currentBurst->nextBurst;
+	}
+	if(currentBurst->nextBurst ==  NULL){
+		currentBurst->nextBurst = item;
+		item->nextBurst = NULL;
+	}else{
+		printf("\nERROR in addItem function\n");
+		exit();
+	}
+	
+	return(list);
 }

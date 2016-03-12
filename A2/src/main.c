@@ -70,16 +70,29 @@ int main (int argc, char * argv[]){
 	
 	
 	/***************************************************************************************************************************************
-	Ordering the bursts for FCFS:
+	Running FCFS Simulation:
 	***************************************************************************************************************************************/
-	
-	while(complete == 0){
-		
-		for(i=0;i<processNum;i++){
-			complete = currentProcess->complete;
-			currentProcess = currentProcess->nextProcess;
+	tick = 0;
+	for(i=0;i<processNum;i++){
+		if(currentProcess->nextThread->arrivalTime == 0){
+			readyQ = addItem(readyQ,currentProcess->nextThread->nextBurst);
 		}
 	}
+	
+	if(debug == 3){
+		printf("\nDEBUGGING ReadyQ\n");
+		currentBurst = readyQ;
+		while(currentBurst->nextBurst != NULL){
+			printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",);
+		}
+	}
+	
+	/*while(complete == 0){
+		
+		
+		
+		tick++;
+	}*/
 	
 	/***************************************************************************************************************************************
 	List Debug Code:
