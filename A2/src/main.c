@@ -27,6 +27,7 @@ int main (int argc, char * argv[]){
 	Burst * currentBurst;
 
     input = malloc(sizeof(char)*256);
+	readyQ = malloc(sizeof(Burst));
 
 	/***************************************************************************************************************************************
 	Creating the Lists:
@@ -75,13 +76,13 @@ int main (int argc, char * argv[]){
 	tick = 0;
 	for(i=0;i<processNum;i++){
 		if(currentProcess->nextThread->arrivalTime == 0){
-			readyQ = addItem(readyQ,currentProcess->nextThread->nextBurst);
+			readyQ->nextBurst = addItem(readyQ,currentProcess->nextThread->nextBurst);
 		}
 	}
 	
 	if(debug == 3){
 		printf("\nDEBUGGING ReadyQ\n");
-		currentBurst = readyQ;
+		currentBurst = readyQ->nextBurst;
 		while(currentBurst->nextBurst != NULL){
 			printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
 		}
