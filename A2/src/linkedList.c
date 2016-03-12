@@ -58,6 +58,8 @@ Burst * addItem(Burst * list, Burst * item){
 		if(currentBurst->nextBurst ==  NULL){
 			printf("\nTrying to assign");
 			getchar();
+			printf("\nitem that we're tring to assign is: %d", item->burstNum);
+			getchar();
 			currentBurst->nextBurst = item;
 			item->nextBurst = NULL;
 			printf("\nAdded Item, Burst number: %d = %d", currentBurst->nextBurst->burstNum,item->burstNum);
