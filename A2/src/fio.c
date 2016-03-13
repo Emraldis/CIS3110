@@ -22,8 +22,8 @@ Process * createProcess(char * input, FILE * inputFile){
 	for(i=0;i < (newProcess->numThreads - 1);i++){
 	    if(fgets(input,256,inputFile) != NULL){
 			tempThread->nextThread = createThread(input,inputFile);
-			tempThread->processNum = newProcess->processNum;
 			tempThread = tempThread->nextThread;
+			tempThread->processNum = newProcess->processNum;
     	}
     }
 	tempThread->nextThread = NULL;
@@ -57,6 +57,8 @@ Thread * createThread(char * input, FILE * inputFile){
 		if(fgets(input,256,inputFile)){
 			tempBurst->nextBurst = createBurst(input);
 			tempBurst = tempBurst->nextBurst;
+			tempBurst->processNum = newThread->processNum;
+			tempBurst->threadNum = newThread->threadNum;
 		}
 	}
 	tempBurst->nextBurst = NULL;
