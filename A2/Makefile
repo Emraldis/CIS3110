@@ -18,9 +18,15 @@ processh:
 	nano -T4 -i include/process.h
 run:
 	./bin/A2 input.txt 0
+run2:
+	./bin/A2 input2.txt 0
 input:
 	nano input.txt
 debugList:
 	./bin/A2 input.txt 1
 debugInput:
 	./bin/A2 input.txt 2
+debugReadyQ:
+	./bin/A2 input.txt 3
+debugReadyQ2:
+	./bin/A2 input2.txt 3
