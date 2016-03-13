@@ -22,6 +22,9 @@ int main (int argc, char * argv[]){
 	int overhead = 0;
 	int event =0;
 	int verbose = 1;
+	int rr = 1;
+	int rrq = 50;
+	int quantumTick;
     FILE * inputFile;
     Thread * readyQ;
     Process * currentProcess;
@@ -122,6 +125,7 @@ int main (int argc, char * argv[]){
 	Running FCFS Simulation:
 	***************************************************************************************************************************************/
 	tick = 0;
+	quantumTick = rrq;
 	if(debug == 3){
 		printf("\nCreating ReadyQ:\n\n");
 	}
@@ -234,7 +238,28 @@ int main (int argc, char * argv[]){
 					}
 				}
 				CPU = removeFirstThread(CPU);
+				if(quantumTick < 0){
+					quantumTick = rrq; 
+				}
 				event = 1;
+			}else{
+				if(rr = 1){
+					if(quantumTick < 0){
+					if(readyQ != NULL){
+						if(CPU->processNum == readyQ->processNum){
+							overhead = processTrans;
+						}else{
+							overhead = threadTrans;
+						}
+					}
+						readyQ = addItem(readyQ,CPU);
+						if(verbose == 1){
+							printf("\nAt Time %d Thread %d of Process %d moves from Running to Ready",tick,CPU->threadNum,CPU->processNum);
+						}
+						CPU = removeFirstThread(CPU);
+						quantumTick = rrq; 
+					}
+				}
 			}
 		}
 		if(waitingQ != NULL){
@@ -346,9 +371,14 @@ int main (int argc, char * argv[]){
 			printf("\n");
 		}
 		event = 0;
+		if(rr == 1){
+			quantumTick--;
+		}
 		tick++;
 	}
 	printf("\nSimulation ended after %d Ticks\n",(tick - 1));
+	
+	//printf("Simulation results:");
 
     return(0);
 }
