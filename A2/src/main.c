@@ -135,31 +135,7 @@ int main (int argc, char * argv[]){
 	if(debug == 3){
 		printf("\nFinished ReadyQ\n\n");
 	}
-	while(tick <= 400){
-		if((debug == 3) && (tick % 10 == 0)){
-			printf("\nDEBUGGING ReadyQ @ tick = %d\n",tick);
-			currentBurst = readyQ;
-			while(currentBurst->nextBurst != NULL){
-				printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
-				currentBurst = currentBurst->nextBurst;
-			}
-			if(currentBurst->nextBurst == NULL){
-				printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
-			}
-		}
-		if(CPU == NULL){
-			CPU = copyItem(readyQ);
-			CPU->nextBurst = NULL; 
-			printf("\nAdding to CPU");
-		}
-		if((debug == 3) && (tick % 10 == 0)){
-			//getchar();
-			if(CPU != NULL){
-				printf("\n\tBurst in CPU:\n\tProcess: %d\tThread: %d\tBurst: %d\n",CPU->processNum,CPU->threadNum,CPU->burstNum);
-			}
-		}
-		tick++;
-	}
+	currentProcess = ProcessList;
 	
 	//TEST:
         printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
@@ -203,6 +179,32 @@ int main (int argc, char * argv[]){
 		}
 	//}
 	currentProcess = ProcessList;
+	
+	while(tick <= 400){
+		if((debug == 3) && (tick % 10 == 0)){
+			printf("\nDEBUGGING ReadyQ @ tick = %d\n",tick);
+			currentBurst = readyQ;
+			while(currentBurst->nextBurst != NULL){
+				printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
+				currentBurst = currentBurst->nextBurst;
+			}
+			if(currentBurst->nextBurst == NULL){
+				printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
+			}
+		}
+		if(CPU == NULL){
+			CPU = copyItem(readyQ);
+			CPU->nextBurst = NULL; 
+			printf("\nAdding to CPU");
+		}
+		if((debug == 3) && (tick % 10 == 0)){
+			//getchar();
+			if(CPU != NULL){
+				printf("\n\tBurst in CPU:\n\tProcess: %d\tThread: %d\tBurst: %d\n",CPU->processNum,CPU->threadNum,CPU->burstNum);
+			}
+		}
+		tick++;
+	}
 
     return(0);
 }
