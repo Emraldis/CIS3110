@@ -179,6 +179,7 @@ int main (int argc, char * argv[]){
 	while(((CPU != NULL) && (readyQ != NULL) && (waitingQ != NULL)) || (tick <400)){
 		if((debug == 3) && (tick % 10 == 0)){
 			printf("\nDEBUGGING ReadyQ @ tick = %d\n",tick);
+			getchar();
 			if(readyQ != NULL){
 				currentThread = readyQ;
 				while(currentThread->nextThread != NULL){
