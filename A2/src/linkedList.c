@@ -61,6 +61,9 @@ Burst * addItem(Burst * list, Burst * item){
 			if (currentBurst->nextBurst == item){
 				printf("things are going smoothly");
 			}
+			if(currentBurst->nextBurst == NULL){
+				printf("\nwierd stuff's goin on");
+			}
 			currentBurst->nextBurst->nextBurst = NULL;
 			printf("\nFinished Assigning");
 			getchar();
