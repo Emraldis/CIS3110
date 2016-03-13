@@ -249,6 +249,8 @@ int main (int argc, char * argv[]){
 							waitingQ = removeFirstThread(waitingQ);
 							event = 1;
 						}
+					}else{
+						printf("Current Thread (P: %d T:%d)is not at the head of the queue",currentThread->processNum,currentThread->threadNum);					
 					}
 				}
 				if(currentThread != NULL){
