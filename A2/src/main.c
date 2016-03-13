@@ -190,8 +190,6 @@ int main (int argc, char * argv[]){
 	printf("\n FINISHED TESTS\n");
 	*/
 	printf("\nBeginning simulation\n***********************************************************************************************************************************\n");
-	
-	tick++;
 	while((complete == 0) && (tick <900)){
 		
 		
