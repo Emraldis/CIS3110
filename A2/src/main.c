@@ -152,7 +152,9 @@ int main (int argc, char * argv[]){
 		if((debug == 3) && (tick % 10 == 0)){
 			printf("\nAdding to CPU");
 			getchar();
-			printf("\n\tBurst in CPU:\n\tProcess: %d\tThread: %d\tBurst: %d\n",CPU->processNum,CPU->threadNum,CPU->burstNum);
+			if(CPU != NULL){
+				printf("\n\tBurst in CPU:\n\tProcess: %d\tThread: %d\tBurst: %d\n",CPU->processNum,CPU->threadNum,CPU->burstNum);
+			}
 		}
 		tick++;
 	}
