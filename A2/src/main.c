@@ -207,6 +207,7 @@ int main (int argc, char * argv[]){
 			CPU->nextBurst->remainingTime--;
 			if(CPU->nextBurst->remainingTime == 0){
 				CPU->waitTime = CPU->nextBurst->IOTime;
+				printf("\nWait time set to: %d from the burst IO time of: %d", CPU->waitTime, CPU->nextBurst->IOTime);
 				CPU->nextBurst = removeFirstBurst(CPU->nextBurst);
 				printf("\nCPU->waitingQ");
 				getchar();
