@@ -25,10 +25,13 @@ int main (int argc, char * argv[]){
     Process * ProcessList;
 	Thread * currentThread;
 	Burst * currentBurst;
+	Burst * CPU;
+	Burst * waitingQ;
 
     input = malloc(sizeof(char)*256);
-	//readyQ = malloc(sizeof(Burst));
 	readyQ = NULL;
+	CPU = NULL;
+	waitingQ = NULL;
 
 	/***************************************************************************************************************************************
 	Creating the Lists:
@@ -131,7 +134,7 @@ int main (int argc, char * argv[]){
 	if(debug == 3){
 		printf("\nFinished ReadyQ\n\n");
 	}
-	while(tick < 400){
+	while(tick =< 400){
 		if((debug == 3) && (tick % 10 == 0)){
 			printf("\nDEBUGGING ReadyQ @ tick = %d\n",tick);
 			currentBurst = readyQ;
@@ -142,6 +145,9 @@ int main (int argc, char * argv[]){
 			if(currentBurst->nextBurst == NULL){
 				printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
 			}
+		}
+		if(CPU = NULL){
+			CPU = addItem(CPU,readyQ);
 		}
 		tick++;
 	}

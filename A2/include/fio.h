@@ -13,6 +13,7 @@ typedef struct BurstInfo {
 	int readyTime;
 	int entryTime;
 	int exitTime;
+	int remainingTime;
     struct BurstInfo * nextBurst;
 }Burst;
 
