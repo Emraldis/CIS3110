@@ -125,9 +125,7 @@ int main (int argc, char * argv[]){
 	for(i=0;i<processNum;i++){
 		if(currentProcess->nextThread->arrivalTime == 0){
 			printf("\nComparing values:  processNum:  %d  Burst ProcessNum:  %d\n",currentProcess->processNum,currentProcess->nextThread->nextBurst->processNum);
-			tempBurst = currentProcess->nextThread->nextBurst;
 			readyQ = addItem(readyQ,currentProcess->nextThread->nextBurst);
-			currentProcess->nextThread->nextBurst = tempBurst;
 		}
 		if(debug == 3){
 			printf("\nReadyQ first member: %d\n",readyQ->processNum);
@@ -150,9 +148,8 @@ int main (int argc, char * argv[]){
 			}
 		}
 		if(CPU == NULL){
-			CPU = readyQ;
-			readyQ = readyQ->nextBurst;
-			CPU->nextBurst = NULL;
+			CPU = copyItem(readyQ);
+			CPU->nextItem = NULL; 
 			printf("\nAdding to CPU");
 		}
 		if((debug == 3) && (tick % 10 == 0)){

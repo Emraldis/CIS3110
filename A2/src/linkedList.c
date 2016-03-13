@@ -34,12 +34,31 @@ Burst * insertItem(Burst * insertLoc, Burst * item){
 
 }
 
+Burst * copyItem(Burst * item){
+
+	Burst * copy;
+
+	copy->burstNum = item->burstNum;
+	copy->threadNum = item->threadNum;
+	copy->processNum = item->processNum;
+	copy->CPUTime = item->CPUTime;
+	copy->IOTime = item->IOTime;
+	copy->readyTime = item->readyTime;
+	copy->entryTime = item->entryTime;
+	copy->exitTime = item->exitTime;
+	copy->remainingTime = item->remainingTime;
+	copy->nextBurst = item->nextBurst;
+	
+	return(copy);
+	
+}
+
 Burst * addItem(Burst * list, Burst * item){
 	
 	Burst * currentBurst;
 	Burst * tempBurst;
 
-	tempBurst = item;
+	tempBurst = copyItem(item);
 	tempBurst->nextBurst = NULL;
 	
 	printf("\nItem's process number: %d", item->processNum);
