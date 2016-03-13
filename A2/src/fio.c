@@ -16,14 +16,12 @@ Process * createProcess(char * input, FILE * inputFile){
 
 	if(fgets(input,256,inputFile) != NULL){
 		tempThread = createThread(input, inputFile,newProcess->processNum);
-		tempThread->processNum = newProcess->processNum;
 	}
 	newProcess->nextThread = tempThread;
 	for(i=0;i < (newProcess->numThreads - 1);i++){
 	    if(fgets(input,256,inputFile) != NULL){
 			tempThread->nextThread = createThread(input,inputFile,newProcess->processNum);
 			tempThread = tempThread->nextThread;
-			tempThread->processNum = newProcess->processNum;
     	}
     }
 	tempThread->nextThread = NULL;
@@ -46,6 +44,7 @@ Thread * createThread(char * input, FILE * inputFile, int processNum){
 	newThread->arrivalTime = atoi(tempString);
 	tempString = strtok(NULL, " ");
 	newThread->numBursts = atoi(tempString);
+	newThread->processNum = processNum;
 	if(fgets(input,256,inputFile) != NULL){
 		tempBurst = createBurst(input,processNum);
 		tempBurst->threadNum = newThread->threadNum;
@@ -81,5 +80,6 @@ Burst * createBurst(char * input, int processNum){
 	}else{
 		newBurst->IOTime = 0;
 	}
+	newBurst->processNum = processNum;
 	return(newBurst);
 }
