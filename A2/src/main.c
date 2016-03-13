@@ -127,7 +127,7 @@ int main (int argc, char * argv[]){
 	}
 	currentProcess = ProcessList;
 	for(i=0;i<processNum;i++){
-		for(j=0;j< currentProcess->threadNum; i++)
+		for(j=0;j< currentProcess->numThreads; i++)
 			currentThread = currentProcess->nextThread;
 			if(currentThread->arrivalTime == 0){
 				printf("\nComparing values:  processNum:  %d  Burst ProcessNum:  %d\n",currentProcess->processNum,currentThread->nextBurst->processNum);
