@@ -28,6 +28,7 @@ int main (int argc, char * argv[]){
 	Thread * CPU;
 	Thread * waitingQ;
 	Burst * tempBurst;
+	Thread * tempThread;
 
     input = malloc(sizeof(char)*256);
 	readyQ = NULL;
@@ -213,7 +214,12 @@ int main (int argc, char * argv[]){
 				if(currentThread->nextThread != NULL){
 					if((currentThread->nextThread->waitTime == 0) && (currentThread != waitingQ)){
 						readyQ = addItem(readyQ,currentThread->nextThread);
-						
+						tempThread = currentThread->nextThread;
+						currentThread->nextThread = tempThread->nextThread;
+					}
+				}else{
+					if(currentThread->waitTime == 0){
+						currentThread = NULL;
 					}
 				}
 				currentThread->waitTime--;
