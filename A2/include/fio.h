@@ -35,9 +35,9 @@ typedef struct ProcessInfo {
     struct ThreadInfo * nextThread;
 }Process;
 
-Process * createProcess(char * input, FILE * inputFile);
+Process * createProcess(char * input);
 
-Thread * createThread(char * input, FILE * inputFile,int processNum);
+Thread * createThread(char * input,int processNum);
 
 Burst * createBurst(char * burst,int processNum);
 #endif
