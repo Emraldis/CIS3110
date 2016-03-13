@@ -307,7 +307,7 @@ int main (int argc, char * argv[]){
 		}
 		tick++;
 	}
-	printf("\nSimulation ended after %d Ticks\n",tick);
+	printf("\nSimulation ended after %d Ticks\n",(tick - 1));
 
     return(0);
 }
