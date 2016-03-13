@@ -147,11 +147,12 @@ int main (int argc, char * argv[]){
 			}
 		}
 		if(CPU = NULL){
-			CPU = addItem(CPU,readyQ);
+			CPU = readyQ;
+			CPU->nextBurst = NULL;
 		}
 		if((debug == 3) && (tick % 10 == 0)){
 			printf("\nAdding to CPU");
-			getchar();
+			//getchar();
 			if(CPU != NULL){
 				printf("\n\tBurst in CPU:\n\tProcess: %d\tThread: %d\tBurst: %d\n",CPU->processNum,CPU->threadNum,CPU->burstNum);
 			}
