@@ -9,7 +9,7 @@ Burst * removeFirstBurst(Burst * list);
 
 Thread * removeFirstThread(Thread * list);
 
-Burst * copyThread(Burst * item);
+Burst * copyBurst(Burst * item);
 
 Thread * copyThread(Thread * item);
 
