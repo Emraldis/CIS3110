@@ -138,6 +138,8 @@ int main (int argc, char * argv[]){
 		currentBurst = readyQ;
 		while(currentBurst->nextBurst != NULL){
 			printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
+			printf("\nNext Burst's Thread Number: %d",currentBurst->nextBurst->threadNum);
+			getchar();
 			currentBurst = currentBurst->nextBurst;
 		}
 	}
