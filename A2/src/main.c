@@ -171,7 +171,9 @@ int main (int argc, char * argv[]){
 			printf("\ntest1");
 			getchar();
 			printf("\nProcess Number: %d\nNumber of Threads: %d\n",currentProcess->processNum,currentProcess->numThreads);
+			getchar();
 			currentThread = currentProcess->nextThread;
+			getchar();
 			k = 1;
 			while(k != 0){
 				printf("\ntest2");
