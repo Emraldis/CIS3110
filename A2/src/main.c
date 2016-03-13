@@ -249,13 +249,14 @@ int main (int argc, char * argv[]){
 			}else{
 				if(rr == 1){
 					if(quantumTick == 0){
-					if(readyQ != NULL){
-						if(CPU->processNum == readyQ->processNum){
-							overhead = processTrans;
-						}else{
-							overhead = threadTrans;
+						if(readyQ != NULL){
+							if(CPU->processNum == readyQ->processNum){
+								overhead = processTrans;
+							}else{
+								overhead = threadTrans;
+							}
 						}
-					}
+						CPU->nextBurst->remainingTime++;
 						readyQ = addItem(readyQ,CPU);
 						if(verbose == 1){
 							printf("\nAt Time %d Thread %d of Process %d moves from Running to Ready",tick,CPU->threadNum,CPU->processNum);
