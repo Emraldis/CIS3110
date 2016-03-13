@@ -38,12 +38,13 @@ Burst * addItem(Burst * list, Burst * item){
 	
 	Burst * currentBurst;
 	Burst * tempBurst;
-	Burst * beginning;
 
 	tempBurst = item;
+	
+	printf("Item's process number: %d", item->processNum);
+	
 	if(list != NULL){
 		currentBurst = list;
-		beginning = currentBurst;
 		while(currentBurst->nextBurst != NULL){
 			currentBurst = currentBurst->nextBurst;
 		}
