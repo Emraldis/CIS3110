@@ -128,15 +128,20 @@ int main (int argc, char * argv[]){
 	}
 	currentProcess = ProcessList;
 	for(i=0;i<processNum;i++){
-		printf("Number of threads in current Process: %d", currentProcess->numThreads);
 		currentThread = currentProcess->nextThread;
-		for(j=0;j < currentProcess->numThreads; j++){
-			printf("\nCurrent Thread: P: %d T: %d\n",currentThread->processNum,currentThread->threadNum);
+		for(j=0;j < currentProcess->numThreads; j++){		
+			if(debug == 3){
+				printf("\nCurrent Thread: P: %d T: %d\n",currentThread->processNum,currentThread->threadNum);
+			}
 			if(currentThread->arrivalTime == 0){
-				printf("\nAdding Item to readyQ:\n\tProcess Num: %d\tThread Num: %d\n",currentThread->processNum,currentThread->threadNum);
+				if(debug == 3){
+					printf("\nAdding Item to readyQ:\n\tProcess Num: %d\tThread Num: %d\n",currentThread->processNum,currentThread->threadNum);
+				}
 				readyQ = addItem(readyQ,currentThread);
 			}else{
-				printf("\nAdding Item to waitingQ:\n\tProcess Num: %d\tThread Num: %d\n",currentThread->processNum,currentThread->threadNum);
+				if(debug == 3){
+					printf("\nAdding Item to waitingQ:\n\tProcess Num: %d\tThread Num: %d\n",currentThread->processNum,currentThread->threadNum);
+				}
 				currentThread->waitTime = currentThread->arrivalTime;
 				waitingQ = addItem(waitingQ,currentThread);
 			}
@@ -189,7 +194,10 @@ int main (int argc, char * argv[]){
 
 	printf("\n FINISHED TESTS\n");
 	*/
-	printf("\nBeginning simulation\n***********************************************************************************************************************************\n");
+	
+	if(debug == 3){
+		printf("\nBeginning simulation\n***********************************************************************************************************************************\n");
+	}
 	while((complete == 0) && (tick <900)){
 		if((CPU == NULL) && (readyQ != NULL) && (overhead == 0)){
 			CPU = copyThread(readyQ);
