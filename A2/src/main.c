@@ -320,6 +320,10 @@ int main (int argc, char * argv[]){
 			}else{
 				printf("\n\tEMPTY WAIT QUEUE\n");
 			}
+			printf("\ntick: %d",tick);
+			if(tick % 5 == 0){
+				//getchar();
+			}
 		}
 		if(overhead != 0){
 			overhead--;
@@ -328,10 +332,6 @@ int main (int argc, char * argv[]){
 			complete = 1;
 		}
 		event = 0;
-		printf("\ntick: %d",tick);
-		if(tick % 5 == 0){
-			//getchar();
-		}
 		tick++;
 	}
 	printf("\nSimulation ended after %d Ticks\n",(tick - 1));
