@@ -187,7 +187,8 @@ int main (int argc, char * argv[]){
 		}
 		if(CPU == NULL){
 			CPU = copyItem(readyQ);
-			CPU->nextBurst = NULL; 
+			CPU->nextBurst = NULL;
+			readyQ = removeFirstItem(readyQ);
 			printf("\nAdding to CPU");
 		}
 		if((debug == 3) && (tick % 10 == 0)){

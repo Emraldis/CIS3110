@@ -82,3 +82,9 @@ Burst * addItem(Burst * list, Burst * item){
 	
 	return(list);
 }
+
+Burst * removeFirstItem(Burst * list){
+	
+	return(list->nextBurst);
+	
+}
