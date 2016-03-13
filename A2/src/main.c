@@ -234,6 +234,7 @@ int main (int argc, char * argv[]){
 					if(rr == 1){
 						quantumTick = rrq;
 					}
+					printf("\nQuantum tick remaining: %d",quantumTick);
 					waitingQ = addItem(waitingQ,CPU);
 				}else{
 					if(verbose == 1){
@@ -242,6 +243,7 @@ int main (int argc, char * argv[]){
 					if(rr == 1){
 						quantumTick = rrq;
 					}
+					printf("\nQuantum tick remaining: %d",quantumTick);
 				}
 				CPU = removeFirstThread(CPU);
 				event = 1;
