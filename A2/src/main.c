@@ -240,11 +240,11 @@ int main (int argc, char * argv[]){
 						event = 1;
 					}
 					if(currentThread == waitingQ){
-						printf("Current Thread (P: %d T:%d)is at the head of the queue",currentThread->processNum,currentThread->threadNum);
+						printf("\nCurrent Thread (P: %d T:%d)is at the head of the queue",currentThread->processNum,currentThread->threadNum);
 					}
 				}else{
 					if(currentThread == waitingQ){
-						printf("Current Thread (P: %d T:%d)is at the head of the queue",currentThread->processNum,currentThread->threadNum);
+						printf("\nCurrent Thread (P: %d T:%d)is at the head of the queue",currentThread->processNum,currentThread->threadNum);
 						if(currentThread->waitTime == 0){
 							printf("\nwaitingQ->readyQ");
 							printf("\nCurrent Thread in the waitingQ (P: %d T: %d) has a wait time of %d and is therefore being removed.",currentThread->processNum,currentThread->threadNum,currentThread->waitTime);
