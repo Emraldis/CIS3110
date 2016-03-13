@@ -149,6 +149,9 @@ int main (int argc, char * argv[]){
 		if(CPU = NULL){
 			CPU = addItem(CPU,readyQ);
 		}
+		if((debug == 3) && (tick % 10 == 0)){
+			printf("\n\tBurst in CPU:\n\tProcess: %d\tThread: %d\tBurst: %d\n",CPU->processNum,CPU->threadNum,CPU->burstNum);
+		}
 		tick++;
 	}
     return(0);
