@@ -34,7 +34,7 @@ Burst * insertItem(Burst * insertLoc, Burst * item){
 
 }
 
-Burst * copyItem(Burst * item){
+Burst * copyBurst(Burst * item){
 
 	Burst * copy;
 	
@@ -55,35 +55,58 @@ Burst * copyItem(Burst * item){
 	
 }
 
-Burst * addItem(Burst * list, Burst * item){
-	
-	Burst * currentBurst;
-	Burst * tempBurst;
+Thread * copyThread(Thread * item){
 
-	tempBurst = copyItem(item);
-	tempBurst->nextBurst = NULL;
+	Thread * copy;
+	
+	copy = malloc(sizeof(Thread));
+	
+	copy->threadNum = item->threadNum;
+	copy->processNum = item->processNum;
+	copy->arrivalTime = item->arrivalTime;
+	copy->numBursts = item->numBursts;
+	copy->nextThread = item->nextThread;
+	copy->nextBurst = item->nextBurst;
+	
+	return(copy);
+	
+}
+
+Thread * addItem(Thread * list, Thread * item){
+	
+	Thread * currentThread;
+	Thread * tempThread;
+
+	tempThread = copyThread(item);
+	tempThread->nextThread = NULL;
 	
 	printf("\nItem's process number: %d", item->processNum);
 	
 	if(list != NULL){
-		currentBurst = list;
-		while(currentBurst->nextBurst != NULL){
-			currentBurst = currentBurst->nextBurst;
+		currentThread = list;
+		while(currentThread->nextThread != NULL){
+			currentThread = currentThread->nextThread;
 		}
-		if(currentBurst->nextBurst ==  NULL){
-			currentBurst->nextBurst = tempBurst;
+		if(currentThread->nextThread ==  NULL){
+			currentThread->nextThread = tempThread;
 		}else{
 			printf("\nERROR in addItem function\n");
 			exit(0);
 		}
 	}else{
-		list = tempBurst;
+		list = tempThread;
 	}
 	
 	return(list);
 }
 
-Burst * removeFirstItem(Burst * list){
+Thread * removeFirstThread(Thread * list){
+
+	return(list->nextThread);
+
+}
+
+Burst * removeFirstBurst(Burst * list){
 	
 	return(list->nextBurst);
 	

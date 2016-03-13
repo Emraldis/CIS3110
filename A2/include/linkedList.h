@@ -5,8 +5,12 @@ Burst * moveToBack(Burst * list);
 
 Burst * insertItem(Burst * insertLoc, Burst * item);
 
-Burst * removeFirstItem(Burst * list);
+Burst * removeFirstBurst(Burst * list);
 
-Burst * copyItem(Burst * item);
+Thread * removeFirstThread(Thread * list);
 
-Burst * addItem(Burst * list, Burst * item);
+Burst * copyThread(Burst * item);
+
+Thread * copyThread(Thread * item);
+
+Thread * addItem(Thread * list, Thread * item);

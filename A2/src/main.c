@@ -20,13 +20,13 @@ int main (int argc, char * argv[]){
 	int debug = 0;
 	int complete = 0;
     FILE * inputFile;
-    Burst * readyQ;
+    Thread * readyQ;
     Process * currentProcess;
     Process * ProcessList;
 	Thread * currentThread;
 	Burst * currentBurst;
 	Burst * CPU;
-	Burst * waitingQ;
+	Thread * waitingQ;
 	Burst * tempBurst;
 
     input = malloc(sizeof(char)*256);
@@ -79,7 +79,7 @@ int main (int argc, char * argv[]){
 	List Debug Code:
 	***************************************************************************************************************************************/
 	
-	//if(debug == 1){
+	if(debug == 1){
         printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
 		i = 1;
 		while(i != 0){
@@ -111,7 +111,7 @@ int main (int argc, char * argv[]){
 				i = 0;
 			}
 		}
-	//}
+	}
 	currentProcess = ProcessList;
 
 	
@@ -125,7 +125,7 @@ int main (int argc, char * argv[]){
 	for(i=0;i<processNum;i++){
 		if(currentProcess->nextThread->arrivalTime == 0){
 			printf("\nComparing values:  processNum:  %d  Burst ProcessNum:  %d\n",currentProcess->processNum,currentProcess->nextThread->nextBurst->processNum);
-			readyQ = addItem(readyQ,currentProcess->nextThread->nextBurst);
+			readyQ = addItem(readyQ,currentProcess->nextThread);
 		}
 		if(debug == 3){
 			printf("\nReadyQ first member: %d\n",readyQ->processNum);
@@ -137,7 +137,8 @@ int main (int argc, char * argv[]){
 	}
 	currentProcess = ProcessList;
 	printf("\n TESTS:");
-	//TEST:
+	
+	if(debug == 3){
         printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
 		i = 1;
 		while(i != 0){
@@ -155,6 +156,7 @@ int main (int argc, char * argv[]){
 					}else{
 						j = 0;
 					}
+					//getchar();
 				}
 				if(currentThread->nextThread != NULL){
 					currentThread = currentThread->nextThread;
@@ -168,8 +170,9 @@ int main (int argc, char * argv[]){
 				i = 0;
 			}
 		}
-	//}
+	}
 	currentProcess = ProcessList;
+
 	printf("\n FINISHED TESTS");
 	
 	while(tick <= 400){
@@ -185,11 +188,13 @@ int main (int argc, char * argv[]){
 			}
 		}
 		if(CPU == NULL){
-			CPU = copyItem(readyQ);
-			CPU->nextBurst = NULL;
-			readyQ = removeFirstItem(readyQ);
+			CPU = copyThread(readyQ);
+			CPU->nextThread = NULL;
+			readyQ = removeFirstBurst(readyQ);
+			CPU->nextThread->entryTime = tick;
 			printf("\nAdding to CPU");
 		}
+		CPU->nextThread->remainingTime--;
 		if((debug == 3) && (tick % 10 == 0)){
 			//getchar();
 			if(CPU != NULL){
