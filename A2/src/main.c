@@ -83,11 +83,11 @@ int main (int argc, char * argv[]){
 			currentThread = currentProcess->nextThread;
 			k = 1;
 			while(k != 0){
-				printf("\n\tThread Number: %d\n\t Arrival Time: %d \n\tNumber of Bursts: %d\n\t\t\t\tThread ProcessNum: %d",currentThread->threadNum,currentThread->arrivalTime,currentThread->numBursts,currentThread->processNum);
+				printf("\n\tThread Number: %d\n\t Arrival Time: %d \n\tNumber of Bursts: %d\n",currentThread->threadNum,currentThread->arrivalTime,currentThread->numBursts);
 				currentBurst = currentThread->nextBurst;
 				j = 1;
 				while(j != 0){
-					printf("\n\t\tBurst Number: %d\n\t\tCPU Time: %d\n\t\tIO Time: %d\n\n\t\t\t\tBurst Process Number: %d",currentBurst->burstNum, currentBurst->CPUTime, currentBurst->IOTime, currentBurst->processNum);
+					printf("\n\t\tBurst Number: %d\n\t\tCPU Time: %d\n\t\tIO Time: %d\n",currentBurst->burstNum, currentBurst->CPUTime, currentBurst->IOTime);
 					if(currentBurst->nextBurst != NULL){
 						currentBurst = currentBurst->nextBurst;
 					}else{
