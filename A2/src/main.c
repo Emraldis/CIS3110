@@ -130,10 +130,13 @@ int main (int argc, char * argv[]){
 		printf("Number of threads in current Process: %d", currentProcess->numThreads);
 		for(j=0;j < currentProcess->numThreads; j++){
 			currentThread = currentProcess->nextThread;
+			printf("\nCurrent Thread: P: %d T: %d\n",currentThread->processNum,currentThread->threadNum);
 			if(currentThread->arrivalTime == 0){
 				printf("\nAdding Item to readyQ:\n\tProcess Num: %d\tThread Num: %d\n",currentThread->processNum,currentThread->threadNum);
 				readyQ = addItem(readyQ,currentThread);
 			}else{
+				printf("\nAdding Item to waitingQ:\n\tProcess Num: %d\tThread Num: %d\n",currentThread->processNum,currentThread->threadNum);
+				currentThread->waitTime = arrivalTime;
 				waitingQ = addItem(waitingQ,currentThread);
 			}
 			currentThread = currentThread->nextThread;
