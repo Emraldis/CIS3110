@@ -67,7 +67,7 @@ Thread * copyThread(Thread * item){
 	copy->numBursts = item->numBursts;
 	copy->nextThread = item->nextThread;
 	copy->nextBurst = item->nextBurst;
-	copy->waitingTime = item->waitingTime;
+	copy->waitTime = item->waitTime;
 	
 	return(copy);
 	
