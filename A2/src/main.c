@@ -269,7 +269,9 @@ int main (int argc, char * argv[]){
 			}else{
 				printf("\n\tEMPTY WAIT QUEUE\n");
 			}
-			
+			if((CPU == NULL) && (readyQ == NULL) && (waitingQ == NULL)){
+				printf("\nI should have left the loop by now\n");
+			}
 		}
 		tick++;
 	}
