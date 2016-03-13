@@ -218,10 +218,6 @@ int main (int argc, char * argv[]){
 				event = 1;
 			}
 		}
-		printf("\ntick: %d",tick);
-		if(tick % 5 == 0){
-			//getchar();
-		}
 		if(waitingQ != NULL){
 			currentThread = waitingQ;
 			while(currentThread != NULL){
@@ -294,6 +290,10 @@ int main (int argc, char * argv[]){
 				}
 			}else{
 				printf("\n\tEMPTY WAIT QUEUE\n");
+			}
+			printf("\ntick: %d",tick);
+			if(tick % 5 == 0){
+				//getchar();
 			}
 		}
 		if(overhead != 0){
