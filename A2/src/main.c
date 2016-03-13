@@ -197,7 +197,7 @@ int main (int argc, char * argv[]){
 		CPU->nextBurst->remainingTime--;
 		if(CPU->nextBurst->remainingTime == 0){
 			CPU->nextBurst = removeFirstBurst(CPU->nextBurst);
-			waitingQ = copyThread(CPU);
+			waitingQ = addItem(waitingQ,CPU);
 			CPU = removeFirstThread(CPU);
 		}
 		if((debug == 3) && (tick % 10 == 0)){
