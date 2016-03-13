@@ -83,7 +83,7 @@ int main (int argc, char * argv[]){
 	List Debug Code:
 	***************************************************************************************************************************************/
 	
-	if(debug == 3){
+	if(debug == 1){
         printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
 		i = 1;
 		while(i != 0){
@@ -101,7 +101,6 @@ int main (int argc, char * argv[]){
 					}else{
 						j = 0;
 					}
-					//getchar();
 				}
 				if(currentThread->nextThread != NULL){
 					currentThread = currentThread->nextThread;
@@ -137,6 +136,7 @@ int main (int argc, char * argv[]){
 				if(debug == 3){
 					printf("\nAdding Item to readyQ:\n\tProcess Num: %d\tThread Num: %d\n",currentThread->processNum,currentThread->threadNum);
 				}
+				printf("\nAt Time %d Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
 				readyQ = addItem(readyQ,currentThread);
 			}else{
 				if(debug == 3){
@@ -213,15 +213,12 @@ int main (int argc, char * argv[]){
 			CPU->nextBurst->remainingTime--;
 			if(CPU->nextBurst->remainingTime < 0){
 				CPU->waitTime = CPU->nextBurst->IOTime;
-				//printf("\nWait time set to: %d from the burst IO time of: %d", CPU->waitTime, CPU->nextBurst->IOTime);
 				CPU->nextBurst = removeFirstBurst(CPU->nextBurst);
 				if(readyQ != NULL){
 					if(CPU->processNum == readyQ->processNum){
 						overhead = processTrans;
-						//printf("\nThe next thread is from the same process");
 					}else{
 						overhead = threadTrans;
-						//printf("\nThe next thread is from a different process");
 					}
 				}
 				if(CPU->nextBurst != NULL){
@@ -229,7 +226,6 @@ int main (int argc, char * argv[]){
 						printf("\nAt Time %d Thread %d of Process %d moves from Running to Blocked",tick,CPU->threadNum,CPU->processNum);
 					}
 					waitingQ = addItem(waitingQ,CPU);
-					//printf("\nTesting waitingQ wait time: %d",waitingQ->waitTime);
 				}else{
 					if(verbose == 1){
 						printf("\nAt Time %d Thread %d of Process %d moves from Running to Terminated",tick,CPU->threadNum,CPU->processNum);
@@ -251,14 +247,12 @@ int main (int argc, char * argv[]){
 								printf("\nAt Time %d Thread %d of Process %d moves from Blocked to Ready",tick,currentThread->threadNum,currentThread->processNum);
 							}
 						}
-						//printf("\nCurrent Thread in the waitingQ (P: %d T: %d) has a wait time of %d and is therefore being removed.",currentThread->nextThread->processNum,currentThread->nextThread->threadNum,currentThread->nextThread->waitTime);
 						readyQ = addItem(readyQ,currentThread->nextThread);
 						tempThread = currentThread->nextThread;
 						currentThread->nextThread = tempThread->nextThread;
 						event = 1;
 					}
 					if(currentThread == waitingQ){
-						//printf("\nCurrent Thread (P: %d T:%d)is at the head of the queue",currentThread->processNum,currentThread->threadNum);
 						if(currentThread->waitTime == 0){
 							if(verbose == 1){
 								if(currentThread->nextBurst->burstNum == 1){
@@ -267,7 +261,6 @@ int main (int argc, char * argv[]){
 									printf("\nAt Time %d Thread %d of Process %d moves from Blocked to Ready",tick,currentThread->threadNum,currentThread->processNum);
 								}
 							}
-							//printf("\nCurrent Thread in the waitingQ (P: %d T: %d) has a wait time of %d and is therefore being removed.",currentThread->processNum,currentThread->threadNum,currentThread->waitTime);
 							readyQ = addItem(readyQ,currentThread);
 							waitingQ = removeFirstThread(waitingQ);
 							event = 1;
@@ -275,7 +268,6 @@ int main (int argc, char * argv[]){
 					}
 				}else{
 					if(currentThread == waitingQ){
-						//printf("\nCurrent Thread (P: %d T:%d)is at the head of the queue",currentThread->processNum,currentThread->threadNum);
 						if(currentThread->waitTime == 0){
 							if(verbose == 1){
 								if(currentThread->nextBurst->burstNum == 1){
@@ -284,30 +276,18 @@ int main (int argc, char * argv[]){
 									printf("\nAt Time %d Thread %d of Process %d moves from Blocked to Ready",tick,currentThread->threadNum,currentThread->processNum);
 								}
 							}
-							//printf("\nCurrent Thread in the waitingQ (P: %d T: %d) has a wait time of %d and is therefore being removed.",currentThread->processNum,currentThread->threadNum,currentThread->waitTime);
 							readyQ = addItem(readyQ,currentThread);
 							waitingQ = removeFirstThread(waitingQ);
 							event = 1;
 						}
-					}else{
-						//printf("Current Thread (P: %d T:%d)is not at the head of the queue",currentThread->processNum,currentThread->threadNum);
-						
 					}
 				}
 				if(currentThread != NULL){
-					//printf("\n\t\t\t\t\t\tCycling through waitingQ threads, Current Thread:\n\t\t\t\t\t\t\tP: %d\tT: %d\t Remaining Time: %d\n",currentThread->processNum,currentThread->threadNum,currentThread->waitTime);
 					currentThread->waitTime--;
 					currentThread = currentThread->nextThread;
 				}
 			}
 		}
-		/*if((debug == 3) && (tick % 10 == 0)){
-			//getchar();
-			if(CPU != NULL){
-				printf("\n\tBurst in CPU:\n\tProcess: %d\tThread: %d\tBurst: %d\n",CPU->processNum,CPU->threadNum,CPU->nextBurst->burstNum);
-				printf("\tCurrent remaining CPU time: %d\n",CPU->nextBurst->remainingTime);
-			}
-		}*/
 		
 	/***************************************************************************************************************************************
 	Printing all Q's:
@@ -352,7 +332,6 @@ int main (int argc, char * argv[]){
 			}
 			printf("\ntick: %d",tick);
 			if(tick % 5 == 0){
-				//getchar();
 			}
 		}
 		if(overhead != 0){
