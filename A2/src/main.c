@@ -123,6 +123,7 @@ int main (int argc, char * argv[]){
 		if(debug == 3){
 			printf("\nReadyQ first member: %d\n",readyQ->processNum);
 		}
+		currentProcess = currentProcess->nextProcess;
 	}
 	
 	if(debug == 3){
