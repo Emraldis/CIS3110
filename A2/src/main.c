@@ -177,7 +177,10 @@ int main (int argc, char * argv[]){
 	}
 	currentProcess = ProcessList;
 
-	printf("\n FINISHED TESTS");
+	printf("\n FINISHED TESTS\n");
+	
+	printf("\nBeginning simulation\n***********************************************************************************************************************************\n");
+	
 	tick++;
 	while((complete == 0) && (tick <400)){
 		
