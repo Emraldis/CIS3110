@@ -178,13 +178,15 @@ int main (int argc, char * argv[]){
 	while(tick <= 400){
 		if((debug == 3) && (tick % 10 == 0)){
 			printf("\nDEBUGGING ReadyQ @ tick = %d\n",tick);
-			currentThread = readyQ;
-			while(currentThread->nextThread != NULL){
-				printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentThread->processNum,currentThread->threadNum,currentThread->nextBurst->burstNum);
-				currentThread = currentThread->nextThread;
-			}
-			if(currentThread->nextThread == NULL){
-				printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentThread->processNum,currentThread->threadNum,currentThread->nextBurst->burstNum);
+			if(readyQ != NULL){
+				currentThread = readyQ;
+				while(currentThread->nextThread != NULL){
+					printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentThread->processNum,currentThread->threadNum,currentThread->nextBurst->burstNum);
+					currentThread = currentThread->nextThread;
+				}
+				if(currentThread->nextThread == NULL){
+					printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentThread->processNum,currentThread->threadNum,currentThread->nextBurst->burstNum);
+				}
 			}
 		}
 		if(CPU == NULL){
