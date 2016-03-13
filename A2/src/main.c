@@ -231,18 +231,19 @@ int main (int argc, char * argv[]){
 					if(verbose == 1){
 						printf("\nAt Time %d Thread %d of Process %d moves from Running to Blocked",tick,CPU->threadNum,CPU->processNum);
 					}
+					if(rr == 1){
+						quantumTick = rrq;
+					}
 					waitingQ = addItem(waitingQ,CPU);
 				}else{
 					if(verbose == 1){
 						printf("\nAt Time %d Thread %d of Process %d moves from Running to Terminated",tick,CPU->threadNum,CPU->processNum);
 					}
-				}
-				CPU = removeFirstThread(CPU);
-				if(rr == 1){
-					if(quantumTick < 0){
-						quantumTick = rrq; 
+					if(rr == 1){
+						quantumTick = rrq;
 					}
 				}
+				CPU = removeFirstThread(CPU);
 				event = 1;
 			}else{
 				if(rr == 1){
