@@ -81,7 +81,7 @@ Thread * addItem(Thread * list, Thread * item){
 	tempThread = copyThread(item);
 	tempThread->nextThread = NULL;
 	
-	printf("\nItem's process number: %d", item->processNum);
+	//printf("\nItem's process number: %d", item->processNum);
 	
 	if(list != NULL){
 		currentThread = list;

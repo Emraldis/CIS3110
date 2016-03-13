@@ -200,16 +200,16 @@ int main (int argc, char * argv[]){
 				if(readyQ != NULL){
 					if(CPU->processNum == readyQ->processNum){
 						overhead = processTrans;
-						printf("\nThe next thread is from the same process");
+						//printf("\nThe next thread is from the same process");
 					}else{
 						overhead = threadTrans;
-						printf("\nThe next thread is from a different process");
+						//printf("\nThe next thread is from a different process");
 					}
 				}
 				if(CPU->nextBurst != NULL){
 					printf("\nCPU->waitingQ");
 					waitingQ = addItem(waitingQ,CPU);
-					printf("\nTesting waitingQ wait time: %d",waitingQ->waitTime);
+					//printf("\nTesting waitingQ wait time: %d",waitingQ->waitTime);
 				}
 				CPU = removeFirstThread(CPU);
 				event = 1;
