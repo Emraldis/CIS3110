@@ -233,7 +233,7 @@ int main (int argc, char * argv[]){
 				if(currentThread->nextThread != NULL){
 					if((currentThread->nextThread->waitTime == 0) && (currentThread != waitingQ)){
 						printf("\nwaitingQ->readyQ");
-						printf("\nCurrent Thread (P: %d T: %d) has a wait time of %d and is therefore being removed.",currentThread->processNum,currentThread->threadNum,currentThread->waitTime);
+						printf("\nCurrent Thread (P: %d T: %d) has a wait time of %d and is therefore being removed.",currentThread->nextThread->processNum,currentThread->nextThread->threadNum,currentThread->nextThread->waitTime);
 						readyQ = addItem(readyQ,currentThread->nextThread);
 						tempThread = currentThread->nextThread;
 						currentThread->nextThread = tempThread->nextThread;
