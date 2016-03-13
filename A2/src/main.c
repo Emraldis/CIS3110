@@ -136,13 +136,12 @@ int main (int argc, char * argv[]){
 		printf("\nFinished ReadyQ\n\n");
 	}
 	currentProcess = ProcessList;
-	
+	printf("\n TESTS:");
 	//TEST:
         printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
 		i = 1;
 		while(i != 0){
 			printf("\nProcess Number: %d\nNumber of Threads: %d\n",currentProcess->processNum,currentProcess->numThreads);
-			getchar();
 			currentThread = currentProcess->nextThread;
 			k = 1;
 			while(k != 0){
@@ -156,7 +155,6 @@ int main (int argc, char * argv[]){
 					}else{
 						j = 0;
 					}
-					//getchar();
 				}
 				if(currentThread->nextThread != NULL){
 					currentThread = currentThread->nextThread;
@@ -172,6 +170,7 @@ int main (int argc, char * argv[]){
 		}
 	//}
 	currentProcess = ProcessList;
+	printf("\n FINISHED TESTS");
 	
 	while(tick <= 400){
 		if((debug == 3) && (tick % 10 == 0)){
