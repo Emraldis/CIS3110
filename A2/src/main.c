@@ -215,6 +215,8 @@ int main (int argc, char * argv[]){
 					getchar();
 				}
 				waitingQ = addItem(waitingQ,CPU);
+				printf("\n\ttest");
+				getchar();
 				CPU = removeFirstThread(CPU);
 			}
 		}
