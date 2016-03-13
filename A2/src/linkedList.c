@@ -40,6 +40,7 @@ Burst * addItem(Burst * list, Burst * item){
 	Burst * tempBurst;
 
 	tempBurst = item;
+	tempBurst->nextBurst = NULL;
 	
 	printf("\nItem's process number: %d", item->processNum);
 	
@@ -49,7 +50,6 @@ Burst * addItem(Burst * list, Burst * item){
 			currentBurst = currentBurst->nextBurst;
 		}
 		if(currentBurst->nextBurst ==  NULL){
-			tempBurst->nextBurst = NULL;
 			currentBurst->nextBurst = tempBurst;
 		}else{
 			printf("\nERROR in addItem function\n");
