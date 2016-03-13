@@ -226,6 +226,7 @@ int main (int argc, char * argv[]){
 						readyQ = addItem(readyQ,currentThread->nextThread);
 						tempThread = currentThread->nextThread;
 						currentThread->nextThread = tempThread->nextThread;
+						event = 1;
 					}
 				}else{
 					if((currentThread->waitTime == 0) && (currentThread != NULL) && (currentThread == waitingQ)){
@@ -233,6 +234,7 @@ int main (int argc, char * argv[]){
 						getchar();
 						readyQ = addItem(readyQ,currentThread);
 						waitingQ = removeFirstThread(waitingQ);
+						event = 1;
 					}
 				}
 				if(currentThread != NULL){
@@ -240,7 +242,6 @@ int main (int argc, char * argv[]){
 					currentThread = currentThread->nextThread;
 				}
 			}
-			event = 1;
 		}
 		if((debug == 3) && (tick % 10 == 0)){
 			//getchar();
