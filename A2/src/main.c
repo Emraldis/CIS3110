@@ -230,6 +230,7 @@ int main (int argc, char * argv[]){
 				}else{
 					if(currentThread->waitTime == 0){
 						printf("\n\twait time is 0");
+						getchar();
 						currentThread = NULL;
 					}
 				}
