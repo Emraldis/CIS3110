@@ -149,7 +149,7 @@ int main (int argc, char * argv[]){
 		}
 		if(CPU == NULL){
 			CPU = copyItem(readyQ);
-			CPU->nextItem = NULL; 
+			CPU->nextBurst = NULL; 
 			printf("\nAdding to CPU");
 		}
 		if((debug == 3) && (tick % 10 == 0)){
