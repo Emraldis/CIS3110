@@ -245,7 +245,7 @@ int main (int argc, char * argv[]){
 				event = 1;
 			}else{
 				if(rr == 1){
-					if(quantumTick < 0){
+					if(quantumTick == 0){
 					if(readyQ != NULL){
 						if(CPU->processNum == readyQ->processNum){
 							overhead = processTrans;
