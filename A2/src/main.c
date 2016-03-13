@@ -342,7 +342,7 @@ int main (int argc, char * argv[]){
 		if((CPU == NULL) && (readyQ == NULL) && (waitingQ == NULL)){
 			complete = 1;
 		}
-		if((verbose == 1) && (event == 1)){
+		if((verbose == 1) && (event == 1) && (debug == 0)){
 			printf("\n");
 		}
 		event = 0;
