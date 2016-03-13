@@ -136,7 +136,9 @@ int main (int argc, char * argv[]){
 				if(debug == 3){
 					printf("\nAdding Item to readyQ:\n\tProcess Num: %d\tThread Num: %d\n",currentThread->processNum,currentThread->threadNum);
 				}
-				printf("\nAt Time %d Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
+				if(verbose == 1){
+					printf("\nAt Time %d Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
+				}
 				readyQ = addItem(readyQ,currentThread);
 			}else{
 				if(debug == 3){
