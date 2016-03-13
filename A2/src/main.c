@@ -180,9 +180,7 @@ int main (int argc, char * argv[]){
 	while(((CPU != NULL) && (readyQ != NULL) && (waitingQ != NULL)) || (tick <400)){
 		if((debug == 3) && (tick % 10 == 0)){
 			printf("\nStart of the loop");
-			getchar();
 			printf("\nDEBUGGING ReadyQ @ tick = %d\n",tick);
-			getchar();
 			if(readyQ != NULL){
 				currentThread = readyQ;
 				while(currentThread->nextThread != NULL){
@@ -210,37 +208,28 @@ int main (int argc, char * argv[]){
 				printf("\nWait time set to: %d from the burst IO time of: %d", CPU->waitTime, CPU->nextBurst->IOTime);
 				CPU->nextBurst = removeFirstBurst(CPU->nextBurst);
 				printf("\nCPU->waitingQ");
-				getchar();
 				waitingQ = addItem(waitingQ,CPU);
 				printf("\nTesting waitingQ wait time: %d",waitingQ->waitTime);
 				CPU = removeFirstThread(CPU);
 			}
 		}
 		printf("\ntick: %d",tick);
-		getchar();
+		if(tick % 5 == 0){
+			getchar();
+		}
 		if(waitingQ != NULL){
 			currentThread = waitingQ;
-			printf("\n\ttest1");
-			getchar();
 			while(currentThread != NULL){
-				printf("\n\ttestloop");
-				getchar();
 				if(currentThread->nextThread != NULL){
-					printf("\n\ttestif");
-					getchar();
 					if((currentThread->nextThread->waitTime == 0) && (currentThread != waitingQ)){
 						printf("\nwaitingQ->readyQ");
-						getchar();
 						readyQ = addItem(readyQ,currentThread->nextThread);
 						tempThread = currentThread->nextThread;
 						currentThread->nextThread = tempThread->nextThread;
 					}
 				}else{
-					printf("\n\ttestelse");
-					getchar();
 					if(currentThread->waitTime == 0){
-						printf("\n\ttestNULL");
-						getchar();
+						printf("\n\twait time is 0");
 						currentThread = NULL;
 					}
 				}
@@ -256,7 +245,6 @@ int main (int argc, char * argv[]){
 			}
 		}
 		printf("\nend of the loop");
-		getchar();
 		tick++;
 	}
 	printf("\nSimulation ended after %d Ticks\n",tick);
