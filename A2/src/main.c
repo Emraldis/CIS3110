@@ -242,7 +242,7 @@ int main (int argc, char * argv[]){
 				if(currentThread->nextThread != NULL){
 					if(/*(*/currentThread->nextThread->waitTime == 0/*) && (currentThread != waitingQ)*/){
 						if(verbose == 1){
-							printf("\nThread %d of Process %d has finished waiting for IO and is returning to the readyQ @ tick: %d",CPU->threadNum,CPU->processNum,tick);
+							printf("\nThread %d of Process %d has finished waiting for IO and is returning to the readyQ @ tick: %d",currentThread->threadNum,currentThread->processNum,tick);
 						}
 						//printf("\nCurrent Thread in the waitingQ (P: %d T: %d) has a wait time of %d and is therefore being removed.",currentThread->nextThread->processNum,currentThread->nextThread->threadNum,currentThread->nextThread->waitTime);
 						readyQ = addItem(readyQ,currentThread->nextThread);
@@ -254,7 +254,7 @@ int main (int argc, char * argv[]){
 						//printf("\nCurrent Thread (P: %d T:%d)is at the head of the queue",currentThread->processNum,currentThread->threadNum);
 						if(currentThread->waitTime == 0){
 							if(verbose == 1){
-								printf("\nThread %d of Process %d has finished waiting for IO and is returning to the readyQ @ tick: %d",CPU->threadNum,CPU->processNum,tick);
+								printf("\nThread %d of Process %d has finished waiting for IO and is returning to the readyQ @ tick: %d",currentThread->threadNum,currentThread->processNum,tick);
 							}
 							//printf("\nCurrent Thread in the waitingQ (P: %d T: %d) has a wait time of %d and is therefore being removed.",currentThread->processNum,currentThread->threadNum,currentThread->waitTime);
 							readyQ = addItem(readyQ,currentThread);
@@ -267,7 +267,7 @@ int main (int argc, char * argv[]){
 						//printf("\nCurrent Thread (P: %d T:%d)is at the head of the queue",currentThread->processNum,currentThread->threadNum);
 						if(currentThread->waitTime == 0){
 							if(verbose == 1){
-								printf("\nThread %d of Process %d has finished waiting for IO and is returning to the readyQ @ tick: %d",CPU->threadNum,CPU->processNum,tick);
+								printf("\nThread %d of Process %d has finished waiting for IO and is returning to the readyQ @ tick: %d",currentThread->threadNum,currentThread->processNum,tick);
 							}
 							//printf("\nCurrent Thread in the waitingQ (P: %d T: %d) has a wait time of %d and is therefore being removed.",currentThread->processNum,currentThread->threadNum,currentThread->waitTime);
 							readyQ = addItem(readyQ,currentThread);
