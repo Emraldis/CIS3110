@@ -181,6 +181,7 @@ int main (int argc, char * argv[]){
 		if((debug == 3) && (tick % 10 == 0)){
 			printf("\nStart of the loop");
 			printf("\nDEBUGGING all Q's @ tick = %d\n",tick);
+			printf("\nREADY QUEUE:\n");
 			if(readyQ != NULL){
 				currentThread = readyQ;
 				while(currentThread->nextThread != NULL){
@@ -191,11 +192,13 @@ int main (int argc, char * argv[]){
 					printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentThread->processNum,currentThread->threadNum,currentThread->nextBurst->burstNum);
 				}
 			}else{
-				printf("\n\tEMPTY READY QUEUE");
+				printf("\n\tEMPTY READY QUEUE\n");
 			}
+			printf("\nCPU:\n");
 			if(CPU != NULL){
 				printf("Burst in CPU:\n\tProcess: %d\tThread: %d\tBurst: %d\n\tTime Remaining: %d\n",CPU->processNum,CPU->threadNum,CPU->nextBurst->burstNum,CPU->nextBurst->remainingTime);
 			}
+			printf("\nWAITING QUEUE:\n");
 			if(waitingQ != NULL){
 				currentThread = waitingQ;
 				while(currentThread->nextThread != NULL){
@@ -206,7 +209,7 @@ int main (int argc, char * argv[]){
 					printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n\tRemaining wait time: %d\n",currentThread->processNum,currentThread->threadNum,currentThread->nextBurst->burstNum,currentThread->waitTime);
 				}
 			}else{
-				printf("\n\tEMPTY WAIT QUEUE");
+				printf("\n\tEMPTY WAIT QUEUE\n");
 			}
 			
 		}
