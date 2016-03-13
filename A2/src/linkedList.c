@@ -37,6 +37,8 @@ Burst * insertItem(Burst * insertLoc, Burst * item){
 Burst * copyItem(Burst * item){
 
 	Burst * copy;
+	
+	copy = malloc(sizeof(Burst));
 
 	copy->burstNum = item->burstNum;
 	copy->threadNum = item->threadNum;
