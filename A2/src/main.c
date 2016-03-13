@@ -124,6 +124,7 @@ int main (int argc, char * argv[]){
 	if(debug == 3){
 		printf("\nCreating ReadyQ:\n\n");
 	}
+	currentProcess = ProcessList;
 	for(i=0;i<processNum;i++){
 		if(currentProcess->nextThread->arrivalTime == 0){
 			printf("\nComparing values:  processNum:  %d  Burst ProcessNum:  %d\n",currentProcess->processNum,currentProcess->nextThread->nextBurst->processNum);
@@ -235,7 +236,6 @@ int main (int argc, char * argv[]){
 			}
 		}
 		if((debug == 3) && (tick % 10 == 0)){
-			printf("\nStart of the loop");
 			printf("\n\nDEBUGGING all Q's @ tick = %d\n",tick);
 			printf("\nREADY QUEUE:\n");
 			if(readyQ != NULL){
