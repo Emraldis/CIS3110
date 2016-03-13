@@ -199,10 +199,10 @@ int main (int argc, char * argv[]){
 				CPU->nextBurst = removeFirstBurst(CPU->nextBurst);
 				if(readyQ != NULL){
 					if(CPU->processNum == readyQ->processNum){
-						overhead = threadTrans;
+						overhead = processTrans;
 						printf("\nThe next thread is from the same process");
 					}else{
-						overhead = processTrans;
+						overhead = threadTrans;
 						printf("\nThe next thread is from a different process");
 					}
 				}
