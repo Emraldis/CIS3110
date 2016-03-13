@@ -69,7 +69,7 @@ Burst * addItem(Burst * list, Burst * item){
 					printf("\nnope");
 				}
 		
-			}elseif(currentBurst->nextBurst == NULL){
+			}else if(currentBurst->nextBurst == NULL){
 				printf("\nwierd stuff's goin on");
 			}
 		}else{
