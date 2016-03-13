@@ -134,7 +134,7 @@ int main (int argc, char * argv[]){
 	if(debug == 3){
 		printf("\nFinished ReadyQ\n\n");
 	}
-	while(tick =< 400){
+	while(tick <= 400){
 		if((debug == 3) && (tick % 10 == 0)){
 			printf("\nDEBUGGING ReadyQ @ tick = %d\n",tick);
 			currentBurst = readyQ;
