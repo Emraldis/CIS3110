@@ -191,18 +191,20 @@ int main (int argc, char * argv[]){
 				printf("\n\tEMPTY QUEUE");
 			}
 		}
-		if(CPU == NULL){
+		if((CPU == NULL) &&(readyQ != NULL)){
 			CPU = copyThread(readyQ);
 			CPU->nextThread = NULL;
 			readyQ = removeFirstThread(readyQ);
 			CPU->nextBurst->entryTime = tick;
 			printf("\nAdding to CPU");
 		}
-		CPU->nextBurst->remainingTime--;
-		if(CPU->nextBurst->remainingTime == 0){
-			CPU->nextBurst = removeFirstBurst(CPU->nextBurst);
-			waitingQ = addItem(waitingQ,CPU);
-			CPU = removeFirstThread(CPU);
+		if(CPU != NULL){
+			CPU->nextBurst->remainingTime--;
+			if(CPU->nextBurst->remainingTime == 0){
+				CPU->nextBurst = removeFirstBurst(CPU->nextBurst);
+				waitingQ = addItem(waitingQ,CPU);
+				CPU = removeFirstThread(CPU);
+			}
 		}
 		if((debug == 3) && (tick % 10 == 0)){
 			//getchar();
