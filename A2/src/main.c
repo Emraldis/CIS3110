@@ -217,6 +217,8 @@ int main (int argc, char * argv[]){
 			while(currentThread != NULL){
 				if(currentThread->nextThread != NULL){
 					if((currentThread->nextThread->waitTime == 0) && (currentThread != waitingQ)){
+						printf("\ntest");
+						getchar();
 						readyQ = addItem(readyQ,currentThread->nextThread);
 						tempThread = currentThread->nextThread;
 						currentThread->nextThread = tempThread->nextThread;
