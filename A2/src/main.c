@@ -175,7 +175,7 @@ int main (int argc, char * argv[]){
 
 	printf("\n FINISHED TESTS");
 	
-	while(tick <= 400){
+	while((CPU != NULL) && (readyQ != NULL) && (waitingQ != NULL)){
 		if((debug == 3) && (tick % 10 == 0)){
 			printf("\nDEBUGGING ReadyQ @ tick = %d\n",tick);
 			if(readyQ != NULL){
@@ -187,6 +187,8 @@ int main (int argc, char * argv[]){
 				if(currentThread->nextThread == NULL){
 					printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentThread->processNum,currentThread->threadNum,currentThread->nextBurst->burstNum);
 				}
+			}else{
+				printf("\n\tEMPTY QUEUE");
 			}
 		}
 		if(CPU == NULL){
