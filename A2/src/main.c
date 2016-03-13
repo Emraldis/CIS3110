@@ -131,10 +131,10 @@ int main (int argc, char * argv[]){
 		for(j=0;j < currentProcess->numThreads; j++){
 			currentThread = currentProcess->nextThread;
 			if(currentThread->arrivalTime == 0){
-				printf("\nComparing values:  processNum:  %d  Burst ProcessNum:  %d\n",currentProcess->processNum,currentThread->nextBurst->processNum);
+				printf("\nAdding Item to readyQ:\n\tProcess Num: %d\tThread Num: %d\n",currentThread->processNum,currentThread->threadNum);
 				readyQ = addItem(readyQ,currentThread);
 			}else{
-				
+				waitingQ = addItem(waitingQ,currentThread);
 			}
 			if(debug == 3){
 				printf("\nReadyQ first member: %d\n",readyQ->processNum);
@@ -147,7 +147,9 @@ int main (int argc, char * argv[]){
 		printf("\nFinished ReadyQ\n\n");
 	}
 	currentProcess = ProcessList;
+	/*
 	printf("\n TESTS:");
+	
 	
 	if(debug == 3){
         printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
@@ -185,7 +187,7 @@ int main (int argc, char * argv[]){
 	currentProcess = ProcessList;
 
 	printf("\n FINISHED TESTS\n");
-	
+	*/
 	printf("\nBeginning simulation\n***********************************************************************************************************************************\n");
 	
 	tick++;
