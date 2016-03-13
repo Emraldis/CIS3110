@@ -238,14 +238,14 @@ int main (int argc, char * argv[]){
 					}
 				}
 				CPU = removeFirstThread(CPU);
-				if(rr = 1){
+				if(rr == 1){
 					if(quantumTick < 0){
 						quantumTick = rrq; 
 					}
 				}
 				event = 1;
 			}else{
-				if(rr = 1){
+				if(rr == 1){
 					if(quantumTick < 0){
 					if(readyQ != NULL){
 						if(CPU->processNum == readyQ->processNum){
