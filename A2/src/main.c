@@ -178,7 +178,7 @@ int main (int argc, char * argv[]){
 
 	printf("\n FINISHED TESTS");
 	tick++;
-	while((complete == 0) || (tick <400)){
+	while((complete == 0) && (tick <400)){
 		if((CPU == NULL) && (readyQ != NULL) /*&& (overhead == 0)*/){
 			CPU = copyThread(readyQ);
 			CPU->nextThread = NULL;
