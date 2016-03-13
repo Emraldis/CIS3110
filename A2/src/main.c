@@ -207,9 +207,11 @@ int main (int argc, char * argv[]){
 				CPU->waitTime = CPU->nextBurst->IOTime;
 				printf("\nWait time set to: %d from the burst IO time of: %d", CPU->waitTime, CPU->nextBurst->IOTime);
 				CPU->nextBurst = removeFirstBurst(CPU->nextBurst);
-				printf("\nCPU->waitingQ");
-				waitingQ = addItem(waitingQ,CPU);
-				printf("\nTesting waitingQ wait time: %d",waitingQ->waitTime);
+				if(CPU->nextBurst != NULL){
+					printf("\nCPU->waitingQ");
+					waitingQ = addItem(waitingQ,CPU);
+					printf("\nTesting waitingQ wait time: %d",waitingQ->waitTime);
+				}
 				CPU = removeFirstThread(CPU);
 			}
 		}
@@ -248,7 +250,6 @@ int main (int argc, char * argv[]){
 				printf("\tCurrent remaining CPU time: %d\n",CPU->nextBurst->remainingTime);
 			}
 		}
-		printf("\nend of the loop");
 		tick++;
 	}
 	printf("\nSimulation ended after %d Ticks\n",tick);
