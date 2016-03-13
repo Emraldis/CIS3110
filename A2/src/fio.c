@@ -15,7 +15,7 @@ Process * createProcess(char * input, FILE * inputFile){
     newProcess->numThreads = atoi(tempString);
 
 	if(fgets(input,256,inputFile) != NULL){
-		tempThread = createThread(input, inputFile,processNum);
+		tempThread = createThread(input, inputFile,newProcess->processNum);
 		tempThread->processNum = newProcess->processNum;
 	}
 	newProcess->nextThread = tempThread;
