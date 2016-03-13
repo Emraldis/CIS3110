@@ -191,10 +191,6 @@ int main (int argc, char * argv[]){
 	*/
 	printf("\nBeginning simulation\n***********************************************************************************************************************************\n");
 	while((complete == 0) && (tick <900)){
-		
-		tick++;
-		
-		
 		if((CPU == NULL) && (readyQ != NULL) && (overhead == 0)){
 			CPU = copyThread(readyQ);
 			CPU->nextThread = NULL;
@@ -346,6 +342,7 @@ int main (int argc, char * argv[]){
 			complete = 1;
 		}
 		event = 0;
+		tick++;
 	}
 	printf("\nSimulation ended after %d Ticks\n",(tick - 1));
 
