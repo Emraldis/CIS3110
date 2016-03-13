@@ -232,7 +232,7 @@ int main (int argc, char * argv[]){
 						printf("\n\twait time is 0");
 						getchar();
 						readyQ = addItem(readyQ,currentThread);
-						waitingQ = NULL;
+						waitingQ = removeFirstThread(waitingQ);
 					}
 				}
 				if(currentThread != NULL){
