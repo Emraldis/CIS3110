@@ -239,7 +239,9 @@ int main (int argc, char * argv[]){
 					if(verbose == 1){
 						printf("\nAt Time %d Thread %d of Process %d moves from Running to Terminated",tick,CPU->threadNum,CPU->processNum);
 					}
-					printf("\nQuantum tick remaining: %d",quantumTick);
+					if(rr == 1){
+						quantumTick = rrq;
+					}
 				}
 				CPU = removeFirstThread(CPU);
 				event = 1;
