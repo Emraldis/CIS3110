@@ -231,7 +231,7 @@ int main (int argc, char * argv[]){
 			currentThread = waitingQ;
 			while(currentThread != NULL){
 				if(currentThread->nextThread != NULL){
-					if((currentThread->nextThread->waitTime == 0) && (currentThread != waitingQ)){
+					if(/*(*/currentThread->nextThread->waitTime == 0/*) && (currentThread != waitingQ)*/){
 						printf("\nwaitingQ->readyQ");
 						printf("\nCurrent Thread in the waitingQ (P: %d T: %d) has a wait time of %d and is therefore being removed.",currentThread->nextThread->processNum,currentThread->nextThread->threadNum,currentThread->nextThread->waitTime);
 						readyQ = addItem(readyQ,currentThread->nextThread);
@@ -260,7 +260,8 @@ int main (int argc, char * argv[]){
 							event = 1;
 						}
 					}else{
-						printf("Current Thread (P: %d T:%d)is not at the head of the queue",currentThread->processNum,currentThread->threadNum);					
+						printf("Current Thread (P: %d T:%d)is not at the head of the queue",currentThread->processNum,currentThread->threadNum);
+						
 					}
 				}
 				if(currentThread != NULL){
