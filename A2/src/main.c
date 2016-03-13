@@ -176,7 +176,9 @@ int main (int argc, char * argv[]){
 				currentBurst = currentThread->nextBurst;
 				j = 1;
 				while(j != 0){
-					printf("\n\t\tBurst Number: %d\n\t\tCPU Time: %d\n\t\tIO Time: %d\n",currentBurst->burstNum, currentBurst->CPUTime, currentBurst->IOTime);
+					if(currentBurst != NULL){
+						printf("\n\t\tBurst Number: %d\n\t\tCPU Time: %d\n\t\tIO Time: %d\n",currentBurst->burstNum, currentBurst->CPUTime, currentBurst->IOTime);
+					}
 					if(currentBurst->nextBurst != NULL){
 						currentBurst = currentBurst->nextBurst;
 					}else{
