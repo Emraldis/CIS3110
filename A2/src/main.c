@@ -212,6 +212,7 @@ int main (int argc, char * argv[]){
 				printf("\nCPU->waitingQ");
 				getchar();
 				waitingQ = addItem(waitingQ,CPU);
+				printf("\nTesting waitingQ wait time: %d",waitingQ->waitTime);
 				CPU = removeFirstThread(CPU);
 			}
 		}
@@ -219,14 +220,14 @@ int main (int argc, char * argv[]){
 		getchar();
 		if(waitingQ != NULL){
 			currentThread = waitingQ;
-				printf("\n\ttest1");
-				getchar();
+			printf("\n\ttest1");
+			getchar();
 			while(currentThread != NULL){
 				printf("\n\ttestloop");
 				getchar();
 				if(currentThread->nextThread != NULL){
-				printf("\n\ttestif");
-				getchar();
+					printf("\n\ttestif");
+					getchar();
 					if((currentThread->nextThread->waitTime == 0) && (currentThread != waitingQ)){
 						printf("\nwaitingQ->readyQ");
 						getchar();
@@ -235,11 +236,11 @@ int main (int argc, char * argv[]){
 						currentThread->nextThread = tempThread->nextThread;
 					}
 				}else{
-				printf("\n\ttestelse");
-				getchar();
+					printf("\n\ttestelse");
+					getchar();
 					if(currentThread->waitTime == 0){
-				printf("\n\ttestNULL");
-				getchar();
+						printf("\n\ttestNULL");
+						getchar();
 						currentThread = NULL;
 					}
 				}
