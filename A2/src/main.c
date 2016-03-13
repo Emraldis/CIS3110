@@ -136,7 +136,7 @@ int main (int argc, char * argv[]){
 				readyQ = addItem(readyQ,currentThread);
 			}else{
 				printf("\nAdding Item to waitingQ:\n\tProcess Num: %d\tThread Num: %d\n",currentThread->processNum,currentThread->threadNum);
-				currentThread->waitTime = arrivalTime;
+				currentThread->waitTime = currentThread->arrivalTime;
 				waitingQ = addItem(waitingQ,currentThread);
 			}
 			currentThread = currentThread->nextThread;
