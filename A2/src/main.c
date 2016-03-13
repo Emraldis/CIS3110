@@ -127,14 +127,18 @@ int main (int argc, char * argv[]){
 	}
 	currentProcess = ProcessList;
 	for(i=0;i<processNum;i++){
-		if(currentProcess->nextThread->arrivalTime == 0){
-			printf("\nComparing values:  processNum:  %d  Burst ProcessNum:  %d\n",currentProcess->processNum,currentProcess->nextThread->nextBurst->processNum);
-			readyQ = addItem(readyQ,currentProcess->nextThread);
-		}else{
-			
-		}
-		if(debug == 3){
-			printf("\nReadyQ first member: %d\n",readyQ->processNum);
+		for(j=0;j< currentProcess->threadNum; i++)
+			currentThread = currentProcess->nextThread;
+			if(currentThread->arrivalTime == 0){
+				printf("\nComparing values:  processNum:  %d  Burst ProcessNum:  %d\n",currentProcess->processNum,currentThread->nextBurst->processNum);
+				readyQ = addItem(readyQ,currentThread);
+			}else{
+				
+			}
+			if(debug == 3){
+				printf("\nReadyQ first member: %d\n",readyQ->processNum);
+			}
+			currentThread = currentThread->nextThread;
 		}
 		currentProcess = currentProcess->nextProcess;
 	}
