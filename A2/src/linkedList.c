@@ -111,3 +111,7 @@ Burst * removeFirstBurst(Burst * list){
 	return(list->nextBurst);
 	
 }
+
+Thread * removeNextThread(Thread * location){
+	
+}

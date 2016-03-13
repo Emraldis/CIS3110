@@ -201,21 +201,35 @@ int main (int argc, char * argv[]){
 		if(CPU != NULL){
 			CPU->nextBurst->remainingTime--;
 			if(CPU->nextBurst->remainingTime == 0){
+				CPU->waitTime = CPU->nextBurst->IOTime;
 				CPU->nextBurst = removeFirstBurst(CPU->nextBurst);
 				waitingQ = addItem(waitingQ,CPU);
 				CPU = removeFirstThread(CPU);
+			}
+		}
+		if(waitingQ != NULL){
+			currentThread = waitingQ;
+			while(currentThread != NULL){
+				if(currentThread->nextThread != NULL){
+					if((currentThread->nextThread->waitTime == 0) && (currentThread != waitingQ)){
+						readyQ = addItem(readyQ,currentThread->nextThread);
+						
+					}
+				}
+				currentThread->waitTime--;
+				currentThread = currentThread->nextThread;
 			}
 		}
 		if((debug == 3) && (tick % 10 == 0)){
 			//getchar();
 			if(CPU != NULL){
 				printf("\n\tBurst in CPU:\n\tProcess: %d\tThread: %d\tBurst: %d\n",CPU->processNum,CPU->threadNum,CPU->nextBurst->burstNum);
-				printf("\nCurrent remaining CPU time: %d",CPU->nextBurst->remainingTime);
+				printf("\tCurrent remaining CPU time: %d\n",CPU->nextBurst->remainingTime);
 			}
 		}
 		tick++;
 	}
-	printf("\nSimulation ended after %d Ticks",tick);
+	printf("\nSimulation ended after %d Ticks\n",tick);
 
     return(0);
 }

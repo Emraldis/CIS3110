@@ -45,6 +45,7 @@ Thread * createThread(char * input, FILE * inputFile, int processNum){
 	tempString = strtok(NULL, " ");
 	newThread->numBursts = atoi(tempString);
 	newThread->processNum = processNum;
+	newThread->waitTime = 0;
 	if(fgets(input,256,inputFile) != NULL){
 		tempBurst = createBurst(input,processNum);
 		tempBurst->threadNum = newThread->threadNum;

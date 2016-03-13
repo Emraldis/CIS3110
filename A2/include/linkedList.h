@@ -14,3 +14,5 @@ Burst * copyBurst(Burst * item);
 Thread * copyThread(Thread * item);
 
 Thread * addItem(Thread * list, Thread * item);
+
+Thread * removeNextThread(Thread * location);

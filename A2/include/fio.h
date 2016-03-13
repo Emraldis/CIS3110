@@ -22,6 +22,7 @@ typedef struct ThreadInfo {
 	int processNum;
     int arrivalTime;
     int numBursts;
+	int waitTime;
     struct ThreadInfo * nextThread;
     struct BurstInfo * nextBurst;
 }Thread;
