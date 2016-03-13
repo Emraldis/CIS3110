@@ -239,6 +239,9 @@ int main (int argc, char * argv[]){
 						currentThread->nextThread = tempThread->nextThread;
 						event = 1;
 					}
+					if(currentThread == waitingQ){
+						printf("Current Thread (P: %d T:%d)is at the head of the queue",currentThread->processNum,currentThread->threadNum);
+					}
 				}else{
 					if(currentThread == waitingQ){
 						printf("Current Thread (P: %d T:%d)is at the head of the queue",currentThread->processNum,currentThread->threadNum);
