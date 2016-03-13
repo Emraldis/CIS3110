@@ -191,7 +191,7 @@ int main (int argc, char * argv[]){
 	printf("\nBeginning simulation\n***********************************************************************************************************************************\n");
 	
 	tick++;
-	while((complete == 0) && (tick <400)){
+	while((complete == 0) && (tick <120)){
 		
 		
 		
