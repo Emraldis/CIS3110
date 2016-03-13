@@ -239,13 +239,15 @@ int main (int argc, char * argv[]){
 						event = 1;
 					}
 				}else{
-					if((currentThread->waitTime == 0) && (currentThread != NULL) && (currentThread == waitingQ)){
+					if((currentThread->waitTime == 0) && (currentThread == waitingQ)){
+						printf("\nwaitingQ->readyQ");
 						readyQ = addItem(readyQ,currentThread);
 						waitingQ = removeFirstThread(waitingQ);
 						event = 1;
 					}
 				}
 				if(currentThread != NULL){
+					printf("\nCycling through waitingQ threads, Current Thread:\n\tP: %d\tT: %d\n",currentThread->processNum,currentThread->threadNum);
 					currentThread->waitTime--;
 					currentThread = currentThread->nextThread;
 				}
