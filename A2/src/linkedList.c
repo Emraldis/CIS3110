@@ -74,7 +74,10 @@ Burst * addItem(Burst * list, Burst * item){
 					printf("\nnope");
 				}
 		
-			}		}else{
+			}else{
+				printf("\nwierd stuff's goin on");
+			}
+		}else{
 			printf("\nERROR in addItem function\n");
 			exit(0);
 		}
