@@ -290,7 +290,6 @@ int main (int argc, char * argv[]){
 					waitingQ = addItem(waitingQ,CPU);
 				}else{
 					if(verbose == 1){
-						printf("\nQuantum Tick remaining: %d\n",quantumTick);
 						printf("\nAt Time %d Thread %d of Process %d moves from Running to Terminated",tick,CPU->threadNum,CPU->processNum);
 					}
 					if(rr == 1){
