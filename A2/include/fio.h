@@ -35,7 +35,7 @@ typedef struct ProcessInfo {
 
 Process * createProcess(char * input, FILE * inputFile);
 
-Thread * createThread(char * input, FILE * inputFile);
+Thread * createThread(char * input, FILE * inputFile,int processNum);
 
 Burst * createBurst(char * burst);
 #endif

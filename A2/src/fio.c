@@ -15,13 +15,13 @@ Process * createProcess(char * input, FILE * inputFile){
     newProcess->numThreads = atoi(tempString);
 
 	if(fgets(input,256,inputFile) != NULL){
-		tempThread = createThread(input, inputFile);
+		tempThread = createThread(input, inputFile,processNum);
 		tempThread->processNum = newProcess->processNum;
 	}
 	newProcess->nextThread = tempThread;
 	for(i=0;i < (newProcess->numThreads - 1);i++){
 	    if(fgets(input,256,inputFile) != NULL){
-			tempThread->nextThread = createThread(input,inputFile);
+			tempThread->nextThread = createThread(input,inputFile,processNum);
 			tempThread = tempThread->nextThread;
 			tempThread->processNum = newProcess->processNum;
     	}
@@ -32,7 +32,7 @@ Process * createProcess(char * input, FILE * inputFile){
     return(newProcess);
 }
 
-Thread * createThread(char * input, FILE * inputFile){
+Thread * createThread(char * input, FILE * inputFile, int processNum){
     Thread * newThread;
     Burst * tempBurst;
     char * tempString;
@@ -47,17 +47,15 @@ Thread * createThread(char * input, FILE * inputFile){
 	tempString = strtok(NULL, " ");
 	newThread->numBursts = atoi(tempString);
 	if(fgets(input,256,inputFile) != NULL){
-		tempBurst = createBurst(input);
-		tempBurst->processNum = newThread->processNum;
+		tempBurst = createBurst(input,processNum);
 		tempBurst->threadNum = newThread->threadNum;
 		tempBurst->readyTime = newThread->arrivalTime;
 	}
 	newThread->nextBurst = tempBurst;
 	for(i = 0;i < (newThread->numBursts - 1);i++){
 		if(fgets(input,256,inputFile)){
-			tempBurst->nextBurst = createBurst(input);
+			tempBurst->nextBurst = createBurst(input,processNum);
 			tempBurst = tempBurst->nextBurst;
-			tempBurst->processNum = newThread->processNum;
 			tempBurst->threadNum = newThread->threadNum;
 		}
 	}
@@ -67,7 +65,7 @@ Thread * createThread(char * input, FILE * inputFile){
     return(newThread);
 }
 
-Burst * createBurst(char * input){
+Burst * createBurst(char * input, int processNum){
 	Burst * newBurst;
 	char * tempString;
 
