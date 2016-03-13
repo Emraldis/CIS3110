@@ -211,7 +211,7 @@ int main (int argc, char * argv[]){
 				CPU = removeFirstThread(CPU);
 			}
 		}
-		printf("\ntest");
+		printf("\ntick: %d",tick);
 		if(waitingQ != NULL){
 			currentThread = waitingQ;
 			while(currentThread != NULL){
