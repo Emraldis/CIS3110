@@ -178,7 +178,7 @@ int main (int argc, char * argv[]){
 
 	printf("\n FINISHED TESTS");
 	tick++;
-	while(((CPU != NULL) && (readyQ != NULL) && (waitingQ != NULL)) || (tick <400)){
+	while((complete == 0) || (tick <400)){
 		if((CPU == NULL) && (readyQ != NULL) /*&& (overhead == 0)*/){
 			CPU = copyThread(readyQ);
 			CPU->nextThread = NULL;
@@ -270,7 +270,7 @@ int main (int argc, char * argv[]){
 				printf("\n\tEMPTY WAIT QUEUE\n");
 			}
 			if((CPU == NULL) && (readyQ == NULL) && (waitingQ == NULL)){
-				printf("\nI should have left the loop by now\n");
+				complete = 1;
 			}
 		}
 		tick++;
