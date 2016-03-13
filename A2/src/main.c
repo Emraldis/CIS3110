@@ -127,12 +127,10 @@ int main (int argc, char * argv[]){
 	}
 	
 	if(debug == 3){
-		printf("\nDEBUGGING ReadyQ\n");
+		printf("\nDEBUGGING ReadyQ @ tick = %d\n",tick);
 		currentBurst = readyQ;
 		while(currentBurst->nextBurst != NULL){
 			printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
-			printf("\n\tNext Burst's Process Number: %d",currentBurst->nextBurst->processNum);
-			getchar();
 			currentBurst = currentBurst->nextBurst;
 		}
 		if(currentBurst->nextBurst == NULL){
