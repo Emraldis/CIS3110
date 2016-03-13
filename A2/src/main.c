@@ -27,6 +27,7 @@ int main (int argc, char * argv[]){
 	Burst * currentBurst;
 	Burst * CPU;
 	Burst * waitingQ;
+	Burst * tempBurst;
 
     input = malloc(sizeof(char)*256);
 	readyQ = NULL;
@@ -124,7 +125,9 @@ int main (int argc, char * argv[]){
 	for(i=0;i<processNum;i++){
 		if(currentProcess->nextThread->arrivalTime == 0){
 			printf("\nComparing values:  processNum:  %d  Burst ProcessNum:  %d\n",currentProcess->processNum,currentProcess->nextThread->nextBurst->processNum);
+			tempBurst = currentProcess->nextThread->nextBurst->nextBurst;
 			readyQ = addItem(readyQ,currentProcess->nextThread->nextBurst);
+			currentProcess->nextThread->nextBurst = tempBurst;
 		}
 		if(debug == 3){
 			printf("\nReadyQ first member: %d\n",readyQ->processNum);
@@ -160,6 +163,8 @@ int main (int argc, char * argv[]){
 		}
 		tick++;
 	}
+	
+	//TEST:
         printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
 		i = 1;
 		while(i != 0){
