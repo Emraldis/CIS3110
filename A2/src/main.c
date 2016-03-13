@@ -261,6 +261,7 @@ int main (int argc, char * argv[]){
 						}
 						CPU = removeFirstThread(CPU);
 						quantumTick = rrq; 
+						event = 1;
 					}
 				}
 			}
