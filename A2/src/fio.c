@@ -76,7 +76,7 @@ Burst * createBurst(char * input, int processNum){
 	newBurst->CPUTime = atoi(tempString);
 	tempString = strtok(NULL," ");
 	newBurst->readyTime = -1;
-	newBurst->remainingTime = CPUTime;
+	newBurst->remainingTime = newBurst->CPUTime;
 	if(tempString != NULL){
 		newBurst->IOTime = atoi(tempString);
 	}else{
