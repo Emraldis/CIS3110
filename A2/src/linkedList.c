@@ -62,9 +62,12 @@ Burst * addItem(Burst * list, Burst * item){
 				printf("things are going smoothly");
 			}
 			if(currentBurst->nextBurst == NULL){
-				printf("\nwierd stuff's goin on");
+				printf("\nwierd stuff's goin on1");
 			}
 			currentBurst->nextBurst->nextBurst = NULL;
+			if(currentBurst->nextBurst == NULL){
+				printf("\nwierd stuff's goin on2");
+			}
 			printf("\nFinished Assigning");
 			getchar();
 			//printf("\nAdded Item, Burst number: %d = %d", currentBurst->nextBurst->burstNum,item->burstNum);
@@ -76,7 +79,7 @@ Burst * addItem(Burst * list, Burst * item){
 				}
 		
 			}else if(currentBurst->nextBurst == NULL){
-				printf("\nwierd stuff's goin on");
+				printf("\nwierd stuff's goin on3");
 			}
 		}else{
 			printf("\nERROR in addItem function\n");
