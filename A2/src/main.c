@@ -342,8 +342,10 @@ int main (int argc, char * argv[]){
 		if((CPU == NULL) && (readyQ == NULL) && (waitingQ == NULL)){
 			complete = 1;
 		}
+		if((verbose == 1) && (event == 1)){
+			printf("\n");
+		}
 		event = 0;
-		printf("\n");
 		tick++;
 	}
 	printf("\nSimulation ended after %d Ticks\n",(tick - 1));
