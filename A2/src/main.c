@@ -19,6 +19,7 @@ int main (int argc, char * argv[]){
 	int tick;
 	int debug = 0;
 	int complete = 0;
+	int overhead = 0;
     FILE * inputFile;
     Thread * readyQ;
     Process * currentProcess;
@@ -175,7 +176,7 @@ int main (int argc, char * argv[]){
 	currentProcess = ProcessList;
 
 	printf("\n FINISHED TESTS");
-	
+	tick++;
 	while(((CPU != NULL) && (readyQ != NULL) && (waitingQ != NULL)) || (tick <400)){
 		if((debug == 3) && (tick % 10 == 0)){
 			printf("\nStart of the loop");
@@ -195,7 +196,7 @@ int main (int argc, char * argv[]){
 				printf("\n\tEMPTY QUEUE");
 			}
 		}
-		if((CPU == NULL) &&(readyQ != NULL)){
+		if((CPU == NULL) && (readyQ != NULL) /*&& (overhead == 0)*/){
 			CPU = copyThread(readyQ);
 			CPU->nextThread = NULL;
 			readyQ = removeFirstThread(readyQ);
@@ -209,6 +210,10 @@ int main (int argc, char * argv[]){
 				CPU->nextBurst = removeFirstBurst(CPU->nextBurst);
 				printf("\nCPU-waitingQ");
 				getchar();
+				if(CPU == NULL){
+					printf("\nCPU is null for some reason");
+					getchar();
+				}
 				waitingQ = addItem(waitingQ,CPU);
 				CPU = removeFirstThread(CPU);
 			}
