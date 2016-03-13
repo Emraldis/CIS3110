@@ -67,13 +67,14 @@ Burst * addItem(Burst * list, Burst * item){
 			printf("\nFinished Assigning");
 			getchar();
 			//printf("\nAdded Item, Burst number: %d = %d", currentBurst->nextBurst->burstNum,item->burstNum);
-			if((currentBurst->nextBurst->nextBurst == NULL) && (currentBurst->nextBurst != NULL)){
-				printf("\nNext Item properly set");
-			}else{
-				printf("\nnope");
-			}
+			if(currentBurst->nextBurst != NULL){
+				if(currentBurst->nextBurst->nextBurst == NULL){
+					printf("\nNext Item properly set");
+				}else{
+					printf("\nnope");
+				}
 		
-		}else{
+			}		}else{
 			printf("\nERROR in addItem function\n");
 			exit(0);
 		}
