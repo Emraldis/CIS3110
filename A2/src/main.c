@@ -234,8 +234,10 @@ int main (int argc, char * argv[]){
 						currentThread = NULL;
 					}
 				}
-				currentThread->waitTime--;
-				currentThread = currentThread->nextThread;
+				if(currentThread != NULL){
+					currentThread->waitTime--;
+					currentThread = currentThread->nextThread;
+				}
 			}
 		}
 		if((debug == 3) && (tick % 10 == 0)){
