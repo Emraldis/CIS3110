@@ -131,23 +131,19 @@ int main (int argc, char * argv[]){
 	if(debug == 3){
 		printf("\nFinished ReadyQ\n\n");
 	}
-	if(debug == 3){
-		printf("\nDEBUGGING ReadyQ @ tick = %d\n",tick);
-		currentBurst = readyQ;
-		while(currentBurst->nextBurst != NULL){
-			printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
-			currentBurst = currentBurst->nextBurst;
+	while(tick < 400){
+		if((debug == 3) && (tick % 10 == 0)){
+			printf("\nDEBUGGING ReadyQ @ tick = %d\n",tick);
+			currentBurst = readyQ;
+			while(currentBurst->nextBurst != NULL){
+				printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
+				currentBurst = currentBurst->nextBurst;
+			}
+			if(currentBurst->nextBurst == NULL){
+				printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
+			}
 		}
-		if(currentBurst->nextBurst == NULL){
-			printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
-		}
-	}
-	/*while(complete == 0){
-		
-		
-		
 		tick++;
-	}*/
-	
+	}
     return(0);
 }
