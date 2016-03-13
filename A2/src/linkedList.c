@@ -38,63 +38,22 @@ Burst * addItem(Burst * list, Burst * item){
 	
 	Burst * currentBurst;
 	Burst * tempBurst;
-	
-	printf("\nstarting");
-	getchar();
+
 	currentBurst = list;
 	tempBurst = item;
 	if(list != NULL){
-		printf("\nlist was not null");
-		getchar();
-		printf("\nCurrent burst num: %d", currentBurst->burstNum);
-		getchar();
 		while(currentBurst->nextBurst != NULL){
 			currentBurst = currentBurst->nextBurst;
-			printf("\nInterpolating, currentBurst = %d next Burst = %d CPU Time = %d",currentBurst->burstNum,currentBurst->nextBurst->burstNum, currentBurst->nextBurst->CPUTime);
-			getchar();
 		}
 		if(currentBurst->nextBurst ==  NULL){
-			printf("\nitem that we're tring to assign is: %d", item->burstNum);
-			getchar();
-			if(item == NULL){
-				printf("\nItem appears to be NULL...");
-			}
 			tempBurst->nextBurst = NULL;
 			currentBurst->nextBurst = tempBurst;
-			if (currentBurst->nextBurst == tempBurst){
-				printf("things are going smoothly");
-			}
-			if(currentBurst->nextBurst == NULL){
-				printf("\nwierd stuff's goin on1");
-			}
-			/*currentBurst->nextBurst->nextBurst = NULL;
-			if(currentBurst->nextBurst == NULL){
-				printf("\nwierd stuff's goin on2");
-			}*/
-			printf("\nFinished Assigning");
-			getchar();
-			//printf("\nAdded Item, Burst number: %d = %d", currentBurst->nextBurst->burstNum,item->burstNum);
-			if(currentBurst->nextBurst != NULL){
-				if(currentBurst->nextBurst->nextBurst == NULL){
-					printf("\nNext Item properly set");
-				}else{
-					printf("\nnope");
-				}
-		
-			}else if(currentBurst->nextBurst == NULL){
-				printf("\nwierd stuff's goin on3");
-			}
 		}else{
 			printf("\nERROR in addItem function\n");
 			exit(0);
 		}
 	}else{
-		printf("\nlist was null");
-		getchar();
 		list = item;
-		printf("\nassigned list");
-		getchar();
-		getchar();
 	}
 	
 	return(list);
