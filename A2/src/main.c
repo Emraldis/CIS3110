@@ -53,7 +53,7 @@ int main (int argc, char * argv[]){
 		printf("\nDataFile: %s",fileName);
 	}
     inputFile = fopen(fileName,"r");
-	if(fgets(input,256,inputFile) != NULL){
+	if(gets(input) != NULL){
         tempString = strtok(input, " ");
         if(tempString != NULL){
             processNum = atoi(tempString);
@@ -66,13 +66,13 @@ int main (int argc, char * argv[]){
         if (tempString != NULL){
             threadTrans = atoi(tempString);
         }
-		if(fgets(input,256,inputFile)){
+		if(gets(input)){
 			ProcessList = createProcess(input,inputFile);
 			currentProcess = ProcessList;
 		}
         for(i=0;i<(processNum - 1);i++){
         	printf("\n");
-            if(fgets(input,256,inputFile) != NULL){
+            if(gets(input) != NULL){
                 currentProcess->nextProcess = createProcess(input,inputFile);
 				currentProcess = currentProcess->nextProcess;
             }

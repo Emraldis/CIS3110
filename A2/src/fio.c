@@ -1,6 +1,6 @@
 #include "fio.h"
 
-Process * createProcess(char * input, FILE * inputFile){
+Process * createProcess(char * input){
     Process * newProcess;
     char * tempString;
 	int i;
@@ -14,12 +14,12 @@ Process * createProcess(char * input, FILE * inputFile){
     tempString = strtok(NULL, " ");
     newProcess->numThreads = atoi(tempString);
 
-	if(fgets(input,256,inputFile) != NULL){
+	if(gets(input) != NULL){
 		tempThread = createThread(input, inputFile,newProcess->processNum);
 	}
 	newProcess->nextThread = tempThread;
 	for(i=0;i < (newProcess->numThreads - 1);i++){
-	    if(fgets(input,256,inputFile) != NULL){
+	    if(gets(input) != NULL){
 			tempThread->nextThread = createThread(input,inputFile,newProcess->processNum);
 			tempThread = tempThread->nextThread;
     	}
@@ -30,7 +30,7 @@ Process * createProcess(char * input, FILE * inputFile){
     return(newProcess);
 }
 
-Thread * createThread(char * input, FILE * inputFile, int processNum){
+Thread * createThread(char * input, int processNum){
     Thread * newThread;
     Burst * tempBurst;
     char * tempString;
@@ -46,14 +46,14 @@ Thread * createThread(char * input, FILE * inputFile, int processNum){
 	newThread->numBursts = atoi(tempString);
 	newThread->processNum = processNum;
 	newThread->waitTime = 0;
-	if(fgets(input,256,inputFile) != NULL){
+	if(gets(input) != NULL){
 		tempBurst = createBurst(input,processNum);
 		tempBurst->threadNum = newThread->threadNum;
 		tempBurst->readyTime = newThread->arrivalTime;
 	}
 	newThread->nextBurst = tempBurst;
 	for(i = 0;i < (newThread->numBursts - 1);i++){
-		if(fgets(input,256,inputFile)){
+		if(gets(input)){
 			tempBurst->nextBurst = createBurst(input,processNum);
 			tempBurst = tempBurst->nextBurst;
 			tempBurst->threadNum = newThread->threadNum;
