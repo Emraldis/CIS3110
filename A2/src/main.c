@@ -141,22 +141,15 @@ int main (int argc, char * argv[]){
         printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
 		i = 1;
 		while(i != 0){
-			printf("\ntest1");
-			getchar();
 			printf("\nProcess Number: %d\nNumber of Threads: %d\n",currentProcess->processNum,currentProcess->numThreads);
 			getchar();
 			currentThread = currentProcess->nextThread;
-			getchar();
 			k = 1;
 			while(k != 0){
-				printf("\ntest2");
-				getchar();
 				printf("\n\tThread Number: %d\n\t Arrival Time: %d \n\tNumber of Bursts: %d\n",currentThread->threadNum,currentThread->arrivalTime,currentThread->numBursts);
 				currentBurst = currentThread->nextBurst;
 				j = 1;
 				while(j != 0){
-					printf("\ntest3");
-					getchar();
 					printf("\n\t\tBurst Number: %d\n\t\tCPU Time: %d\n\t\tIO Time: %d\n",currentBurst->burstNum, currentBurst->CPUTime, currentBurst->IOTime);
 					if(currentBurst->nextBurst != NULL){
 						currentBurst = currentBurst->nextBurst;
