@@ -242,13 +242,13 @@ int main (int argc, char * argv[]){
 				}
 			}
 		}
-		if((debug == 3) && (tick % 10 == 0)){
+		/*if((debug == 3) && (tick % 10 == 0)){
 			//getchar();
 			if(CPU != NULL){
 				printf("\n\tBurst in CPU:\n\tProcess: %d\tThread: %d\tBurst: %d\n",CPU->processNum,CPU->threadNum,CPU->nextBurst->burstNum);
 				printf("\tCurrent remaining CPU time: %d\n",CPU->nextBurst->remainingTime);
 			}
-		}
+		}*/
 		
 	/***************************************************************************************************************************************
 	Printing all Q's:
