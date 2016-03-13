@@ -90,7 +90,7 @@ int main (int argc, char * argv[]){
 			currentThread = currentProcess->nextThread;
 			k = 1;
 			while(k != 0){
-				printf("\n\tThread Number: %d\n\t Arrival Time: %d \n\tNumber of Bursts: %d\n",currentThread->threadNum,currentThread->arrivalTime,currentThread->numBursts);
+				printf("\n\tThread Number: %d\n\tArrival Time: %d \n\tNumber of Bursts: %d\n",currentThread->threadNum,currentThread->arrivalTime,currentThread->numBursts);
 				currentBurst = currentThread->nextBurst;
 				j = 1;
 				while(j != 0){
@@ -128,8 +128,8 @@ int main (int argc, char * argv[]){
 	currentProcess = ProcessList;
 	for(i=0;i<processNum;i++){
 		printf("Number of threads in current Process: %d", currentProcess->numThreads);
+		currentThread = currentProcess->nextThread;
 		for(j=0;j < currentProcess->numThreads; j++){
-			currentThread = currentProcess->nextThread;
 			printf("\nCurrent Thread: P: %d T: %d\n",currentThread->processNum,currentThread->threadNum);
 			if(currentThread->arrivalTime == 0){
 				printf("\nAdding Item to readyQ:\n\tProcess Num: %d\tThread Num: %d\n",currentThread->processNum,currentThread->threadNum);
