@@ -56,7 +56,7 @@ Burst * addItem(Burst * list, Burst * item){
 			exit(0);
 		}
 	}else{
-		list = item;
+		list = tempBurst;
 	}
 	
 	return(list);
