@@ -234,6 +234,8 @@ int main (int argc, char * argv[]){
 						currentThread->nextThread = tempThread->nextThread;
 					}
 				}else{
+				printf("\n\ttestelse");
+				getchar();
 					if(currentThread->waitTime == 0){
 						currentThread = NULL;
 					}
