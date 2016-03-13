@@ -218,6 +218,8 @@ int main (int argc, char * argv[]){
 				printf("\n\ttest");
 				getchar();
 				CPU = removeFirstThread(CPU);
+				printf("\n\ttest2");
+				getchar();
 			}
 		}
 		printf("\ntick: %d",tick);
