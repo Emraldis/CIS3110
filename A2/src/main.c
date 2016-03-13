@@ -135,6 +135,9 @@ int main (int argc, char * argv[]){
 			getchar();
 			currentBurst = currentBurst->nextBurst;
 		}
+		if(currentBurst->nextBurst == NULL){
+			printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
+		}
 	}
 	/*while(complete == 0){
 		
