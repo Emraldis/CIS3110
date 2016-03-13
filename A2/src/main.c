@@ -249,7 +249,7 @@ int main (int argc, char * argv[]){
 					}
 				}
 				if(currentThread != NULL){
-					printf("\nCycling through waitingQ threads, Current Thread:\n\tP: %d\tT: %d\t Remaining Time: %d\n",currentThread->processNum,currentThread->threadNum,currentThread->waitTime);
+					printf("\n\t\t\t\t\t\tCycling through waitingQ threads, Current Thread:\n\tP: %d\tT: %d\t Remaining Time: %d\n",currentThread->processNum,currentThread->threadNum,currentThread->waitTime);
 					currentThread->waitTime--;
 					currentThread = currentThread->nextThread;
 				}
