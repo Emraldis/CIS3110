@@ -194,7 +194,7 @@ int main (int argc, char * argv[]){
 				printf("\n\tEMPTY READY QUEUE");
 			}
 			if(CPU != NULL){
-				printf("Burst in CPU:\n\tProcess: %d\tThread: %d\tBurst: %d\n\tTime Remaining: %d\n",CPU->processNum,CPU->threadNum,CPU->nextBurst->burstNum,CPU->remainingTime);
+				printf("Burst in CPU:\n\tProcess: %d\tThread: %d\tBurst: %d\n\tTime Remaining: %d\n",CPU->processNum,CPU->threadNum,CPU->nextBurst->burstNum,CPU->nextBurst->remainingTime);
 			}
 			if(waitingQ != NULL){
 				currentThread = waitingQ;
