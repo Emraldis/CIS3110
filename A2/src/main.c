@@ -20,6 +20,7 @@ int main (int argc, char * argv[]){
 	int debug = 0;
 	int complete = 0;
 	int overhead = 0;
+	int event =0;
     FILE * inputFile;
     Thread * readyQ;
     Process * currentProcess;
@@ -188,6 +189,7 @@ int main (int argc, char * argv[]){
 			readyQ = removeFirstThread(readyQ);
 			CPU->nextBurst->entryTime = tick;
 			printf("\nAdding to CPU");
+			event = 1;
 		}
 		if(CPU != NULL){
 			CPU->nextBurst->remainingTime--;
@@ -208,11 +210,12 @@ int main (int argc, char * argv[]){
 					printf("\nTesting waitingQ wait time: %d",waitingQ->waitTime);
 				}
 				CPU = removeFirstThread(CPU);
+				event = 1;
 			}
 		}
 		printf("\ntick: %d",tick);
 		if(tick % 5 == 0){
-			getchar();
+			//getchar();
 		}
 		if(waitingQ != NULL){
 			currentThread = waitingQ;
@@ -237,6 +240,7 @@ int main (int argc, char * argv[]){
 					currentThread = currentThread->nextThread;
 				}
 			}
+			event = 1;
 		}
 		if((debug == 3) && (tick % 10 == 0)){
 			//getchar();
@@ -250,7 +254,7 @@ int main (int argc, char * argv[]){
 	Printing all Q's:
 	***************************************************************************************************************************************/
 				
-		if((debug == 3) && (tick % 10 == 0)){
+		if((debug == 3) && (event != 0)){
 			printf("\n\nDEBUGGING all Q's @ tick = %d\n",tick);
 			printf("\nREADY QUEUE:\n");
 			if(readyQ != NULL){
@@ -287,13 +291,14 @@ int main (int argc, char * argv[]){
 			}else{
 				printf("\n\tEMPTY WAIT QUEUE\n");
 			}
-			if((CPU == NULL) && (readyQ == NULL) && (waitingQ == NULL)){
-				complete = 1;
-			}
 		}
 		if(overhead != 0){
 			overhead--;
 		}
+		if((CPU == NULL) && (readyQ == NULL) && (waitingQ == NULL)){
+			complete = 1;
+		}
+		event = 0;
 		tick++;
 	}
 	printf("\nSimulation ended after %d Ticks\n",tick);
