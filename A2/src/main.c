@@ -236,6 +236,8 @@ int main (int argc, char * argv[]){
 				printf("\tCurrent remaining CPU time: %d\n",CPU->nextBurst->remainingTime);
 			}
 		}
+		printf("\nend of the loop");
+		getchar();
 		tick++;
 	}
 	printf("\nSimulation ended after %d Ticks\n",tick);
