@@ -191,7 +191,7 @@ int main (int argc, char * argv[]){
 	printf("\nBeginning simulation\n***********************************************************************************************************************************\n");
 	
 	tick++;
-	while((complete == 0) && (tick <120)){
+	while((complete == 0) && (tick <900)){
 		
 		
 		
@@ -233,17 +233,17 @@ int main (int argc, char * argv[]){
 				if(currentThread->nextThread != NULL){
 					if(/*(*/currentThread->nextThread->waitTime == 0/*) && (currentThread != waitingQ)*/){
 						printf("\nwaitingQ->readyQ");
-						printf("\nCurrent Thread in the waitingQ (P: %d T: %d) has a wait time of %d and is therefore being removed.",currentThread->nextThread->processNum,currentThread->nextThread->threadNum,currentThread->nextThread->waitTime);
+						//printf("\nCurrent Thread in the waitingQ (P: %d T: %d) has a wait time of %d and is therefore being removed.",currentThread->nextThread->processNum,currentThread->nextThread->threadNum,currentThread->nextThread->waitTime);
 						readyQ = addItem(readyQ,currentThread->nextThread);
 						tempThread = currentThread->nextThread;
 						currentThread->nextThread = tempThread->nextThread;
 						event = 1;
 					}
 					if(currentThread == waitingQ){
-						printf("\nCurrent Thread (P: %d T:%d)is at the head of the queue",currentThread->processNum,currentThread->threadNum);
+						//printf("\nCurrent Thread (P: %d T:%d)is at the head of the queue",currentThread->processNum,currentThread->threadNum);
 						if(currentThread->waitTime == 0){
 							printf("\nwaitingQ->readyQ");
-							printf("\nCurrent Thread in the waitingQ (P: %d T: %d) has a wait time of %d and is therefore being removed.",currentThread->processNum,currentThread->threadNum,currentThread->waitTime);
+							//printf("\nCurrent Thread in the waitingQ (P: %d T: %d) has a wait time of %d and is therefore being removed.",currentThread->processNum,currentThread->threadNum,currentThread->waitTime);
 							readyQ = addItem(readyQ,currentThread);
 							waitingQ = removeFirstThread(waitingQ);
 							event = 1;
@@ -251,21 +251,21 @@ int main (int argc, char * argv[]){
 					}
 				}else{
 					if(currentThread == waitingQ){
-						printf("\nCurrent Thread (P: %d T:%d)is at the head of the queue",currentThread->processNum,currentThread->threadNum);
+						//printf("\nCurrent Thread (P: %d T:%d)is at the head of the queue",currentThread->processNum,currentThread->threadNum);
 						if(currentThread->waitTime == 0){
 							printf("\nwaitingQ->readyQ");
-							printf("\nCurrent Thread in the waitingQ (P: %d T: %d) has a wait time of %d and is therefore being removed.",currentThread->processNum,currentThread->threadNum,currentThread->waitTime);
+							//printf("\nCurrent Thread in the waitingQ (P: %d T: %d) has a wait time of %d and is therefore being removed.",currentThread->processNum,currentThread->threadNum,currentThread->waitTime);
 							readyQ = addItem(readyQ,currentThread);
 							waitingQ = removeFirstThread(waitingQ);
 							event = 1;
 						}
 					}else{
-						printf("Current Thread (P: %d T:%d)is not at the head of the queue",currentThread->processNum,currentThread->threadNum);
+						//printf("Current Thread (P: %d T:%d)is not at the head of the queue",currentThread->processNum,currentThread->threadNum);
 						
 					}
 				}
 				if(currentThread != NULL){
-					printf("\n\t\t\t\t\t\tCycling through waitingQ threads, Current Thread:\n\t\t\t\t\t\t\tP: %d\tT: %d\t Remaining Time: %d\n",currentThread->processNum,currentThread->threadNum,currentThread->waitTime);
+					//printf("\n\t\t\t\t\t\tCycling through waitingQ threads, Current Thread:\n\t\t\t\t\t\t\tP: %d\tT: %d\t Remaining Time: %d\n",currentThread->processNum,currentThread->threadNum,currentThread->waitTime);
 					currentThread->waitTime--;
 					currentThread = currentThread->nextThread;
 				}
