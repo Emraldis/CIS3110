@@ -238,8 +238,10 @@ int main (int argc, char * argv[]){
 					}
 				}
 				CPU = removeFirstThread(CPU);
-				if(quantumTick < 0){
-					quantumTick = rrq; 
+				if(rr = 1){
+					if(quantumTick < 0){
+						quantumTick = rrq; 
+					}
 				}
 				event = 1;
 			}else{
