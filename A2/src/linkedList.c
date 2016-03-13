@@ -37,10 +37,12 @@ Burst * insertItem(Burst * insertLoc, Burst * item){
 Burst * addItem(Burst * list, Burst * item){
 	
 	Burst * currentBurst;
+	Burst * tempBurst;
 	
 	printf("\nstarting");
 	getchar();
 	currentBurst = list;
+	tempBurst = item;
 	if(list != NULL){
 		printf("\nlist was not null");
 		getchar();
@@ -57,17 +59,18 @@ Burst * addItem(Burst * list, Burst * item){
 			if(item == NULL){
 				printf("\nItem appears to be NULL...");
 			}
-			currentBurst->nextBurst = item;
-			if (currentBurst->nextBurst == item){
+			tempBurst->nextBurst = NULL;
+			currentBurst->nextBurst = tempBurst;
+			if (currentBurst->nextBurst == tempBurst){
 				printf("things are going smoothly");
 			}
 			if(currentBurst->nextBurst == NULL){
 				printf("\nwierd stuff's goin on1");
 			}
-			currentBurst->nextBurst->nextBurst = NULL;
+			/*currentBurst->nextBurst->nextBurst = NULL;
 			if(currentBurst->nextBurst == NULL){
 				printf("\nwierd stuff's goin on2");
-			}
+			}*/
 			printf("\nFinished Assigning");
 			getchar();
 			//printf("\nAdded Item, Burst number: %d = %d", currentBurst->nextBurst->burstNum,item->burstNum);
