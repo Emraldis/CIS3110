@@ -125,7 +125,7 @@ int main (int argc, char * argv[]){
 	for(i=0;i<processNum;i++){
 		if(currentProcess->nextThread->arrivalTime == 0){
 			printf("\nComparing values:  processNum:  %d  Burst ProcessNum:  %d\n",currentProcess->processNum,currentProcess->nextThread->nextBurst->processNum);
-			tempBurst = currentProcess->nextThread->nextBurst->nextBurst;
+			tempBurst = currentProcess->nextThread->nextBurst;
 			readyQ = addItem(readyQ,currentProcess->nextThread->nextBurst);
 			currentProcess->nextThread->nextBurst = tempBurst;
 		}
