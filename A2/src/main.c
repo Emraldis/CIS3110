@@ -228,11 +228,11 @@ int main (int argc, char * argv[]){
 						currentThread->nextThread = tempThread->nextThread;
 					}
 				}else{
-					if((currentThread->waitTime == 0) && (currentThread != NULL)){
+					if((currentThread->waitTime == 0) && (currentThread != NULL) && (currentThread == waitingQ)){
 						printf("\n\twait time is 0");
 						getchar();
 						readyQ = addItem(readyQ,currentThread);
-						currentThread = NULL;
+						waitingQ = NULL;
 					}
 				}
 				if(currentThread != NULL){
