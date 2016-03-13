@@ -115,6 +115,9 @@ int main (int argc, char * argv[]){
 	Running FCFS Simulation:
 	***************************************************************************************************************************************/
 	tick = 0;
+	if(debug == 3){
+		printf("\nCreating ReadyQ:\n\n");
+	}
 	for(i=0;i<processNum;i++){
 		if(currentProcess->nextThread->arrivalTime == 0){
 			printf("\nComparing values:  processNum:  %d  Burst ProcessNum:  %d\n",currentProcess->processNum,currentProcess->nextThread->nextBurst->processNum);
@@ -125,7 +128,9 @@ int main (int argc, char * argv[]){
 		}
 		currentProcess = currentProcess->nextProcess;
 	}
-	
+	if(debug == 3){
+		printf("\nFinished ReadyQ\n\n");
+	}
 	if(debug == 3){
 		printf("\nDEBUGGING ReadyQ @ tick = %d\n",tick);
 		currentBurst = readyQ;
