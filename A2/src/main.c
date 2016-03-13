@@ -146,7 +146,7 @@ int main (int argc, char * argv[]){
 				printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n",currentBurst->processNum,currentBurst->threadNum,currentBurst->burstNum);
 			}
 		}
-		if(CPU = NULL){
+		if(CPU == NULL){
 			CPU = readyQ;
 			CPU->nextBurst = NULL;
 			printf("\nAdding to CPU");
