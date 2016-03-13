@@ -208,27 +208,26 @@ int main (int argc, char * argv[]){
 			if(CPU->nextBurst->remainingTime == 0){
 				CPU->waitTime = CPU->nextBurst->IOTime;
 				CPU->nextBurst = removeFirstBurst(CPU->nextBurst);
-				printf("\nCPU-waitingQ");
+				printf("\nCPU->waitingQ");
 				getchar();
-				if(CPU == NULL){
-					printf("\nCPU is null for some reason");
-					getchar();
-				}
 				waitingQ = addItem(waitingQ,CPU);
-				printf("\n\ttest");
-				getchar();
 				CPU = removeFirstThread(CPU);
-				printf("\n\ttest2");
-				getchar();
 			}
 		}
 		printf("\ntick: %d",tick);
+		getchar();
 		if(waitingQ != NULL){
 			currentThread = waitingQ;
+				printf("\n\ttest1");
+				getchar();
 			while(currentThread != NULL){
+				printf("\n\ttestloop");
+				getchar();
 				if(currentThread->nextThread != NULL){
+				printf("\n\ttestif");
+				getchar();
 					if((currentThread->nextThread->waitTime == 0) && (currentThread != waitingQ)){
-						printf("\nwaitingQ-readyQ");
+						printf("\nwaitingQ->readyQ");
 						getchar();
 						readyQ = addItem(readyQ,currentThread->nextThread);
 						tempThread = currentThread->nextThread;
