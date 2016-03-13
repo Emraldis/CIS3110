@@ -205,6 +205,59 @@ int main (int argc, char * argv[]){
 		printf("\nBeginning simulation\n***********************************************************************************************************************************\n");
 	}
 	while((complete == 0) && (tick <900)){
+		if(waitingQ != NULL){
+			currentThread = waitingQ;
+			while(currentThread != NULL){
+				if(currentThread->nextThread != NULL){
+					if(/*(*/currentThread->nextThread->waitTime == 0/*) && (currentThread != waitingQ)*/){
+						if(verbose == 1){
+							if(currentThread->nextBurst->burstNum == 1){
+								printf("\nAt Time %d Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
+							}else{
+								printf("\nAt Time %d Thread %d of Process %d moves from Blocked to Ready",tick,currentThread->threadNum,currentThread->processNum);
+							}
+						}
+						readyQ = addItem(readyQ,currentThread->nextThread);
+						tempThread = currentThread->nextThread;
+						currentThread->nextThread = tempThread->nextThread;
+						event = 1;
+					}
+					if(currentThread == waitingQ){
+						if(currentThread->waitTime == 0){
+							if(verbose == 1){
+								if(currentThread->nextBurst->burstNum == 1){
+									printf("\nAt Time %d Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
+								}else{
+									printf("\nAt Time %d Thread %d of Process %d moves from Blocked to Ready",tick,currentThread->threadNum,currentThread->processNum);
+								}
+							}
+							readyQ = addItem(readyQ,currentThread);
+							waitingQ = removeFirstThread(waitingQ);
+							event = 1;
+						}
+					}
+				}else{
+					if(currentThread == waitingQ){
+						if(currentThread->waitTime == 0){
+							if(verbose == 1){
+								if(currentThread->nextBurst->burstNum == 1){
+									printf("\nAt Time %d Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
+								}else{
+									printf("\nAt Time %d Thread %d of Process %d moves from Blocked to Ready",tick,currentThread->threadNum,currentThread->processNum);
+								}
+							}
+							readyQ = addItem(readyQ,currentThread);
+							waitingQ = removeFirstThread(waitingQ);
+							event = 1;
+						}
+					}
+				}
+				if(currentThread != NULL){
+					currentThread->waitTime--;
+					currentThread = currentThread->nextThread;
+				}
+			}
+		}
 		if((CPU == NULL) && (readyQ != NULL) && (overhead == 0)){
 			CPU = copyThread(readyQ);
 			CPU->nextThread = NULL;
@@ -265,59 +318,6 @@ int main (int argc, char * argv[]){
 						quantumTick = rrq; 
 						event = 1;
 					}
-				}
-			}
-		}
-		if(waitingQ != NULL){
-			currentThread = waitingQ;
-			while(currentThread != NULL){
-				if(currentThread->nextThread != NULL){
-					if(/*(*/currentThread->nextThread->waitTime == 0/*) && (currentThread != waitingQ)*/){
-						if(verbose == 1){
-							if(currentThread->nextBurst->burstNum == 1){
-								printf("\nAt Time %d Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
-							}else{
-								printf("\nAt Time %d Thread %d of Process %d moves from Blocked to Ready",tick,currentThread->threadNum,currentThread->processNum);
-							}
-						}
-						readyQ = addItem(readyQ,currentThread->nextThread);
-						tempThread = currentThread->nextThread;
-						currentThread->nextThread = tempThread->nextThread;
-						event = 1;
-					}
-					if(currentThread == waitingQ){
-						if(currentThread->waitTime == 0){
-							if(verbose == 1){
-								if(currentThread->nextBurst->burstNum == 1){
-									printf("\nAt Time %d Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
-								}else{
-									printf("\nAt Time %d Thread %d of Process %d moves from Blocked to Ready",tick,currentThread->threadNum,currentThread->processNum);
-								}
-							}
-							readyQ = addItem(readyQ,currentThread);
-							waitingQ = removeFirstThread(waitingQ);
-							event = 1;
-						}
-					}
-				}else{
-					if(currentThread == waitingQ){
-						if(currentThread->waitTime == 0){
-							if(verbose == 1){
-								if(currentThread->nextBurst->burstNum == 1){
-									printf("\nAt Time %d Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
-								}else{
-									printf("\nAt Time %d Thread %d of Process %d moves from Blocked to Ready",tick,currentThread->threadNum,currentThread->processNum);
-								}
-							}
-							readyQ = addItem(readyQ,currentThread);
-							waitingQ = removeFirstThread(waitingQ);
-							event = 1;
-						}
-					}
-				}
-				if(currentThread != NULL){
-					currentThread->waitTime--;
-					currentThread = currentThread->nextThread;
 				}
 			}
 		}
