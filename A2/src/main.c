@@ -195,10 +195,16 @@ int main (int argc, char * argv[]){
 			printf("\nAdding to CPU");
 		}
 		CPU->nextBurst->remainingTime--;
+		if(CPU->nextBurst->remainingTime == 0){
+			CPU->nextBurst = removeFirstBurst(CPU->nextBurst);
+			waitingQ = copyThread(CPU);
+			CPU = removeFirstThread(CPU);
+		}
 		if((debug == 3) && (tick % 10 == 0)){
 			//getchar();
 			if(CPU != NULL){
 				printf("\n\tBurst in CPU:\n\tProcess: %d\tThread: %d\tBurst: %d\n",CPU->processNum,CPU->threadNum,CPU->nextBurst->burstNum);
+				printf("\nCurrent remaining CPU time: %d",CPU->nextBurst->remainingTime);
 			}
 		}
 		tick++;
