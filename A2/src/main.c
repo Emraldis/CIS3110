@@ -232,8 +232,6 @@ int main (int argc, char * argv[]){
 					}
 				}else{
 					if((currentThread->waitTime == 0) && (currentThread != NULL) && (currentThread == waitingQ)){
-						printf("\n\twait time is 0");
-						getchar();
 						readyQ = addItem(readyQ,currentThread);
 						waitingQ = removeFirstThread(waitingQ);
 						event = 1;
