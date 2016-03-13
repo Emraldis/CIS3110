@@ -114,23 +114,13 @@ int main (int argc, char * argv[]){
 	Running FCFS Simulation:
 	***************************************************************************************************************************************/
 	tick = 0;
-	if(debug == 3){
-		printf("\nGot here\n");
-	}
 	for(i=0;i<processNum;i++){
 		if(currentProcess->nextThread->arrivalTime == 0){
-			if(debug == 3){
-				printf("\nIn a loop\n");
-			}
 			readyQ = addItem(readyQ,currentProcess->nextThread->nextBurst);
 		}
 		if(debug == 3){
-			printf("\nend of a loop\n");
-			printf("\nReadyQ first member: %d\n",readyQ->burstNum);
+			printf("\nReadyQ first member: %d\n",readyQ->processNum);
 		}
-	}
-	if(debug == 3){
-		printf("\nGot here\n");
 	}
 	
 	if(debug == 3){

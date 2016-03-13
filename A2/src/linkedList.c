@@ -50,7 +50,6 @@ Burst * addItem(Burst * list, Burst * item){
 		if(currentBurst->nextBurst ==  NULL){
 			tempBurst->nextBurst = NULL;
 			currentBurst->nextBurst = tempBurst;
-			currentBurst = list;
 		}else{
 			printf("\nERROR in addItem function\n");
 			exit(0);
