@@ -179,7 +179,10 @@ int main (int argc, char * argv[]){
 	printf("\n FINISHED TESTS");
 	tick++;
 	while((complete == 0) && (tick <400)){
-		if((CPU == NULL) && (readyQ != NULL) /*&& (overhead == 0)*/){
+		
+		
+		
+		if((CPU == NULL) && (readyQ != NULL) && (overhead == 0)){
 			CPU = copyThread(readyQ);
 			CPU->nextThread = NULL;
 			readyQ = removeFirstThread(readyQ);
@@ -192,6 +195,13 @@ int main (int argc, char * argv[]){
 				CPU->waitTime = CPU->nextBurst->IOTime;
 				printf("\nWait time set to: %d from the burst IO time of: %d", CPU->waitTime, CPU->nextBurst->IOTime);
 				CPU->nextBurst = removeFirstBurst(CPU->nextBurst);
+				if(readyQ != NULL){
+					if(CPU->processNum == readyQ->processNum){
+						overhead = threadTrans;
+					}else{
+						overhead = processTrans;
+					}
+				}
 				if(CPU->nextBurst != NULL){
 					printf("\nCPU->waitingQ");
 					waitingQ = addItem(waitingQ,CPU);
@@ -235,6 +245,11 @@ int main (int argc, char * argv[]){
 				printf("\tCurrent remaining CPU time: %d\n",CPU->nextBurst->remainingTime);
 			}
 		}
+		
+	/***************************************************************************************************************************************
+	Printing all Q's:
+	***************************************************************************************************************************************/
+				
 		if((debug == 3) && (tick % 10 == 0)){
 			printf("\n\nDEBUGGING all Q's @ tick = %d\n",tick);
 			printf("\nREADY QUEUE:\n");
@@ -255,6 +270,9 @@ int main (int argc, char * argv[]){
 				printf("\n\tProcess: %d\tThread: %d\tBurst: %d\n\tTime Remaining: %d\n",CPU->processNum,CPU->threadNum,CPU->nextBurst->burstNum,CPU->nextBurst->remainingTime);
 			}else{
 				printf("\n\tEMPTY CPU\n");
+				if(overhead != 0){
+					printf("\n\tOverhead time remaining: %d", overhead);
+				}
 			}
 			printf("\nWAITING QUEUE:\n");
 			if(waitingQ != NULL){
@@ -272,6 +290,9 @@ int main (int argc, char * argv[]){
 			if((CPU == NULL) && (readyQ == NULL) && (waitingQ == NULL)){
 				complete = 1;
 			}
+		}
+		if(overhead != 0){
+			overhead--;
 		}
 		tick++;
 	}
