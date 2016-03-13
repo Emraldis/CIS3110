@@ -237,6 +237,8 @@ int main (int argc, char * argv[]){
 				printf("\n\ttestelse");
 				getchar();
 					if(currentThread->waitTime == 0){
+				printf("\n\ttestNULL");
+				getchar();
 						currentThread = NULL;
 					}
 				}
