@@ -188,20 +188,22 @@ int main (int argc, char * argv[]){
 			CPU->nextThread = NULL;
 			readyQ = removeFirstThread(readyQ);
 			CPU->nextBurst->entryTime = tick;
-			printf("\nAdding to CPU");
+			printf("\nreadyQ->CPU");
 			event = 1;
 		}
 		if(CPU != NULL){
 			CPU->nextBurst->remainingTime--;
 			if(CPU->nextBurst->remainingTime == 0){
 				CPU->waitTime = CPU->nextBurst->IOTime;
-				printf("\nWait time set to: %d from the burst IO time of: %d", CPU->waitTime, CPU->nextBurst->IOTime);
+				//printf("\nWait time set to: %d from the burst IO time of: %d", CPU->waitTime, CPU->nextBurst->IOTime);
 				CPU->nextBurst = removeFirstBurst(CPU->nextBurst);
 				if(readyQ != NULL){
 					if(CPU->processNum == readyQ->processNum){
 						overhead = threadTrans;
+						printf("\nThe next thread is from the same process");
 					}else{
 						overhead = processTrans;
+						printf("\nThe next thread is from a different process");
 					}
 				}
 				if(CPU->nextBurst != NULL){
