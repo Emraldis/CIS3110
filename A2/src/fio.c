@@ -14,8 +14,6 @@ Process * createProcess(char * input, FILE * inputFile){
     tempString = strtok(NULL, " ");
     newProcess->numThreads = atoi(tempString);
 
-//    printf("\nProcess Number: %d\nNumber of Threads: %d\n",newProcess->processNum,newProcess->numThreads);
-
 	if(fgets(input,256,inputFile) != NULL){
 		tempThread = createThread(input, inputFile);
 		tempThread->processNum = newProcess->processNum;
@@ -31,10 +29,6 @@ Process * createProcess(char * input, FILE * inputFile){
 	tempThread->nextThread = NULL;
 	tempThread = newProcess->nextThread;
 	newProcess->complete = 0;
-	/*while(tempThread->nextThread != NULL){
-		printf("\n\tThread Number: %d\n\tArrival Time: %d\n\tNumber of CPU Bursts: %d\n",tempThread->threadNum,tempThread->arrivalTime,tempThread->numBursts);
-	}*/
-
     return(newProcess);
 }
 
@@ -52,8 +46,6 @@ Thread * createThread(char * input, FILE * inputFile){
 	newThread->arrivalTime = atoi(tempString);
 	tempString = strtok(NULL, " ");
 	newThread->numBursts = atoi(tempString);
-//	printf("\n\tThread Number: %d\n\tArrival Time: %d\n\tNumber of CPU Bursts: %d\n",newThread->threadNum,newThread->arrivalTime,newThread->numBursts);
-
 	if(fgets(input,256,inputFile) != NULL){
 		tempBurst = createBurst(input);
 		tempBurst->processNum = newThread->processNum;
@@ -89,7 +81,5 @@ Burst * createBurst(char * input){
 	}else{
 		newBurst->IOTime = 0;
 	}
-//	printf("\n\t\tBurst Number: %d\n\t\tCPU Time: %d\n\t\tI/O Time: %d\n",newBurst->burstNum,newBurst->CPUTime,newBurst->IOTime);
-
 	return(newBurst);
 }

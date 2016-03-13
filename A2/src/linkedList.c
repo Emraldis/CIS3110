@@ -38,16 +38,19 @@ Burst * addItem(Burst * list, Burst * item){
 	
 	Burst * currentBurst;
 	Burst * tempBurst;
+	Burst * beginning;
 
-	currentBurst = list;
 	tempBurst = item;
 	if(list != NULL){
+		currentBurst = list;
+		beginning = currentBurst;
 		while(currentBurst->nextBurst != NULL){
 			currentBurst = currentBurst->nextBurst;
 		}
 		if(currentBurst->nextBurst ==  NULL){
 			tempBurst->nextBurst = NULL;
 			currentBurst->nextBurst = tempBurst;
+			list = beginning;
 		}else{
 			printf("\nERROR in addItem function\n");
 			exit(0);
