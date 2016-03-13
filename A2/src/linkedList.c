@@ -41,7 +41,7 @@ Burst * addItem(Burst * list, Burst * item){
 
 	tempBurst = item;
 	
-	printf("Item's process number: %d", item->processNum);
+	printf("\nItem's process number: %d", item->processNum);
 	
 	if(list != NULL){
 		currentBurst = list;

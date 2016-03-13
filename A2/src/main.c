@@ -116,6 +116,7 @@ int main (int argc, char * argv[]){
 	tick = 0;
 	for(i=0;i<processNum;i++){
 		if(currentProcess->nextThread->arrivalTime == 0){
+			printf("\nComparing values:  processNum:  %d  Burst ProcessNum:  %d\n",currentProcess->processNum,currentProcess->nextThread->nextBurst->processNum);
 			readyQ = addItem(readyQ,currentProcess->nextThread->nextBurst);
 		}
 		if(debug == 3){
