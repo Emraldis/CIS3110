@@ -55,9 +55,9 @@ int main (int argc, char * argv[]){
 	for(i=0;i<argc;i++){
 		if(strcmp("-d",argv[i]) == 0){
 			detailed = 1;
-		}else if(strcmp("-r",argv[i] == 0)){
+		}else if(strcmp("-r",argv[i]) == 0){
 			rr = 1;
-		}else if(strcmp("-v",argv[i] == 0)){
+		}else if(strcmp("-v",argv[i]) == 0){
 			verbose = 1;
 		}
 		if((rr == 1) && (atoi(argv[i]) != 0)){
