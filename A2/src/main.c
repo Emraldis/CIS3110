@@ -383,7 +383,7 @@ int main (int argc, char * argv[]){
 	}
 	tick = (tick - 1);
 	if(verbose == 1){
-		printf("\nSimulation ended after %d Ticks\n",tick);
+		printf("\nSimulation ended after %-8.0f Ticks\n",tick);
 	}
 	avTurnTime = (avTurnTime/numThreads);
 	CPUUsage = ((1-(accumulatedOverhead/tick)) * 100);
