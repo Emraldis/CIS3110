@@ -27,7 +27,7 @@ int main (int argc, char * argv[]){
 	int quantumTick;
 	int numThreads = 0;
 	int avTurnTime = 0;
-	int accumulatedOverhead = 0;
+	float accumulatedOverhead = 0;
 	float CPUUsage;
     //FILE * inputFile;
     Thread * readyQ;
