@@ -389,7 +389,7 @@ int main (int argc, char * argv[]){
 	printf("\nSimulation results:");
 	printf("\nTotal Time required: %d",(tick - 1));
 	printf("\nAverage turnaround time: %d",avTurnTime);
-	printf("\nCPU utilization: %d \%\n",((1-(accumulatedOverhead/(tick - 1))) * 100));
+	printf("\nCPU utilization: %d \%\n",(((accumulatedOverhead/(tick - 1))) * 100));
 
     return(0);
 }
