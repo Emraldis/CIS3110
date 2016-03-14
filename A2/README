@@ -1,0 +1,4 @@
+CIS1130 Assignment 2
+Author: Alpheaus Feltham ID# 0903594
+
+This code should preform with only minor deviations on final values (+/- 5 time units or so). The makefile stores the program in the bin folder as "simcpu".
