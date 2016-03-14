@@ -15,12 +15,12 @@ Process * createProcess(char * input){
     newProcess->numThreads = atoi(tempString);
 
 	if(gets(input) != NULL){
-		tempThread = createThread(input, inputFile,newProcess->processNum);
+		tempThread = createThread(input,newProcess->processNum);
 	}
 	newProcess->nextThread = tempThread;
 	for(i=0;i < (newProcess->numThreads - 1);i++){
 	    if(gets(input) != NULL){
-			tempThread->nextThread = createThread(input,inputFile,newProcess->processNum);
+			tempThread->nextThread = createThread(input,newProcess->processNum);
 			tempThread = tempThread->nextThread;
     	}
     }

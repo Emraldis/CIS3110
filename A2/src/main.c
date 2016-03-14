@@ -46,12 +46,6 @@ int main (int argc, char * argv[]){
 	***************************************************************************************************************************************/
 	
     //fileName = argv[1];
-	if (argv[2] != NULL){
-		debug = atoi(argv[2]);
-	}
-	if (debug == 2){
-		printf("\nDataFile: %s",fileName);
-	}
     //inputFile = fopen(fileName,"r");
 	if(gets(input) != NULL){
         tempString = strtok(input, " ");
