@@ -327,7 +327,7 @@ int main (int argc, char * argv[]){
 	***************************************************************************************************************************************/
 				
 		if((debug == 3) && (event != 0)){
-			printf("\n\nDEBUGGING all Q's @ tick = %d\n",tick);
+			printf("\n\nDEBUGGING all Q's @ tick = %-8.0f\n",tick);
 			printf("\nREADY QUEUE:\n");
 			if(readyQ != NULL){
 				currentThread = readyQ;
@@ -363,9 +363,7 @@ int main (int argc, char * argv[]){
 			}else{
 				printf("\n\tEMPTY WAIT QUEUE\n");
 			}
-			printf("\ntick: %d",tick);
-			if(tick % 5 == 0){
-			}
+			printf("\ntick: %-8.0f",tick);
 		}
 		accumulatedOverhead = (accumulatedOverhead + overhead);
 		if(overhead != 0){
@@ -390,9 +388,9 @@ int main (int argc, char * argv[]){
 	avTurnTime = (avTurnTime/numThreads);
 	CPUUsage = ((1-(accumulatedOverhead/tick)) * 100);
 	printf("\nSimulation results:");
-	printf("\nTotal Time required: %d",tick);
+	printf("\nTotal Time required: %-8.0f",tick);
 	printf("\nAverage turnaround time: %d",avTurnTime);
-	printf("\nCPU utilization: %f \%\n",CPUUsage);
+	printf("\nCPU utilization: %f\n",CPUUsage);
 
     return(0);
 }
