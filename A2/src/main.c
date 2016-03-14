@@ -46,6 +46,7 @@ int main (int argc, char * argv[]){
 	readyQ = NULL;
 	CPU = NULL;
 	waitingQ = NULL;
+	finished = NULL;
 
 	/***************************************************************************************************************************************
 	Creating the Lists:
