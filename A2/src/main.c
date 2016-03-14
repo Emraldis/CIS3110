@@ -25,6 +25,9 @@ int main (int argc, char * argv[]){
 	int rr = 0;
 	int rrq = 50;
 	int quantumTick;
+	int numThreads = 0;
+	int avTurnTime = 0;
+	int accumulatedOverhead = 0;
     //FILE * inputFile;
     Thread * readyQ;
     Process * currentProcess;
@@ -286,6 +289,9 @@ int main (int argc, char * argv[]){
 					if(verbose == 1){
 						printf("\nAt Time %d Thread %d of Process %d moves from Running to Terminated",tick,CPU->threadNum,CPU->processNum);
 					}
+					CPU->turnaroundTime = (tick - CPU->arrivalTime);
+					avTurnTime = avTurnTime + CPU->turnaroundTime;
+					numThreads++;
 					if(rr == 1){
 						quantumTick = rrq;
 					}
@@ -360,6 +366,7 @@ int main (int argc, char * argv[]){
 			if(tick % 5 == 0){
 			}
 		}
+		accumulatedOverhead = (accumulatedOverhead + overhead);
 		if(overhead != 0){
 			overhead--;
 		}
@@ -375,9 +382,14 @@ int main (int argc, char * argv[]){
 		}
 		tick++;
 	}
-	printf("\nSimulation ended after %d Ticks\n",(tick - 1));
-	
-	//printf("Simulation results:");
+	if(verbose == 1){
+		printf("\nSimulation ended after %d Ticks\n",(tick - 1));
+	}
+	avTurnTime = (avTurnTime/numThreads);
+	printf("\nSimulation results:");
+	printf("\nTotal Time required: %d",tick);
+	printf("\nAverage turnaround time: %d",avTurnTime);
+	printf("\nCPU utilization: %d %",((1-(accumulatedOverhead/tick)) * 100));
 
     return(0);
 }
