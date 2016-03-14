@@ -153,7 +153,7 @@ int main (int argc, char * argv[]){
 					printf("\nAdding Item to readyQ:\n\tProcess Num: %d\tThread Num: %d\n",currentThread->processNum,currentThread->threadNum);
 				}
 				if(verbose == 1){
-					printf("\nAt Time %-8.0f Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
+					printf("\nAt Time %-.0f Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
 				}
 				readyQ = addItem(readyQ,currentThread);
 			}else{
@@ -182,7 +182,7 @@ int main (int argc, char * argv[]){
 			readyQ = removeFirstThread(readyQ);
 			CPU->nextBurst->entryTime = tick;
 			if(verbose == 1){
-						printf("\nAt Time %-8.0f Thread %d of Process %d moves from Ready to Running",tick,CPU->threadNum,CPU->processNum);
+						printf("\nAt Time %-.0f Thread %d of Process %d moves from Ready to Running",tick,CPU->threadNum,CPU->processNum);
 			}
 			if(rr == 1){
 				quantumTick = rrq;
@@ -205,12 +205,12 @@ int main (int argc, char * argv[]){
 				}
 				if(CPU->nextBurst != NULL){
 					if(verbose == 1){
-						printf("\nAt Time %-8.0f Thread %d of Process %d moves from Running to Blocked",tick,CPU->threadNum,CPU->processNum);
+						printf("\nAt Time %-.0f Thread %d of Process %d moves from Running to Blocked",tick,CPU->threadNum,CPU->processNum);
 					}
 					waitingQ = addItem(waitingQ,CPU);
 				}else{
 					if(verbose == 1){
-						printf("\nAt Time %-8.0f Thread %d of Process %d moves from Running to Terminated",tick,CPU->threadNum,CPU->processNum);
+						printf("\nAt Time %-.0f Thread %d of Process %d moves from Running to Terminated",tick,CPU->threadNum,CPU->processNum);
 					}
 					CPU->turnaroundTime = (tick - CPU->arrivalTime);
 					avTurnTime = avTurnTime + CPU->turnaroundTime;
@@ -238,7 +238,7 @@ int main (int argc, char * argv[]){
 						CPU->nextBurst->remainingTime++;
 						readyQ = addItem(readyQ,CPU);
 						if(verbose == 1){
-							printf("\nAt Time %-8.0f Thread %d of Process %d moves from Running to Ready",tick,CPU->threadNum,CPU->processNum);
+							printf("\nAt Time %-.0f Thread %d of Process %d moves from Running to Ready",tick,CPU->threadNum,CPU->processNum);
 						}
 						CPU = removeFirstThread(CPU);
 						quantumTick = rrq; 
@@ -254,9 +254,9 @@ int main (int argc, char * argv[]){
 					if(/*(*/currentThread->nextThread->waitTime == 0/*) && (currentThread != waitingQ)*/){
 						if(verbose == 1){
 							if(currentThread->nextBurst->burstNum == 1){
-								printf("\nAt Time %-8.0f Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
+								printf("\nAt Time %-.0f Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
 							}else{
-								printf("\nAt Time %-8.0f Thread %d of Process %d moves from Blocked to Ready",tick,currentThread->threadNum,currentThread->processNum);
+								printf("\nAt Time %-.0f Thread %d of Process %d moves from Blocked to Ready",tick,currentThread->threadNum,currentThread->processNum);
 							}
 						}
 						readyQ = addItem(readyQ,currentThread->nextThread);
@@ -268,9 +268,9 @@ int main (int argc, char * argv[]){
 						if(currentThread->waitTime == 0){
 							if(verbose == 1){
 								if(currentThread->nextBurst->burstNum == 1){
-									printf("\nAt Time %-8.0f Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
+									printf("\nAt Time %-.0f Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
 								}else{
-									printf("\nAt Time %-8.0f Thread %d of Process %d moves from Blocked to Ready",tick,currentThread->threadNum,currentThread->processNum);
+									printf("\nAt Time %-.0f Thread %d of Process %d moves from Blocked to Ready",tick,currentThread->threadNum,currentThread->processNum);
 								}
 							}
 							readyQ = addItem(readyQ,currentThread);
@@ -283,9 +283,9 @@ int main (int argc, char * argv[]){
 						if(currentThread->waitTime == 0){
 							if(verbose == 1){
 								if(currentThread->nextBurst->burstNum == 1){
-									printf("\nAt Time %-8.0f Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
+									printf("\nAt Time %-.0f Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
 								}else{
-									printf("\nAt Time %-8.0f Thread %d of Process %d moves from Blocked to Ready",tick,currentThread->threadNum,currentThread->processNum);
+									printf("\nAt Time %-.0f Thread %d of Process %d moves from Blocked to Ready",tick,currentThread->threadNum,currentThread->processNum);
 								}
 							}
 							readyQ = addItem(readyQ,currentThread);
@@ -306,7 +306,7 @@ int main (int argc, char * argv[]){
 	***************************************************************************************************************************************/
 				
 		if((debug == 3) && (event != 0)){
-			printf("\n\nDEBUGGING all Q's @ tick = %-8.0f\n",tick);
+			printf("\n\nDEBUGGING all Q's @ tick = %-.0f\n",tick);
 			printf("\nREADY QUEUE:\n");
 			if(readyQ != NULL){
 				currentThread = readyQ;
@@ -342,7 +342,7 @@ int main (int argc, char * argv[]){
 			}else{
 				printf("\n\tEMPTY WAIT QUEUE\n");
 			}
-			printf("\ntick: %-8.0f",tick);
+			printf("\ntick: %-.0f",tick);
 		}
 		if(overhead != 0){
 			overhead--;
@@ -361,13 +361,13 @@ int main (int argc, char * argv[]){
 	}
 	tick = (tick - 1);
 	if(verbose == 1){
-		printf("\nSimulation ended after %-8.0f Ticks\n",tick);
+		printf("\nSimulation ended after %-.0f Ticks\n",tick);
 	}
 	avTurnTime = (avTurnTime/numThreads);
-	printf("\nAccumulated Ovehead: %-8.0f",accumulatedOverhead);
+	printf("\nAccumulated Ovehead: %-.0f",accumulatedOverhead);
 	CPUUsage = ((1-(accumulatedOverhead/tick)) * 100);
 	printf("\nSimulation results:");
-	printf("\nTotal Time required: %-8.0f",tick);
+	printf("\nTotal Time required: %-.0f",tick);
 	printf("\nAverage turnaround time: %d",avTurnTime);
 	printf("\nCPU utilization: %f\n",CPUUsage);
 	
