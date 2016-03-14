@@ -364,7 +364,7 @@ int main (int argc, char * argv[]){
 		getchar();
 		currentThread = finished;
 		while(currentThread != NULL){
-			printf("\nThread %d of Process %d:\narrival time: %d\nservice time: %d I/O time: %d turnaround time: %d finish time: %d",currentThread->threadNum,currentThread->processNum,currentThread->arrivalTime,currentThread->serviceTime,currentThread->IOTime,currentThread->turnaroundTime,currentThread->finishTime);
+			printf("\nThread %d of Process %d:\narrival time: %d\nservice time: %d I/O time: %d turnaround time: %d finish time: %d\n",currentThread->threadNum,currentThread->processNum,currentThread->arrivalTime,currentThread->serviceTime,currentThread->IOTime,currentThread->turnaroundTime,currentThread->finishTime);
 			currentThread = currentThread->nextThread;
 			}
 	}
