@@ -86,7 +86,7 @@ int main (int argc, char * argv[]){
 	List Debug Code:
 	***************************************************************************************************************************************/
 	
-	if(debug == 1){
+	//if(debug == 1){
         printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
 		i = 1;
 		while(i != 0){
@@ -117,7 +117,7 @@ int main (int argc, char * argv[]){
 				i = 0;
 			}
 		}
-	}
+	//}
 	currentProcess = ProcessList;
 
 	
