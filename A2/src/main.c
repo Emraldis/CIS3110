@@ -28,6 +28,7 @@ int main (int argc, char * argv[]){
 	int numThreads = 0;
 	int avTurnTime = 0;
 	int accumulatedOverhead = 0;
+	float CPUUsage;
     //FILE * inputFile;
     Thread * readyQ;
     Process * currentProcess;
@@ -386,10 +387,11 @@ int main (int argc, char * argv[]){
 		printf("\nSimulation ended after %d Ticks\n",(tick - 1));
 	}
 	avTurnTime = (avTurnTime/numThreads);
+	CPUUsage = ((1-(accumulatedOverhead/(tick - 1))) * 100)
 	printf("\nSimulation results:");
 	printf("\nTotal Time required: %d",(tick - 1));
 	printf("\nAverage turnaround time: %d",avTurnTime);
-	printf("\nCPU utilization: %f \%\n",((1-(accumulatedOverhead/(tick - 1))) * 100));
+	printf("\nCPU utilization: %f \%\n",CPUUsage);
 
     return(0);
 }
