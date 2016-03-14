@@ -360,6 +360,7 @@ int main (int argc, char * argv[]){
 	printf("\nCPU utilization: %f\n",CPUUsage);
 	
 	if(detailed == 1){
+		getchar();
 		currentThread = finished;
 		while(currentThread != NULL){
 			printf("\nThread %d of Process %d:\narrival time: %d\nservice time: %d I/O time: %d turnaround time: %d finish time: %d",currentThread->threadNum,currentThread->processNum,currentThread->arrivalTime,currentThread->serviceTime,currentThread->IOTime,currentThread->turnaroundTime,currentThread->finishTime);
