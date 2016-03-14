@@ -390,7 +390,7 @@ int main (int argc, char * argv[]){
 	avTurnTime = (avTurnTime/numThreads);
 	CPUUsage = ((1-(accumulatedOverhead/tick)) * 100);
 	printf("\nSimulation results:");
-	printf("\nTotal Time required: %d",tick;
+	printf("\nTotal Time required: %d",tick);
 	printf("\nAverage turnaround time: %d",avTurnTime);
 	printf("\nCPU utilization: %f \%\n",CPUUsage);
 
