@@ -38,6 +38,8 @@ Thread * createThread(char * input, int processNum){
 
     newThread = malloc(sizeof(Thread));
 
+	newThread->serviceTime = 0;
+	newThread->IOTime = 0;
 	tempString = strtok(input, " ");
 	newThread->threadNum = atoi(tempString);
 	tempString = strtok(NULL, " ");
@@ -50,6 +52,8 @@ Thread * createThread(char * input, int processNum){
 		tempBurst = createBurst(input,processNum);
 		tempBurst->threadNum = newThread->threadNum;
 		tempBurst->readyTime = newThread->arrivalTime;
+		newThread->serviceTime = (newThread->serviceTime + tempBurst->CPUTime);
+		newThread->IOTime = (newThread->IOTime + tempBurst->IOTime);
 	}
 	newThread->nextBurst = tempBurst;
 	for(i = 0;i < (newThread->numBursts - 1);i++){
@@ -57,6 +61,8 @@ Thread * createThread(char * input, int processNum){
 			tempBurst->nextBurst = createBurst(input,processNum);
 			tempBurst = tempBurst->nextBurst;
 			tempBurst->threadNum = newThread->threadNum;
+			newThread->serviceTime = (newThread->serviceTime + tempBurst->CPUTime);
+			newThread->IOTime = (newThread->IOTime + tempBurst->IOTime);
 		}
 	}
 	tempBurst->nextBurst = NULL;

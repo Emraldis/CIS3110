@@ -40,6 +40,7 @@ int main (int argc, char * argv[]){
 	Thread * waitingQ;
 	Burst * tempBurst;
 	Thread * tempThread;
+	Thread * finished;
 
     input = malloc(sizeof(char)*256);
 	readyQ = NULL;
@@ -50,8 +51,8 @@ int main (int argc, char * argv[]){
 	Creating the Lists:
 	***************************************************************************************************************************************/
 	
-    //fileName = argv[1];
-    //inputFile = fopen(fileName,"r");
+	
+	
 	if(gets(input) != NULL){
         tempString = strtok(input, " ");
         if(tempString != NULL){
@@ -158,47 +159,6 @@ int main (int argc, char * argv[]){
 		printf("\nFinished ReadyQ\n\n");
 	}
 	currentProcess = ProcessList;
-	/*
-	printf("\n TESTS:");
-	
-	
-	if(debug == 3){
-        printf("\nNumber of Processes: %d\n Overhead between Threads of the same Process: %d\nOverhead between Threads of different Processes: %d\n",processNum,processTrans,threadTrans);
-		i = 1;
-		while(i != 0){
-			printf("\nProcess Number: %d\nNumber of Threads: %d\n",currentProcess->processNum,currentProcess->numThreads);
-			currentThread = currentProcess->nextThread;
-			k = 1;
-			while(k != 0){
-				printf("\n\tThread Number: %d\n\t Arrival Time: %d \n\tNumber of Bursts: %d\n",currentThread->threadNum,currentThread->arrivalTime,currentThread->numBursts);
-				currentBurst = currentThread->nextBurst;
-				j = 1;
-				while(j != 0){
-					printf("\n\t\tBurst Number: %d\n\t\tCPU Time: %d\n\t\tIO Time: %d\n",currentBurst->burstNum, currentBurst->CPUTime, currentBurst->IOTime);
-					if(currentBurst->nextBurst != NULL){
-						currentBurst = currentBurst->nextBurst;
-					}else{
-						j = 0;
-					}
-					//getchar();
-				}
-				if(currentThread->nextThread != NULL){
-					currentThread = currentThread->nextThread;
-				}else{
-					k = 0;
-				}
-			}
-			if(currentProcess->nextProcess != NULL){
-				currentProcess = currentProcess->nextProcess;
-			}else{
-				i = 0;
-			}
-		}
-	}
-	currentProcess = ProcessList;
-
-	printf("\n FINISHED TESTS\n");
-	*/
 	
 	if(debug == 3){
 		printf("\nBeginning simulation\n***********************************************************************************************************************************\n");
@@ -243,6 +203,8 @@ int main (int argc, char * argv[]){
 					CPU->turnaroundTime = (tick - CPU->arrivalTime);
 					avTurnTime = avTurnTime + CPU->turnaroundTime;
 					numThreads++;
+					CPU->finishTime = tick;
+					finished = addItem(finished,CPU);
 					if(rr == 1){
 						quantumTick = rrq;
 					}
@@ -396,6 +358,14 @@ int main (int argc, char * argv[]){
 	printf("\nTotal Time required: %-8.0f",tick);
 	printf("\nAverage turnaround time: %d",avTurnTime);
 	printf("\nCPU utilization: %f\n",CPUUsage);
+	
+	if(detailed == 1){
+		currentThread = finished;
+		while(currentThread != NULL){
+			printf("\nThread %d of Process %d:\narrival time: %d\nservice time: %d I/O time: %d turnaround time: %d finish time: %d",currentThread->threadNum,currentThread->processNum,currentThread->arrivalTime,currentThread->serviceTime,currentThread->IOTime,currentThread->turnaroundTime,currentThread->finishTime);
+			currentThread = currentThread->nextThread;
+			}
+	}
 
     return(0);
 }
