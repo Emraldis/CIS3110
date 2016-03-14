@@ -16,7 +16,7 @@ int main (int argc, char * argv[]){
     int i;
     int j;
     int k;
-	int tick;
+	float tick;
 	int debug = 0;
 	int complete = 0;
 	int overhead = 0;
