@@ -5,12 +5,10 @@
 
 int main (int argc, char * argv[]){
 
-    char * fileName;
     int processTrans;
     int threadTrans;
     char * input;
     int processNum;
-    int threadNum;
     char * tempString;
     int i;
     int j;
@@ -29,7 +27,6 @@ int main (int argc, char * argv[]){
 	int avTurnTime = 0;
 	float accumulatedOverhead = 0;
 	float CPUUsage;
-    //FILE * inputFile;
     Thread * readyQ;
     Process * currentProcess;
     Process * ProcessList;
@@ -37,7 +34,6 @@ int main (int argc, char * argv[]){
 	Burst * currentBurst;
 	Thread * CPU;
 	Thread * waitingQ;
-	Burst * tempBurst;
 	Thread * tempThread;
 	Thread * finished;
 
@@ -250,7 +246,7 @@ int main (int argc, char * argv[]){
 			currentThread = waitingQ;
 			while(currentThread != NULL){
 				if(currentThread->nextThread != NULL){
-					if(/*(*/currentThread->nextThread->waitTime == 0/*) && (currentThread != waitingQ)*/){
+					if(currentThread->nextThread->waitTime == 0){
 						if(verbose == 1){
 							if(currentThread->nextBurst->burstNum == 1){
 								printf("\nAt Time %-.0f Thread %d of Process %d moves from New to Ready",tick,currentThread->threadNum,currentThread->processNum);
@@ -365,7 +361,12 @@ int main (int argc, char * argv[]){
 	avTurnTime = (avTurnTime/numThreads);
 	printf("\nAccumulated Ovehead: %-.0f",accumulatedOverhead);
 	CPUUsage = ((1-(accumulatedOverhead/tick)) * 100);
-	printf("\nSimulation results:");
+	if(rr == 0){
+		printf("\nFCFS Scheduling");
+	}else{
+		printF("\nRound Robin Scheduling with Time Quantum %d",rrq);
+	}
+	printf(" Simulation results:");
 	printf("\nTotal Time required: %-.0f",tick);
 	printf("\nAverage turnaround time: %d",avTurnTime);
 	printf("\nCPU utilization: %f\n",CPUUsage);
