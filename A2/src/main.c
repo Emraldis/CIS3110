@@ -386,6 +386,7 @@ int main (int argc, char * argv[]){
 		printf("\nSimulation ended after %-8.0f Ticks\n",tick);
 	}
 	avTurnTime = (avTurnTime/numThreads);
+	printf("\nAccumulated Ovehead: %-8.0f",accumulatedOverhead);
 	CPUUsage = ((1-(accumulatedOverhead/tick)) * 100);
 	printf("\nSimulation results:");
 	printf("\nTotal Time required: %-8.0f",tick);
