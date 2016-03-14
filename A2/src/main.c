@@ -377,7 +377,7 @@ int main (int argc, char * argv[]){
 		}
 		event = 0;
 		if(rr == 1){
-			quantumtick = (tick - 1);
+			quantumTick--;
 		}
 		tick = (tick + 1);
 	}
