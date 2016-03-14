@@ -25,7 +25,7 @@ int main (int argc, char * argv[]){
 	int rr = 1;
 	int rrq = 50;
 	int quantumTick;
-    FILE * inputFile;
+    //FILE * inputFile;
     Thread * readyQ;
     Process * currentProcess;
     Process * ProcessList;
@@ -45,14 +45,14 @@ int main (int argc, char * argv[]){
 	Creating the Lists:
 	***************************************************************************************************************************************/
 	
-    fileName = argv[1];
+    //fileName = argv[1];
 	if (argv[2] != NULL){
 		debug = atoi(argv[2]);
 	}
 	if (debug == 2){
 		printf("\nDataFile: %s",fileName);
 	}
-    inputFile = fopen(fileName,"r");
+    //inputFile = fopen(fileName,"r");
 	if(gets(input) != NULL){
         tempString = strtok(input, " ");
         if(tempString != NULL){
@@ -67,13 +67,13 @@ int main (int argc, char * argv[]){
             threadTrans = atoi(tempString);
         }
 		if(gets(input)){
-			ProcessList = createProcess(input,inputFile);
+			ProcessList = createProcess(input);
 			currentProcess = ProcessList;
 		}
         for(i=0;i<(processNum - 1);i++){
         	printf("\n");
             if(gets(input) != NULL){
-                currentProcess->nextProcess = createProcess(input,inputFile);
+                currentProcess->nextProcess = createProcess(input);
 				currentProcess = currentProcess->nextProcess;
             }
         }
