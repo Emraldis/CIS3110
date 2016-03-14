@@ -68,7 +68,7 @@ Thread * copyThread(Thread * item){
 	copy->nextThread = item->nextThread;
 	copy->nextBurst = item->nextBurst;
 	copy->waitTime = item->waitTime;
-	copy->turnaroundTime = iten->turnaroundTime;
+	copy->turnaroundTime = item->turnaroundTime;
 	copy->serviceTime = item->serviceTime;
 	copy->IOTime = item->IOTime;
 	copy->finishTime = item->finishTime;
