@@ -22,9 +22,9 @@ int main (int argc, char * argv[]){
 	int overhead = 0;
 	int event =0;
 	int verbose = 0;
-	int detailed = 1;
-	int rr = 1;
-	int rrq = 50;
+	int detailed = 0;
+	int rr = 0;
+	int rrq = 1;
 	int quantumTick;
 	int numThreads = 0;
 	int avTurnTime = 0;
@@ -52,7 +52,18 @@ int main (int argc, char * argv[]){
 	Creating the Lists:
 	***************************************************************************************************************************************/
 	
-	
+	for(i=0;i<argc;i++){
+		if(strcmp("-d",argv[i]) == 0){
+			detailed = 1;
+		}else if(strcmp("-r",argv[i] == 0){
+			rr = 1;
+		}else if(strcmp("-v",argv[i] == 0){
+			verbose = 1;
+		}
+		if((rr == 1) && (atoi(argv[i]) != 0){
+			rrq = atoi(argv[i]);
+		}
+	}
 	
 	if(gets(input) != NULL){
         tempString = strtok(input, " ");
