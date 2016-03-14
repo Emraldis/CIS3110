@@ -383,13 +383,14 @@ int main (int argc, char * argv[]){
 		}
 		tick++;
 	}
+	tick--;
 	if(verbose == 1){
-		printf("\nSimulation ended after %d Ticks\n",(tick - 1));
+		printf("\nSimulation ended after %d Ticks\n",tick);
 	}
 	avTurnTime = (avTurnTime/numThreads);
-	CPUUsage = ((1-(accumulatedOverhead/(tick - 1))) * 100)
+	CPUUsage = ((1-(accumulatedOverhead/tick)) * 100);
 	printf("\nSimulation results:");
-	printf("\nTotal Time required: %d",(tick - 1));
+	printf("\nTotal Time required: %d",tick;
 	printf("\nAverage turnaround time: %d",avTurnTime);
 	printf("\nCPU utilization: %f \%\n",CPUUsage);
 
