@@ -277,8 +277,10 @@ int main (int argc, char * argv[]){
 				if(readyQ != NULL){
 					if(CPU->processNum == readyQ->processNum){
 						overhead = processTrans;
+						accumulatedOverhead = (accumulatedOverhead + overhead);
 					}else{
 						overhead = threadTrans;
+						accumulatedOverhead = (accumulatedOverhead + overhead);
 					}
 				}
 				if(CPU->nextBurst != NULL){
@@ -305,8 +307,10 @@ int main (int argc, char * argv[]){
 						if(readyQ != NULL){
 							if(CPU->processNum == readyQ->processNum){
 								overhead = processTrans;
+								accumulatedOverhead = (accumulatedOverhead + overhead);
 							}else{
 								overhead = threadTrans;
+								accumulatedOverhead = (accumulatedOverhead + overhead);
 							}
 						}
 						CPU->nextBurst->remainingTime++;
@@ -365,7 +369,6 @@ int main (int argc, char * argv[]){
 			}
 			printf("\ntick: %-8.0f",tick);
 		}
-		accumulatedOverhead = (accumulatedOverhead + overhead);
 		if(overhead != 0){
 			overhead--;
 		}
