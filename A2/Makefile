@@ -17,7 +17,7 @@ process:
 processh:
 	nano -T4 -i include/process.h
 run:
-	./bin/A2 input.txt 0
+	./bin/A2 0 < input.txt
 run2:
 	./bin/A2 input2.txt 0
 input:
