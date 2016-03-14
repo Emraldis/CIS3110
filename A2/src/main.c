@@ -364,7 +364,7 @@ int main (int argc, char * argv[]){
 	if(rr == 0){
 		printf("\nFCFS Scheduling");
 	}else{
-		printF("\nRound Robin Scheduling with Time Quantum %d",rrq);
+		printf("\nRound Robin Scheduling with Time Quantum %d",rrq);
 	}
 	printf(" Simulation results:");
 	printf("\nTotal Time required: %-.0f",tick);
