@@ -21,8 +21,9 @@ int main (int argc, char * argv[]){
 	int complete = 0;
 	int overhead = 0;
 	int event =0;
-	int verbose = 1;
-	int rr = 0;
+	int verbose = 0;
+	int detailed = 1;
+	int rr = 1;
 	int rrq = 50;
 	int quantumTick;
 	int numThreads = 0;
