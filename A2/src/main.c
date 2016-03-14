@@ -22,7 +22,7 @@ int main (int argc, char * argv[]){
 	int overhead = 0;
 	int event =0;
 	int verbose = 1;
-	int rr = 1;
+	int rr = 0;
 	int rrq = 50;
 	int quantumTick;
     //FILE * inputFile;
