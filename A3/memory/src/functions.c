@@ -14,43 +14,43 @@ Process * lineParse(char * input){
 	
 	tempString = strtok(input," ");
 	
-	printf("\nParsed first chunk, tempString = %s\n", tempString);
-	getchar();
+	/*printf("\nParsed first chunk, tempString = %s\n", tempString);
+	getchar();*/
 	
 	if (tempString != NULL){
 		newProcess->label = tempString;
-		printf("\nValue Stored: %s\n", newProcess->label);
-		getchar();
+		/*printf("\nValue Stored: %s\n", newProcess->label);
+		getchar();*/
 	}
 	
 	tempString = strtok(NULL,"\0");
-	printf("\nParsed second chunk, tempString = %s\n", tempString);
-	getchar();
+	/*printf("\nParsed second chunk, tempString = %s\n", tempString);
+	getchar();*/
 	if (tempString != NULL){
 		newProcess->memoryReq = atoi(tempString);
-		printf("\nValue Stored: %d\n", newProcess->memoryReq);
-		getchar();
+		/*printf("\nValue Stored: %d\n", newProcess->memoryReq);
+		getchar();*/
 	}
-	printf("\nFinished!\n");
-	getchar();
+	/*printf("\nFinished!\n");
+	getchar();*/
 	
 	return(newProcess);
 }
 
 Disk * addToBack(Disk * diskList, Process * prcIn){
-	printf("\nAdding to disk\n");
-	getchar();
+	/*printf("\nAdding to disk\n");
+	getchar();*/
 	if(diskList->prcList != NULL){
-		printf("\nDisk is not empty\n");
-		getchar();
+		/*printf("\nDisk is not empty\n");
+		getchar();*/
 		diskList->last->next = prcIn;
 		diskList->last = prcIn;
 	}else if(diskList->prcList == NULL){
-		printf("\nDisk was empty\n");
-		getchar();
+		/*printf("\nDisk was empty\n");
+		getchar();*/
 		if(prcIn != NULL){
-			printf("\nProcess was not NULL");
-			getchar();
+			/*printf("\nProcess was not NULL");
+			getchar();*/
 			diskList->prcList = prcIn;
 			diskList->last = diskList->prcList;
 		}else{
@@ -58,8 +58,8 @@ Disk * addToBack(Disk * diskList, Process * prcIn){
 			getchar();
 		}
 	}
-	printf("\nFinished!\n");
-	getchar();
+	/*printf("\nFinished!\n");
+	getchar();*/
 	return(diskList);
 }
 
@@ -78,8 +78,10 @@ Memory * firstFit(Process * prcIn, Memory * memoryList){
 		for(i=j;i< prcIn->memoryReq;i++){
 			memoryList->memoryArr[i] = (copyProcess(prcIn));
 		}
-	}
 	return(memoryList);
+	}else{
+		return(NULL);
+	}
 }
 
 Process * copyProcess(Process * prcIn){
