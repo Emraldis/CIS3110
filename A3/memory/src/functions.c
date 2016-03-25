@@ -16,20 +16,33 @@ Process * lineParse(char * input){
 	}
 	
 	tempString = strtok(NULL," ");
+	if (tempString != NULL){
+		newProcess->memoryReq = atoi(tempString);
+	}
 	
 	return(newProcess);
 }
 
 Disk * addToBack(Disk * diskList, Process * prcIn){
-	Process * currentProcess;
 	
-	currentProcess = diskList->last;
+	diskList->last->next = prcIn;
+	diskList->last = prcIn;
 	
 	return(diskList);
 }
 
 Memory * addToMem(char * label, Process * prcIn, Memory * memoryList){
+	int i;
+	int j;
 	
+	j=0;
+	while(memoryList->memoryArr[i]) != NULL)
+		j++;
+	}
+	if(memoryList->totalSize - j >= prcIn->memoryReq){
+		for(i=j;i< prcIn->memoryReq;i++){
+			memoryList->memoryArr[i] = (copyProcess(prcIn));
+		}
 	return(memoryList);
 }
 
