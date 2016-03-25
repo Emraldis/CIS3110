@@ -46,7 +46,7 @@ int main (int argc, char * argv[]) {
 		
 		switch(allocationMode){
 			case 0:
-			while((disk->prcList != NULL) || (tick <20)){
+			while((disk->prcList != NULL) && (tick <20)){
 				printf("\n@tick: %d",tick);
 				
 				if(fits(memory,currentProcess->memoryReq) >= 0){
