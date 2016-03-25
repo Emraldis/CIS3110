@@ -8,10 +8,10 @@ Process * lineParse(char * input){
 	
 	newProcess = malloc(sizeof(Process));
 	tempString = malloc(sizeof(char) * 256);
-	
+	/*
 	printf("\nStarting parse\n");
 	getchar();
-	
+	*/
 	tempString = strtok(input," ");
 	
 	/*printf("\nParsed first chunk, tempString = %s\n", tempString);
