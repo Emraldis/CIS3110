@@ -12,7 +12,11 @@ Process * lineParse(char * input){
 	
 	
 	if (tempString != NULL){
+		printf("\ntest");
+		getchar();
 		strcpy(newProcess->label,tempString);
+		printf("\nfinished");
+		getchar();
 	}
 	
 	tempString = strtok(NULL,"\0");
