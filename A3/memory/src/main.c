@@ -21,7 +21,7 @@ int main (int argc, char * argv[]) {
 	
 	inputFile = fopen(fileName, "r");
 	
-	disk = NULL;
+	//disk = NULL;
 	disk->prcList = NULL;
 	
 	printf("\nFile opened\n");
