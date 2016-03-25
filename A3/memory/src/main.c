@@ -52,7 +52,11 @@ int main (int argc, char * argv[]) {
 				
 				if(fits(memory,currentProcess->memoryReq) >= 0){
 					printf("\nProcess %s fits!",currentProcess->label);
-					currentProcess = currentProcess->next;
+					if(currentProcess->next != NULL){
+						currentProcess = currentProcess->next;
+					}else{
+						break;
+					}
 				}else{
 					printf("\nProcess %s doesn't fit.",currentProcess->label);					
 				}
