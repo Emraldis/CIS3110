@@ -12,7 +12,7 @@ Process * lineParse(char * input){
 	tempString = strtok(input," ");
 	
 	if (tempString != NULL){
-		newProcess.label = tempString;
+		newProcess->label = tempString;
 	}
 	
 	tempString = strtok(NULL," ");
@@ -29,7 +29,8 @@ Disk * addToBack(Disk * diskList, Process * prcIn){
 		diskList->last->next = prcIn;
 		diskList->last = prcIn;
 	}else{
-		diskList = prcIn;
+		diskList->prcList = prcIn;
+		diskList->last = diskList->prcList;
 	}
 	return(diskList);
 }
@@ -39,9 +40,9 @@ Memory * firstFit(Process * prcIn, Memory * memoryList){
 	int j;
 	
 	j=0;
-	while(memoryList->memoryArr[j]) != NULL)
+	while((memoryList->memoryArr[j]) != NULL){
 		j++;
-		if(j = memoryList->totalSize){
+		if(j == memoryList->totalSize){
 			break;
 		}
 	}
@@ -49,6 +50,7 @@ Memory * firstFit(Process * prcIn, Memory * memoryList){
 		for(i=j;i< prcIn->memoryReq;i++){
 			memoryList->memoryArr[i] = (copyProcess(prcIn));
 		}
+	}
 	return(memoryList);
 }
 
@@ -66,7 +68,7 @@ Process * copyProcess(Process * prcIn){
 
 Disk * removeFromFront(Disk * diskList){
 	
-	diskList = diskList->next;
+	diskList->prcList = diskList->prcList->next;
 	
 	return(diskList);
 }

@@ -3,20 +3,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Process{
+typedef struct ProcessInfo{
 	int memoryReq;
-	struct Process next;
+	struct ProcessInfo * next;
 	char * label;
 	int cycle;
 	int age;
-}prc;
-typedef struct Memory{
+}Process;
+typedef struct MemoryInfo{
 	int totalSize;
 	int blockSize;
-	struct Process ** memoryArr;
-}mem;
-typedef struct Disk{
-	struct Process * prcList;
-	struct Process * last;
-}dsk;
+	struct ProcessInfo ** memoryArr;
+}Memory;
+typedef struct DiskInfo{
+	struct ProcessInfo * prcList;
+	struct ProcessInfo * last;
+}Disk;
 #endif
