@@ -35,7 +35,7 @@ int main (int argc, char * argv[]) {
 			/*printf("\nParsed a line\n");
 			getchar();*/
 		}
-		fclose();
+		fclose(inputFile);
 		currentProcess = disk->prcList;
 		while(currentProcess != NULL){
 			printf("\nName: %s\nSize: %d\n",currentProcess->label,currentProcess->memoryReq);
