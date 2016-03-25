@@ -24,6 +24,8 @@ int main (int argc, char * argv[]) {
 	getchar();
 	
 	while(fgets(input,256,inputFile) != NULL){
+		printf("\nGoing to parse a line\n");
+		getchar();
 		disk = addToBack(disk,lineParse(input));
 		printf("\nParsed a line\n");
 		getchar();
