@@ -17,10 +17,10 @@ int main (int argc, char * argv[]) {
 	tempProcess = malloc(sizeof(Process));
 	
 	fileName = argv[1];
-	memory->totalSize = 128;
 	
 	for(allocationMode=0;allocationMode<4;allocationMode++){	
 		memory = malloc(sizeof(memory));
+		memory->totalSize = 128;
 		disk = malloc(sizeof(disk));
 		input = malloc(sizeof(char) * 256);
 		memory->memoryArr = malloc(sizeof(Process *) * memory->totalSize);
