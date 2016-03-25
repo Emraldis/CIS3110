@@ -38,14 +38,21 @@ Process * lineParse(char * input){
 }
 
 Disk * addToBack(Disk * diskList, Process * prcIn){
-	
+	printf("\nAdding to disk\n");
+	getchar();
 	if(diskList != NULL){
+		printf("\nDisk is not empty\n");
+		getchar();
 		diskList->last->next = prcIn;
 		diskList->last = prcIn;
 	}else{
 		diskList->prcList = prcIn;
+		printf("\nDisk was empty\n");
+		getchar();
 		diskList->last = diskList->prcList;
 	}
+	printf("\nFinished!\n");
+	getchar();
 	return(diskList);
 }
 
