@@ -9,3 +9,4 @@ Memory * bestFit();
 Memory * worstFit();
 Process * copyProcess(Process * prcIn);
 Disk * removeFromFront(Disk * diskList);
+int * fits(Memory * memoryList, int size);

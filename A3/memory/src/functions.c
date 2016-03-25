@@ -81,3 +81,21 @@ Disk * removeFromFront(Disk * diskList){
 	
 	return(diskList);
 }
+int * fits(Memory * memoryList, int size){
+	int  i;
+	int j;
+	
+	j=0;
+	for(i=0; i < memoryList->totalSize;i++){
+		if(memoryList->memoryArr[i] == NULL){
+			j++;
+			if(j == size){
+				return(1);
+			}
+		}else{
+			j=0;
+		}
+	}
+	return(0);
+	
+}

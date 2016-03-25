@@ -17,7 +17,7 @@ int main (int argc, char * argv[]) {
 	
 	fileName = argv[1];
 	
-	for(allocationMode=0;allocationMode<1;allocationMode++){	
+	for(allocationMode=0;allocationMode<4;allocationMode++){	
 		memory = malloc(sizeof(memory));
 		disk = malloc(sizeof(disk));
 		input = malloc(sizeof(char) * 256);
@@ -38,8 +38,19 @@ int main (int argc, char * argv[]) {
 		while(currentProcess != NULL){
 			printf("\nName: %s\nSize: %d\n",currentProcess->label,currentProcess->memoryReq);
 			currentProcess = currentProcess->next;
-			//getchar();
 		}
+		
+		switch(allocationMode){
+			case 0:
+				break;
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+		}
+		
 		printf("\n______________________________________________________________________________________________________________\n");
 		
 		free(memory->memoryArr);
