@@ -25,13 +25,16 @@ Process * lineParse(char * input){
 
 Disk * addToBack(Disk * diskList, Process * prcIn){
 	
-	diskList->last->next = prcIn;
-	diskList->last = prcIn;
-	
+	if(diskList != NULL){
+		diskList->last->next = prcIn;
+		diskList->last = prcIn;
+	}else{
+		diskList = prcIn;
+	}
 	return(diskList);
 }
 
-Memory * addToMem(char * label, Process * prcIn, Memory * memoryList){
+Memory * firstFit(Process * prcIn, Memory * memoryList){
 	int i;
 	int j;
 	
@@ -59,4 +62,11 @@ Process * copyProcess(Process * prcIn){
 	copy->next = NULL;
 	
 	return(copy);
+}
+
+Disk * removeFromFront(Disk * diskList){
+	
+	diskList = diskList->next;
+	
+	return(diskList);
 }

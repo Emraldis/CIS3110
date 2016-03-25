@@ -7,6 +7,8 @@ typedef struct Process{
 	int memoryReq;
 	struct Process next;
 	char * label;
+	int cycle;
+	int age;
 }prc;
 typedef struct Memory{
 	int totalSize;
