@@ -12,6 +12,7 @@ int main (int argc, char * argv[]) {
 	char * fileName;
 	int allocationMode;
 	Process * tempProcess;
+	int tick;
 
 	tempProcess = malloc(sizeof(Process));
 	
@@ -40,8 +41,20 @@ int main (int argc, char * argv[]) {
 			currentProcess = currentProcess->next;
 		}
 		
+		tick = 0;
+		currentProcess = disk->prcList;
+		
 		switch(allocationMode){
 			case 0:
+			while((disk->prcList != NULL) || (tick <20)){
+				printf("\n@tick: %d",tick);
+				
+				if(fits(memory,currentProcess->memoryReq) >= 0){
+					printf("\nProcess %s fits!",currentProcess->label);
+				}
+				
+				tick++;
+			}
 				break;
 			case 1:
 				break;
