@@ -14,13 +14,15 @@ int main (int argc, char * argv[]) {
 	memory = malloc(sizeof(memory));
 	disk = malloc(sizeof(disk));
 	input = malloc(sizeof(char) * 256);
-	memory->memoryArr = malloc(sizeof(Process) * 128);
+	memory->memoryArr = malloc(sizeof(Process *) * 128);
+	disk->prcList = malloc(sizeof(Process));
 	
 	fileName = argv[1];
 	
 	inputFile = fopen(fileName, "r");
 	
 	disk = NULL;
+	disk->prcList =
 	
 	printf("\nFile opened\n");
 	getchar();
