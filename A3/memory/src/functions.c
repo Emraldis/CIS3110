@@ -24,7 +24,7 @@ Process * lineParse(char * input){
 	}
 	
 	tempString = strtok(NULL,"\0");
-	printf("\nParsed first chunk, tempString = %s\n", tempString);
+	printf("\nParsed second chunk, tempString = %s\n", tempString);
 	getchar();
 	if (tempString != NULL){
 		newProcess->memoryReq = atoi(tempString);
@@ -45,7 +45,7 @@ Disk * addToBack(Disk * diskList, Process * prcIn){
 		getchar();
 		diskList->last->next = prcIn;
 		diskList->last = prcIn;
-	}else if(diskList = NULL){
+	}else if(diskList == NULL){
 		diskList->prcList = prcIn;
 		printf("\nDisk was empty\n");
 		getchar();
