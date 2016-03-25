@@ -19,8 +19,8 @@ Process * lineParse(char * input){
 	
 	if (tempString != NULL){
 		newProcess->label = tempString;
-		printf("\nValue Stored: %s\n", newProcess->label);
-		/*getchar();*/
+		//printf("\nValue Stored: %s\n", newProcess->label);
+		//getchar();
 	}
 	
 	tempString = strtok(NULL,"\0");

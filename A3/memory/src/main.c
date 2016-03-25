@@ -32,6 +32,12 @@ int main (int argc, char * argv[]) {
 			/*printf("\nGoing to parse a line\n");
 			getchar();*/
 			disk = addToBack(disk,lineParse(input));
+			currentProcess = disk->prcList;
+			while(currentProcess != NULL){
+				printf("\nName: %s\nSize: %d\n",currentProcess->label,currentProcess->memoryReq);
+				currentProcess = currentProcess->next;
+				//getchar();
+			}
 			/*printf("\nParsed a line\n");
 			getchar();*/
 		}
