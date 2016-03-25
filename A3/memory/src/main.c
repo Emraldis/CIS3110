@@ -31,9 +31,7 @@ int main (int argc, char * argv[]) {
 		
 		while(fgets(input,256,inputFile) != NULL){
 			tempProcess = lineParse(input);
-			printf("\n test: %s",tempProcess->label);
 			disk = addToBack(disk,copyProcess(tempProcess));
-			printf("\nFirst Process Label: %s, First Process Size: %d\n",disk->prcList->label,disk->prcList->memoryReq);
 		}
 		fclose(inputFile);
 		currentProcess = disk->prcList;
