@@ -12,7 +12,7 @@ Process * lineParse(char * input){
 	
 	
 	if (tempString != NULL){
-		newProcess->label = tempString;
+		strcpy(newProcess->label,tempString);
 	}
 	
 	tempString = strtok(NULL,"\0");
