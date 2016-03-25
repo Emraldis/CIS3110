@@ -11,7 +11,9 @@ int main (int argc, char * argv[]) {
 	FILE * inputFile;
 	char * fileName;
 	int allocationMode;
+	Process * tempProcess;
 
+	tempProcess = malloc(sizeof(Process));
 	
 	fileName = argv[1];
 	
@@ -32,7 +34,8 @@ int main (int argc, char * argv[]) {
 		while(fgets(input,256,inputFile) != NULL){
 			/*printf("\nGoing to parse a line\n");
 			getchar();*/
-			disk = addToBack(disk,copyProcess(lineParse(input)));
+			tempProcess = lineParse(input);
+			disk = addToBack(tempProcess->label,disk,copyProcess(tempProcess)));
 			printf("\nFirst Process Label: %s, First Process Size: %d\n",disk->prcList->label,disk->prcList->memoryReq);
 			/*printf("\nParsed a line\n");
 			getchar();*/

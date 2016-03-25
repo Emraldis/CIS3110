@@ -37,7 +37,7 @@ Process * lineParse(char * input){
 	return(newProcess);
 }
 
-Disk * addToBack(Disk * diskList, Process * prcIn){
+Disk * addToBack(char * label, Disk * diskList, Process * prcIn){
 	/*printf("\nAdding to disk\n");
 	getchar();*/
 	if(diskList->prcList != NULL){
@@ -45,11 +45,12 @@ Disk * addToBack(Disk * diskList, Process * prcIn){
 		/*getchar();*/
 		diskList->last->next = prcIn;
 		diskList->last = diskList->last->next;
+		disk->last->label = label;
 	}else if(diskList->prcList == NULL){
 		printf("\nDisk was empty\n");
 		/*getchar();*/
 		if(prcIn != NULL){
-			printf("\nProcess was not NULL");
+			//printf("\nProcess was not NULL");
 			/*getchar();*/
 			diskList->prcList = prcIn;
 			diskList->last = diskList->prcList;
