@@ -31,7 +31,8 @@ int main (int argc, char * argv[]) {
 		while(fgets(input,256,inputFile) != NULL){
 			/*printf("\nGoing to parse a line\n");
 			getchar();*/
-			disk = addToBack(disk,lineParse(input));
+			disk = addToBack(disk,copyProcess(lineParse(input)));
+			printf("\nFirst Process Label: %s\n",disk->prcList->label);
 			/*printf("\nParsed a line\n");
 			getchar();*/
 		}

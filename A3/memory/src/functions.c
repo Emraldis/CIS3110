@@ -43,8 +43,8 @@ Disk * addToBack(Disk * diskList, Process * prcIn){
 	if(diskList->prcList != NULL){
 		/*printf("\nDisk is not empty\n");
 		getchar();*/
-		printf("\nFirst Process Label: %s\n",diskList->prcList->label);
-		diskList->last->next = copyProcess(prcIn);
+		//printf("\nFirst Process Label: %s\n",diskList->prcList->label);
+		diskList->last->next = prcIn;
 		diskList->last = diskList->last->next;
 	}else if(diskList->prcList == NULL){
 		/*printf("\nDisk was empty\n");
@@ -52,7 +52,7 @@ Disk * addToBack(Disk * diskList, Process * prcIn){
 		if(prcIn != NULL){
 			/*printf("\nProcess was not NULL");
 			getchar();*/
-			diskList->prcList = copyProcess(prcIn);
+			diskList->prcList = prcIn;
 			diskList->last = diskList->prcList;
 		}else{
 			printf("\nProcess was NULL");
