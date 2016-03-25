@@ -8,41 +8,24 @@ Process * lineParse(char * input){
 	
 	newProcess = malloc(sizeof(Process));
 	tempString = malloc(sizeof(char) * 256);
-	/*
-	printf("\nStarting parse\n");
-	getchar();
-	*/
 	tempString = strtok(input," ");
 	
-	/*printf("\nParsed first chunk, tempString = %s\n", tempString);
-	getchar();*/
 	
 	if (tempString != NULL){
 		newProcess->label = tempString;
-		//printf("\nValue Stored: %s\n", newProcess->label);
-		//getchar();
 	}
 	
 	tempString = strtok(NULL,"\0");
-	/*printf("\nParsed second chunk, tempString = %s\n", tempString);
-	getchar();*/
 	if (tempString != NULL){
 		newProcess->memoryReq = atoi(tempString);
-		/*printf("\nValue Stored: %d\n", newProcess->memoryReq);
-		getchar();*/
 	}
-	/*printf("\nFinished!\n");
-	getchar();*/
 	
 	return(newProcess);
 }
 
 Disk * addToBack(char * label, Disk * diskList, Process * prcIn){
-	/*printf("\nAdding to disk\n");
-	getchar();*/
 	if(diskList->prcList != NULL){
 		printf("\nDisk is not empty\n");
-		/*getchar();*/
 		printf("\nTesting Label: %s\n",diskList->prcList->label);
 		getchar();
 		diskList->last->next = prcIn;
@@ -50,10 +33,7 @@ Disk * addToBack(char * label, Disk * diskList, Process * prcIn){
 		diskList->last->label = label;
 	}else if(diskList->prcList == NULL){
 		printf("\nDisk was empty\n");
-		/*getchar();*/
 		if(prcIn != NULL){
-			//printf("\nProcess was not NULL");
-			/*getchar();*/
 			diskList->prcList = prcIn;
 			diskList->last = diskList->prcList;
 		}else{
@@ -61,8 +41,6 @@ Disk * addToBack(char * label, Disk * diskList, Process * prcIn){
 			getchar();
 		}
 	}
-	/*printf("\nFinished!\n");
-	getchar();*/
 	return(diskList);
 }
 
