@@ -90,12 +90,12 @@ int fits(Memory * memoryList, int size){
 		if(memoryList->memoryArr[i] == NULL){
 			j++;
 			if(j == size){
-				return(1);
+				return(i);
 			}
 		}else{
 			j=0;
 		}
 	}
-	return(0);
+	return(-1);
 	
 }
