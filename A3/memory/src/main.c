@@ -2,20 +2,25 @@
 #include "structures.h"
 #include "functions.h"
 
-int main (void) {
+int main (int argc, char * argv[]) {
 	
 	Memory * memory;
 	Disk * disk;
 	char * input;
 	Process * currentProcess;
+	FILE * inputFile;
+	char * fileName;
 	
 	memory = malloc(sizeof(memory));
 	disk = malloc(sizeof(disk));
 	input = malloc(sizeof(char) * 256);
-	
 	memory->memoryArr = malloc(sizeof(Process) * 128);
 	
-	while(gets(input) != NULL){
+	fileName = argv[1];
+	
+	inputFile = fopen(fileName, "r");
+	
+	while(fgets(input,256,inputFile) != NULL){
 		disk = addToBack(disk,lineParse(input));
 	}
 	currentProcess = disk->prcList;
