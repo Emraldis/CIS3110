@@ -22,7 +22,7 @@ int main (int argc, char * argv[]) {
 	inputFile = fopen(fileName, "r");
 	
 	disk = NULL;
-	disk->prcList =
+	disk->prcList = NULL;
 	
 	printf("\nFile opened\n");
 	getchar();
