@@ -12,7 +12,7 @@ Process * lineParse(char * input){
 	tempString = strtok(input," ");
 	
 	if (tempString != NULL){
-		newProcess->label = tempString;
+		newProcess.label = tempString;
 	}
 	
 	tempString = strtok(NULL," ");
