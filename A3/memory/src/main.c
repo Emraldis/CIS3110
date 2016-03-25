@@ -42,7 +42,7 @@ int main (int argc, char * argv[]) {
 			currentProcess = currentProcess->next;
 			//getchar();
 		}
-		
+		printf("\n______________________________________________________________________________________________________________\n");
 		
 	}
 	return(0);

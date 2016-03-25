@@ -92,6 +92,8 @@ Process * copyProcess(Process * prcIn){
 	copy->memoryReq = prcIn->memoryReq;
 	copy->label = prcIn->label;
 	copy->next = NULL;
+	copy->cycle = prcIn->cycle;
+	copy->age = prcIn->age;
 	
 	return(copy);
 }
