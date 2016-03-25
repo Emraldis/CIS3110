@@ -46,8 +46,8 @@ Disk * addToBack(Disk * diskList, Process * prcIn){
 		diskList->last->next = prcIn;
 		diskList->last = diskList->last->next;
 	}else if(diskList->prcList == NULL){
-		/*printf("\nDisk was empty\n");
-		getchar();*/
+		printf("\nDisk was empty\n");
+		/*getchar();*/
 		if(prcIn != NULL){
 			printf("\nProcess was not NULL");
 			/*getchar();*/
