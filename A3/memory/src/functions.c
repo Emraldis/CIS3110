@@ -9,6 +9,7 @@ Process * lineParse(char * input){
 	newProcess = malloc(sizeof(Process));
 	tempString = malloc(sizeof(char) * 256);
 	tempString = strtok(input," ");
+	newProcess->label = malloc(sizeof(char) * 256);
 	
 	
 	if (tempString != NULL){
