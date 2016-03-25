@@ -51,6 +51,8 @@ int main (int argc, char * argv[]) {
 				
 				if(fits(memory,currentProcess->memoryReq) >= 0){
 					printf("\nProcess %s fits!",currentProcess->label);
+				}else{
+					printf("\nProcess %s doesn't fit.",currentProcess->label);					
 				}
 				
 				tick++;
