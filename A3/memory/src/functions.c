@@ -36,8 +36,11 @@ Memory * addToMem(char * label, Process * prcIn, Memory * memoryList){
 	int j;
 	
 	j=0;
-	while(memoryList->memoryArr[i]) != NULL)
+	while(memoryList->memoryArr[j]) != NULL)
 		j++;
+		if(j = memoryList->totalSize){
+			break;
+		}
 	}
 	if(memoryList->totalSize - j >= prcIn->memoryReq){
 		for(i=j;i< prcIn->memoryReq;i++){
