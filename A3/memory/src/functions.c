@@ -15,7 +15,7 @@ Process * lineParse(char * input){
 		newProcess->label = tempString;
 	}
 	
-	tempString = strtok(
+	tempString = strtok(NULL," ");
 	
 	return(newProcess);
 }
