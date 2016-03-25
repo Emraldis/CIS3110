@@ -11,16 +11,17 @@ int main (int argc, char * argv[]) {
 	FILE * inputFile;
 	char * fileName;
 	int allocationMode;
-	
-	memory = malloc(sizeof(memory));
-	disk = malloc(sizeof(disk));
-	input = malloc(sizeof(char) * 256);
-	memory->memoryArr = malloc(sizeof(Process *) * 128);
-	disk->prcList = malloc(sizeof(Process));
+
 	
 	fileName = argv[1];
 	
-	for(allocationMode=0;allocationMode<4;allocationMode++){
+	for(allocationMode=0;allocationMode<4;allocationMode++){	
+		memory = malloc(sizeof(memory));
+		disk = malloc(sizeof(disk));
+		input = malloc(sizeof(char) * 256);
+		memory->memoryArr = malloc(sizeof(Process *) * 128);
+		disk->prcList = malloc(sizeof(Process));
+		
 		inputFile = fopen(fileName, "r");
 		
 		disk->prcList = NULL;
@@ -44,6 +45,12 @@ int main (int argc, char * argv[]) {
 			//getchar();
 		}
 		printf("\n______________________________________________________________________________________________________________\n");
+		
+		free(memory->memoryArr);
+		free(disk->prcList);
+		free(input);
+		free(disk);
+		free(memory);
 		
 	}
 	return(0);
