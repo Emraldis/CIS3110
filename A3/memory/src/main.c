@@ -36,7 +36,7 @@ int main (int argc, char * argv[]) {
 			getchar();*/
 			tempProcess = lineParse(input);
 			printf("\n test: %s",tempProcess->label);
-			disk = addToBack(tempProcess->label,disk,copyProcess(tempProcess));
+			disk = addToBack(disk,copyProcess(tempProcess));
 			printf("\nFirst Process Label: %s, First Process Size: %d\n",disk->prcList->label,disk->prcList->memoryReq);
 			/*printf("\nParsed a line\n");
 			getchar();*/

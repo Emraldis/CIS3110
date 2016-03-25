@@ -2,7 +2,7 @@
 #include "structures.h"
 
 Process * lineParse(char * input);	
-Disk * addToBack(char * label, Disk * diskList, Process * prcIn);
+Disk * addToBack(Disk * diskList, Process * prcIn);
 Memory * firstFit(Process * prcIn, Memory * memoryList);
 Memory * nextFit();
 Memory * bestFit();
