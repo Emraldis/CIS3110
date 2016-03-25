@@ -27,7 +27,6 @@ Disk * addToBack(Disk * diskList, Process * prcIn){
 	if(diskList->prcList != NULL){
 		printf("\nDisk is not empty\n");
 		printf("\nTesting Label: %s\n",diskList->prcList->label);
-		getchar();
 		diskList->last->next = prcIn;
 		diskList->last = diskList->last->next;
 	}else if(diskList->prcList == NULL){
