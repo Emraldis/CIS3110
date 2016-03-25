@@ -9,16 +9,30 @@ Process * lineParse(char * input){
 	newProcess = malloc(sizeof(Process));
 	tempString = malloc(sizeof(char) * 256);
 	
+	printf("\nStarting parse\n");
+	getchar();
+	
 	tempString = strtok(input," ");
+	
+	printf("\nParsed first chunk, tempString = %s\n", tempString);
+	getchar();
 	
 	if (tempString != NULL){
 		newProcess->label = tempString;
+		printf("\nValue Stored: %s\n", newProcess->label);
+		getchar();
 	}
 	
-	tempString = strtok(NULL," ");
+	tempString = strtok(NULL,"\0");
+	printf("\nParsed first chunk, tempString = %s\n", tempString);
+	getchar();
 	if (tempString != NULL){
 		newProcess->memoryReq = atoi(tempString);
+		printf("\nValue Stored: %d\n", newProcess->memoryReq);
+		getchar();
 	}
+	printf("\nFinished!\n");
+	getchar();
 	
 	return(newProcess);
 }
