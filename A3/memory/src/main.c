@@ -89,7 +89,7 @@ int main (int argc, char * argv[]) {
 				}
 				tick++;
 			}
-			printf("\nTotal Loads: %d, Average Number of Processes: %-.0f, Average Number of Holes: %-.0f, Average Memory Usage: %-.0f",statInfo->loads,statInfo->avgProcesses,statInfo->avgHoles,statInfo->avgMem);
+			printf("\nTotal Loads: %d, Average Number of Processes: %-.1f, Average Number of Holes: %-.1f, Average Memory Usage: %-.1f",statInfo->loads,statInfo->avgProcesses,statInfo->avgHoles,statInfo->avgMem);
 			statInfo = clearStats(statInfo);
 				break;
 			case 1:
@@ -131,7 +131,7 @@ int main (int argc, char * argv[]) {
 				}
 				tick++;
 			}
-			printf("\nTotal Loads: %d, Average Number of Processes: %-.0f, Average Number of Holes: %-.0f, Average Memory Usage: %-.0f",statInfo->loads,statInfo->avgProcesses,statInfo->avgHoles,statInfo->avgMem);
+			printf("\nTotal Loads: %d, Average Number of Processes: %-.1f, Average Number of Holes: %-.1f, Average Memory Usage: %-.1f",statInfo->loads,statInfo->avgProcesses,statInfo->avgHoles,statInfo->avgMem);
 			statInfo = clearStats(statInfo);
 				break;
 			case 2:
@@ -171,7 +171,7 @@ int main (int argc, char * argv[]) {
 				}
 				tick++;
 			}
-			printf("\nTotal Loads: %d, Average Number of Processes: %-.0f, Average Number of Holes: %-.0f, Average Memory Usage: %-.0f",statInfo->loads,statInfo->avgProcesses,statInfo->avgHoles,statInfo->avgMem);
+			printf("\nTotal Loads: %d, Average Number of Processes: %-.1f, Average Number of Holes: %-.1f, Average Memory Usage: %-.1f",statInfo->loads,statInfo->avgProcesses,statInfo->avgHoles,statInfo->avgMem);
 			statInfo = clearStats(statInfo);
 				break;
 			case 3:
@@ -211,7 +211,7 @@ int main (int argc, char * argv[]) {
 				}
 				tick++;
 			}
-			printf("\nTotal Loads: %d, Average Number of Processes: %-.0f, Average Number of Holes: %-.0f, Average Memory Usage: %-.0f",statInfo->loads,statInfo->avgProcesses,statInfo->avgHoles,statInfo->avgMem);
+			printf("\nTotal Loads: %d, Average Number of Processes: %-.1f, Average Number of Holes: %-.1f, Average Memory Usage: %-.1f",statInfo->loads,statInfo->avgProcesses,statInfo->avgHoles,statInfo->avgMem);
 			statInfo = clearStats(statInfo);
 				break;
 		}
