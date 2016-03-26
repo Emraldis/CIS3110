@@ -54,6 +54,8 @@ int main (int argc, char * argv[]) {
 				printf("\n@tick: %d",tick);
 				getchar();
 				loc = firstFit(memory,currentProcess->memoryReq);
+				printf("test");
+				getchar();
 				if(loc >= 0){
 					printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 					if(currentProcess != NULL){
