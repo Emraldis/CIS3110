@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<pthread.h>
-#include<semamphore.h>
+#include<semaphore.h>
 #include"functions.h"
 
 sem_t semaphr;
