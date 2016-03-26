@@ -134,7 +134,7 @@ int main (int argc, char * argv[]) {
 			while((disk->prcList != NULL) && (tick <200)){
 				//printf("\n@tick: %d",tick);
 				//printf("\nThe next process requires %d Megabytes of space.",currentProcess->memoryReq);
-				getchar();
+				//getchar();
 				loc = bestFit(memory,currentProcess->memoryReq);
 				if(loc >= 0){
 					//printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
@@ -172,7 +172,7 @@ int main (int argc, char * argv[]) {
 			while((disk->prcList != NULL) && (tick <200)){
 				//printf("\n@tick: %d",tick);
 				//printf("\nThe next process requires %d Megabytes of space.",currentProcess->memoryReq);
-				getchar();
+				//getchar();
 				loc = worstFit(memory,currentProcess->memoryReq);
 				if(loc >= 0){
 					//printf("\nProcess %s fits @ %d!",currentProcess->label,loc);

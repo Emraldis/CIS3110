@@ -294,6 +294,7 @@ Stat * collectStats(Memory * memoryList, Stat * statInfo){
 			}
 		}
 	}
+	printf("\nCount was: %d", count);
 	statInfo->numProcesses = countt;
 	statInfo->cumulativeProcesses = (statInfo->cumulativeProcesses + statInfo->numProcesses);
 	statInfo->avgProcesses = (statInfo->cumulativeProcesses / statInfo->loads);
