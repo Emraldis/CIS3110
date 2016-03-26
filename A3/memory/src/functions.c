@@ -83,9 +83,10 @@ int firstFit(Memory * memoryList, int size){
 		while((j < size) && ((j+i) < memoryList->totalSize)){
 			if(memoryList->memoryArr[j+i] == NULL){
 				j++;
+				printf("\nLocation %d is unnocupied",(j+i));
 			}else{
 				printf("\nLocation %d is occupied by %s",(j + i), memoryList->memoryArr[(j+i)]->label);
-				getchar();
+				//getchar();
 				j=0;
 				i++;
 			}
