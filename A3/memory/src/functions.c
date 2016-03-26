@@ -111,7 +111,7 @@ Memory * removeProcess(Memory * memoryList){
 	printf("\nBeginning check for oldest Program");
 	getchar();
 	for(i=0;i < memoryList->totalSize;i++){
-		printf("\nCurrent oldest age: %d", age);
+		printf("\nCurrent oldest age: %d @ array number: %d", age,memoryList->memoryArr[i]->age);
 		getchar();
 		if(memoryList->memoryArr[i]->age < age){
 			printf("\nnNew oldest age was found:");
