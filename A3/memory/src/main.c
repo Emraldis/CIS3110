@@ -71,9 +71,26 @@ int main (int argc, char * argv[]) {
 						//getchar();
 					}
 				}else{
-					printf("\nProcess %s doesn't fit.",currentProcess->label);
-					memory = removeProcess(age,memory);
-					age++;
+					while(!(loc >= 0)){
+						printf("\nProcess %s doesn't fit.",currentProcess->label);
+						memory = removeProcess(age,memory);
+						age++;
+						loc = firstFit(memory,currentProcess->memoryReq);
+						if(loc >= 0){
+							printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
+							if(currentProcess != NULL){
+								memory = insert(currentProcess,memory,loc,tick);
+								age = tick;
+								printf("\nadded to memory");
+								//getchar();
+								disk = removeFromFront(disk);
+								printf("\nremoved front process");
+								//getchar();
+								currentProcess = disk->prcList;
+								printf("\njumped to next process");
+								//getchar();
+						}
+					}
 				}
 				tick++;
 			}
