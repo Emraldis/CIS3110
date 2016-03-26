@@ -258,6 +258,7 @@ Stat * collectStats(Memory * memoryList, Stat * statInfo){
 	int countt;
 	int i;
 	int j;
+	float tempFloat;
 	
 	count = 0;
 	for(i=0;i< memoryList->totalSize; i++){
@@ -295,6 +296,8 @@ Stat * collectStats(Memory * memoryList, Stat * statInfo){
 		}
 	}
 	printf("\nCount was: %d", count);
+	tempFloat = (count/128);
+	printf("\nMemory Usage should be: %f",tempFloat);
 	statInfo->numProcesses = countt;
 	statInfo->cumulativeProcesses = (statInfo->cumulativeProcesses + statInfo->numProcesses);
 	statInfo->avgProcesses = (statInfo->cumulativeProcesses / statInfo->loads);
