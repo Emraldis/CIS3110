@@ -57,6 +57,8 @@ int main (int argc, char * argv[]) {
 					printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 					if(currentProcess != NULL){
 						memory = insert(currentProcess,memory,loc);
+						printf("\nadded to memory");
+						getchar();
 						disk = removeFromFront(disk);
 						currentProcess = disk->prcList;
 					}
