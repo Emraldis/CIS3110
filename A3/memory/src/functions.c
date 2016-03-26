@@ -112,8 +112,6 @@ Memory * removeProcess(Memory * memoryList){
 	getchar();
 	for(i=0;i < memoryList->totalSize;i++){
 		if(memoryList->memoryArr[i] != NULL){
-			printf("\nCurrent oldest age: %d @ array number: %d", age,i);
-			getchar();
 			if(memoryList->memoryArr[i]->age < age){
 				printf("\nnNew oldest age was found:");
 				age = memoryList->memoryArr[i]->age;
@@ -134,6 +132,7 @@ Memory * removeProcess(Memory * memoryList){
 			}
 		}
 	}
+	printf("\nfinished!");
 	
 	return(memoryList);
 }
