@@ -102,7 +102,7 @@ int firstFit(Memory * memoryList, int size){
 	}
 	return(-1);
 }
-Memory * remove(int age, Memory * memoryList){
+Memory * removeProcess(int age, Memory * memoryList){
 	int i;
 	
 	for(i=0;i< memoryList->totalSize;i++){

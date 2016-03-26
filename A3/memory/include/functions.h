@@ -10,4 +10,4 @@ Memory * worstFit();
 Process * copyProcess(Process * prcIn);
 Disk * removeFromFront(Disk * diskList);
 int firstFit(Memory * memoryList, int size);
-Memory * remove(int age,Memory * memoryList);
+Memory * removeProcess(int age,Memory * memoryList);
