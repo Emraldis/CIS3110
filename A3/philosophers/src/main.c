@@ -8,17 +8,22 @@ sem_t semaphr;
 
 int main (int argc, char * argv[]) {
 	
-	int data[2];
+	char * data;
 	int i;
 	pthread_t threads[atoi(argv[1])];
 	
-	data[1] = (atoi(argv[2]));
+	data = malloc(sizeof(char) * 256);
+	
+
 	
 	sem_init(&semaphr,0,1);
 	
-	for(i=0;i<numPhilosophers;i++){
-		data[0] = i;
+	for(i=0;i<numPhilosophers;i++){	
+		sprintf(data,"%d",i);
+		strcat(data," ");
+		strcat(data,argv[2]);
 		pthread_create(&threads[i], NULL, eat, ((void *)data));
+		data = NULL;
 	}
 	
 	sem_destroy(&semaphr);

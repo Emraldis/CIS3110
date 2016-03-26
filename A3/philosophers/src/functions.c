@@ -2,11 +2,11 @@
 
 void * eat(void * data[2]){
 	int i;
-	int phlID
+	int phlID;
 	int loop;
 	
-	phlID = (int) data[0];
-	loop = (int) data[1];
+	phlID = atoi((char *) strtok(data," "));
+	loop = atoi((char *) data);
 	
 	for(i=0;i<loop;i++){
 		printf("\nPhilosopher %d is thinking.",phlID);
