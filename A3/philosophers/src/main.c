@@ -47,10 +47,11 @@ void eat(void * data[2]){
 	int loop;
 	char * input;
 	
-	input = (char *) data;
-	
 	printf("\nGot into a thread!");
 	getchar();
+	
+	input = (char *) data;
+	
 	
 	phlID = atoi(strtok(input," "));
 	loop = atoi(input);
