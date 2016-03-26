@@ -164,9 +164,11 @@ int nextFit(Memory * memoryList, int size,int loc){
 	
 	j=0;
 	if((memoryList->totalSize - loc) < size){
+		printf("\nNot enough space in memory starting from here: %d", loc);
 		loc = 0;
 	}
 	for(i=loc; i < memoryList->totalSize;i++){
+		printf("\nStarting search from %d",loc);
 		while((j < size) && ((j+i) < memoryList->totalSize)){
 			if(memoryList->memoryArr[j+i] == NULL){
 				j++;
