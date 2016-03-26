@@ -266,7 +266,7 @@ Stat * collectStats(Memory * memoryList, Stat * statInfo){
 			while((memoryList->memoryArr[i+j] == NULL) && ((i + j) != memoryList->totalSize)){
 				j++;
 			}
-			if(((memoryList->memoryArr[i+j] != NULL) || ((i + j) == memoryList->totalSize)&& ((i+j) > 0)){
+			if(((memoryList->memoryArr[i+j] != NULL) || ((i + j) == memoryList->totalSize)) && ((i+j) > 0)){
 				count++;
 				i = (i + j);
 				j=0;
