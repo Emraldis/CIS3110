@@ -79,9 +79,9 @@ int main (int argc, char * argv[]) {
 							if(currentProcess != NULL){
 								memory = insert(currentProcess,memory,loc,tick);
 								statInfo->loads = tick;
+								statInfo = collectStats(memory,statInfo);
 								printf("test");
 								getchar();
-								statInfo = collectStats(memory,statInfo);
 								printf("\nPID %s Loaded, Number of Processes: %d, Number of Holes: %d, Percent of Memory Used: %-.1f, Average Amount of Memory Used: %-.1f",currentProcess->label,statInfo->numProcesses,statInfo->numHoles,statInfo->percentMem,statInfo->avgMem);
 								disk = removeFromFront(disk);
 								currentProcess = disk->prcList;
