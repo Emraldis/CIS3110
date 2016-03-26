@@ -2,4 +2,4 @@
 #include<pthread.h>
 #include<stdio.h>
 
-void * eat(void * id, void * timesEat);
+void * eat(void * data[2]);
