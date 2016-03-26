@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<pthread.h>
 #include<semaphore.h>
+#include<string.h>
 
 void * eat(void * data[2]);
 
