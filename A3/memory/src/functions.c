@@ -85,6 +85,7 @@ int firstFit(Memory * memoryList, int size){
 				j++;
 			}else{
 				j=0;
+				i++;
 			}
 			printf("\n%d",(j));
 			getchar();
