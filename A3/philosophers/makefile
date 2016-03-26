@@ -1,2 +1,2 @@
 all:
-	gcc src/main.c -pthread -o bin/dine
+	gcc src/main.c -pthread -Wall -std=c99 -pedantic -o bin/dine
