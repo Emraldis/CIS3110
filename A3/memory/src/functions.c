@@ -47,6 +47,8 @@ Memory * insert(Process * prcIn, Memory * memoryList,int loc){
 		if(memoryList->memoryArr[i] == NULL){
 			memoryList->memoryArr[i] = copyProcess(prcIn);
 		}
+		printf("\n%d",i);
+		getchar();
 	}
 	
 	return(memoryList);
