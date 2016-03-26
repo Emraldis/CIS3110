@@ -122,7 +122,7 @@ Memory * removeProcess(Memory * memoryList){
 	printf("\nBeginning erase, searching for an age value of %d", age);
 	getchar();
 	for(i=0;i < memoryList->totalSize;i++){
-		if(memoryList->memoryArr != NULL){
+		if(memoryList->memoryArr[i] != NULL){
 			printf("\n@slot %d, filled by process %s, whose age value is %d ",i,memoryList->memoryArr[i]->label,memoryList->memoryArr[i]->age);
 			getchar();
 			if(memoryList->memoryArr[i]->age == age){
