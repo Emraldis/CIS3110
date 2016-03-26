@@ -28,9 +28,13 @@ int main (int argc, char * argv[]) {
 	
 	philoStruct->eatCount = atoi(argv[2]);
 	
+	printf("\nNum of philosophers: %d", numPhilosophers);
+	
 	for(i=0;i<numPhilosophers;i++){	
 		philoStruct->ID = (i+1);
+		printf("\nCreating thread!");
 		pthread_create(&threads[i], NULL, eat, ((void *)&philoStruct));
+		printf("\nFinished creating thread!");
 	}
 	
 	sem_destroy(&semaphr);
