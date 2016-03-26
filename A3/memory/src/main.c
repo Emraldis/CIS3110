@@ -57,8 +57,8 @@ int main (int argc, char * argv[]) {
 				printf("\nThe next process requires %d Megabytes of space.",currentProcess->memoryReq);
 				loc = firstFit(memory,currentProcess->memoryReq);
 				if(loc >= 0){
-					printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
-					//if(currentProcess != NULL){
+					//printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
+					if(currentProcess != NULL){
 						memory = insert(currentProcess,memory,loc,tick);
 						disk = removeFromFront(disk);
 						currentProcess = disk->prcList;
