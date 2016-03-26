@@ -29,40 +29,22 @@ int main (int argc, char * argv[]) {
 		input = malloc(sizeof(char) * 256);
 		memory->memoryArr = malloc(sizeof(Process *) * memory->totalSize);
 		disk->prcList = malloc(sizeof(Process));
-		
-		printf("test2\n");
-		getchar();
-		
+				
 		inputFile = fopen(fileName, "r");
 		
 		disk->prcList = NULL;
 		
-		
-		printf("test3\n");
-		getchar();
-		
-		
 		while(fgets(input,256,inputFile) != NULL){
 			tempProcess = lineParse(input);
-			printf("test3.5\n");
-			getchar();
 			disk = addToBack(disk,copyProcess(tempProcess));
-			printf("test3.6\n");
-			getchar();
 		}
 		fclose(inputFile);
-		
-		printf("test4\n");
-		getchar();
 		
 		currentProcess = disk->prcList;
 		while(currentProcess != NULL){
 			printf("\nName: %s\nSize: %d\n",currentProcess->label,currentProcess->memoryReq);
 			currentProcess = currentProcess->next;
 		}
-		
-		printf("test5\n");
-		getchar();
 		
 		tick = 0;
 		
