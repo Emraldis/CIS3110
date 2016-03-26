@@ -26,7 +26,7 @@ int main (int argc, char * argv[]) {
 		sprintf(data,"%d",i);
 		strcat(data," ");
 		strcat(data,argv[2]);
-		pthread_create(&threads[i], NULL,(void *) &eat, ((void *)data));
+		pthread_create(&threads[i], NULL,eat, ((void *)data));
 		data = NULL;
 	}
 	
@@ -55,6 +55,6 @@ void * eat(void * data[2]){
 		printf("\nPhilosopher %d is thinking.",phlID);
 	}
 	
-	pthread_exit();
+	pthread_exit(NULL);
 	exit(0);
 }
