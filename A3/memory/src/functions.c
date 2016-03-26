@@ -303,7 +303,7 @@ Stat * collectStats(Memory * memoryList, Stat * statInfo){
 	statInfo->avgProcesses = (statInfo->cumulativeProcesses / (float)statInfo->loads);
 	statInfo->percentMem = ((count / (float)memoryList->totalSize) * 100);
 	statInfo->cumulativeMem = (statInfo->cumulativeMem + statInfo->percentMem);
-	statInfo->avgMem = (statInfo->cumulativeMem / (float)statInfo->loads) * 100);
+	statInfo->avgMem = ((statInfo->cumulativeMem / (float)statInfo->loads) * 100);
 	
 	return(statInfo);
 }
