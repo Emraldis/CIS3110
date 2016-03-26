@@ -60,7 +60,11 @@ int main (int argc, char * argv[]) {
 						printf("\nadded to memory");
 						getchar();
 						disk = removeFromFront(disk);
+						printf("\removed front process");
+						getchar();
 						currentProcess = disk->prcList;
+						printf("\njumped to next process");
+						getchar();
 					}
 				}else{
 					printf("\nProcess %s doesn't fit.",currentProcess->label);					
