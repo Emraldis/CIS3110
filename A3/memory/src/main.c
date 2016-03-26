@@ -55,7 +55,8 @@ int main (int argc, char * argv[]) {
 			case 0:
 			printf("\nFirst Fit:\n");
 			while((disk->prcList != NULL) && (tick <200)){
-				//printf("\n@tick: %d",tick);
+				printf("\n@tick: %d",tick);
+				getchar();
 				//printf("\nThe next process requires %d Megabytes of space.",currentProcess->memoryReq);
 				loc = firstFit(memory,currentProcess->memoryReq);
 				if(loc >= 0){
