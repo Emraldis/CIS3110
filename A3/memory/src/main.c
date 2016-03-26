@@ -44,6 +44,9 @@ int main (int argc, char * argv[]) {
 		}
 		
 		tick = 0;
+		
+		getchar();
+		
 		currentProcess = disk->prcList;
 		
 		switch(allocationMode){
