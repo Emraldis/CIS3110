@@ -197,7 +197,7 @@ int bestFit(Memory * memoryList, int size){
 	
 	differenceStore[0] = (memoryList->totalSize + 1);
 	differenceStore[1] = -1;
-	for(i=0;i<memoryList->totalSize;i++){
+	for(i=0;i < memoryList->totalSize;i++){
 		j=0;
 		printf("\n for i = %d\n", i);
 		getchar();
@@ -214,6 +214,7 @@ int bestFit(Memory * memoryList, int size){
 				}
 				printf("\ntest");
 				getchar();
+				i = j;
 				j = 0;
 				i++;
 			}
