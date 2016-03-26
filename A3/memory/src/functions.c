@@ -21,6 +21,7 @@ Process * lineParse(char * input){
 		newProcess->memoryReq = atoi(tempString);
 	}
 	newProcess->cycle = 3;
+	newProcess->version = 0;
 	
 	return(newProcess);
 }
@@ -43,17 +44,23 @@ Disk * addToBack(Disk * diskList, Process * prcIn){
 
 Memory * insert(Process * prcIn, Memory * memoryList,int loc, int age){
 	int i;
+	int j;
+	
+	j = 0;
 	
 	for(i=loc;i< (prcIn->memoryReq + loc);i++){
 		if(memoryList->memoryArr[i] == NULL){
 			prcIn->age = age;
+			prcIn->version = j;
 			memoryList->memoryArr[i] = copyProcess(prcIn);
+			j++;
 			printf("\nallocating memory to slot %d",i);
 		}else{
 			printf("\nError allocating memory!");
 		}
 		//printf("\n%d",i);
 		//getchar();
+		prcIn->version = 0;
 	}
 	
 	return(memoryList);
@@ -69,6 +76,7 @@ Process * copyProcess(Process * prcIn){
 	copy->next = NULL;
 	copy->cycle = prcIn->cycle;
 	copy->age = prcIn->age;
+	copy->version = prcIn->version;
 	
 	return(copy);
 }
@@ -123,15 +131,16 @@ Memory * removeProcess(Memory * memoryList){
 		}
 	}
 	printf("\nBeginning erase, searching for an age value of %d", age);
-	getchar();
 	for(i=0;i < memoryList->totalSize;i++){
 		if(memoryList->memoryArr[i] != NULL){
 			printf("\n@slot %d, filled by process %s, whose age value is %d ",i,memoryList->memoryArr[i]->label,memoryList->memoryArr[i]->age);
-			getchar();
 			if(memoryList->memoryArr[i]->age == age){
 				printf("\nage value found, deleting");
-				getchar();
-				memoryList->memoryArr[i] = NULL;
+				if(memoryList->memoryArr[i]->version == 0){
+					
+				}else {
+					memoryList->memoryArr[i] = NULL;
+				}
 			}
 		}
 	}

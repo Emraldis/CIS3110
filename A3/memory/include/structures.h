@@ -9,6 +9,7 @@ typedef struct ProcessInfo{
 	char * label;
 	int cycle;
 	int age;
+	int version;
 }Process;
 typedef struct MemoryInfo{
 	int totalSize;
