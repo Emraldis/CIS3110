@@ -276,7 +276,7 @@ Stat * collectStats(Memory * memoryList, Stat * statInfo){
 	}
 	statInfo->numHoles = count;
 	statInfo->cumulativeHoles = (statInfo->cumulativeHoles + statInfo->numHoles);
-	statInfo->avgHoles = (float)(statInfo->cumulativeHoles / statInfo->loads);
+	statInfo->avgHoles = (float)(statInfo->cumulativeHoles / (float)statInfo->loads);
 	count = 0;
 	countt = 0;
 	for(i=0;i<memoryList->totalSize;i++){
@@ -300,10 +300,10 @@ Stat * collectStats(Memory * memoryList, Stat * statInfo){
 	printf("\nMemory Usage should be: %f",tempFloat);
 	statInfo->numProcesses = countt;
 	statInfo->cumulativeProcesses = (statInfo->cumulativeProcesses + statInfo->numProcesses);
-	statInfo->avgProcesses = (float)(statInfo->cumulativeProcesses / statInfo->loads);
-	statInfo->percentMem = (float)((count / memoryList->totalSize) * 100);
+	statInfo->avgProcesses = (statInfo->cumulativeProcesses / (float)statInfo->loads);
+	statInfo->percentMem = ((count / (float)memoryList->totalSize) * 100);
 	statInfo->cumulativeMem = (statInfo->cumulativeMem + statInfo->percentMem);
-	statInfo->avgMem = (float)((statInfo->cumulativeMem / statInfo->loads) * 100);
+	statInfo->avgMem = statInfo->cumulativeMem / (float)statInfo->loads) * 100);
 	
 	return(statInfo);
 }
