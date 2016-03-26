@@ -50,10 +50,9 @@ int main (int argc, char * argv[]) {
 		switch(allocationMode){
 			case 0:
 			printf("\nFirst Fit:\n");
-			while((disk->prcList != NULL) && (tick <20)){
+			while((disk->prcList != NULL) && (tick <200)){
 				printf("\n@tick: %d",tick);
 				printf("\nThe next process requires %d Megabytes of space.",currentProcess->memoryReq);
-				getchar();
 				loc = firstFit(memory,currentProcess->memoryReq);
 				if(loc >= 0){
 					printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
@@ -71,7 +70,6 @@ int main (int argc, char * argv[]) {
 				}else{
 					while(!(loc >= 0)){
 						printf("\nProcess %s doesn't fit.",currentProcess->label);
-						getchar();
 						memory = removeProcess(memory,disk);
 						loc = firstFit(memory,currentProcess->memoryReq);
 						if(loc >= 0){
@@ -90,6 +88,7 @@ int main (int argc, char * argv[]) {
 						}
 					}
 				}
+				getchar();
 				tick++;
 			}
 				break;

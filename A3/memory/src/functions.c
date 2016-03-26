@@ -117,7 +117,7 @@ Memory * removeProcess(Memory * memoryList,Disk * diskList){
 	
 	age = -1;
 	printf("\nBeginning check for oldest Program");
-	getchar();
+	//getchar();
 	for(i=0;i < memoryList->totalSize;i++){
 		if(memoryList->memoryArr[i] != NULL){
 			if(age == -1){
@@ -141,8 +141,10 @@ Memory * removeProcess(Memory * memoryList,Disk * diskList){
 					if(memoryList->memoryArr[i]->cycle > 0){
 						diskList = addToBack(diskList,memoryList->memoryArr[i]);
 						printf("\nProcess %s is being moved to disk.",memoryList->memoryArr[i]->label);
+						getchar();
 					}else{
 						printf("\nProcess %s has completed.",memoryList->memoryArr[i]->label);
+						getchar();
 					}
 					memoryList->memoryArr[i] = NULL;
 				}else {
@@ -152,7 +154,7 @@ Memory * removeProcess(Memory * memoryList,Disk * diskList){
 		}
 	}
 	printf("\nfinished!");
-	getchar();
+	//getchar();
 	
 	return(memoryList);
 }
