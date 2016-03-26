@@ -13,6 +13,7 @@ int main (int argc, char * argv[]) {
 	int allocationMode;
 	Process * tempProcess;
 	int tick;
+	int loc;
 
 	tempProcess = malloc(sizeof(Process));
 	
@@ -47,15 +48,16 @@ int main (int argc, char * argv[]) {
 		
 		switch(allocationMode){
 			case 0:
+			printf("\nFirst Fit:\n");
 			while((disk->prcList != NULL) && (tick <20)){
 				printf("\n@tick: %d",tick);
-				
-				if(fits(memory,currentProcess->memoryReq) >= 0){
-					printf("\nProcess %s fits!",currentProcess->label);
-					if(currentProcess->next != NULL){
-						currentProcess = currentProcess->next;
-					}else{
-						break;
+				loc = firstFit(memory,currentProcess->memoryReq);
+				if(loc >= 0){
+					printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
+					if(currentProcess != NULL){
+						insert(currentProcess,memory,loc);
+						disk = removeFromFront(disk);
+						currentProcess = disk->prcList;
 					}
 				}else{
 					printf("\nProcess %s doesn't fit.",currentProcess->label);					
@@ -65,10 +67,13 @@ int main (int argc, char * argv[]) {
 			}
 				break;
 			case 1:
+			printf("\nNext Fit:\n");
 				break;
 			case 2:
+			printf("\nBest Fit:\n");
 				break;
 			case 3:
+			printf("\nWorst Fit:\n");
 				break;
 		}
 		

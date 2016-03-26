@@ -40,24 +40,13 @@ Disk * addToBack(Disk * diskList, Process * prcIn){
 	return(diskList);
 }
 
-Memory * firstFit(Process * prcIn, Memory * memoryList){
+Memory * insert(Process * prcIn, Memory * memoryList,int loc){
 	int i;
-	int j;
 	
-	j=0;
-	while((memoryList->memoryArr[j]) != NULL){
-		j++;
-		if(j == memoryList->totalSize){
-			break;
+	for(i=loc;i< prcIn->memoryReq;i++){
+		if(memoryList->memoryArr[i] == NULL){
+			memoryList->memoryArr[i] = copyProcess(prcIn);
 		}
-	}
-	if(memoryList->totalSize - j >= prcIn->memoryReq){
-		for(i=j;i< prcIn->memoryReq;i++){
-			memoryList->memoryArr[i] = (copyProcess(prcIn));
-		}
-	return(memoryList);
-	}else{
-		return(NULL);
 	}
 }
 
@@ -67,7 +56,7 @@ Process * copyProcess(Process * prcIn){
 	copy = malloc(sizeof(Process));
 	
 	copy->memoryReq = prcIn->memoryReq;
-	copy->label = prcIn->label;
+	strcpy(copy->label,prcIn->label);
 	copy->next = NULL;
 	copy->cycle = prcIn->cycle;
 	copy->age = prcIn->age;
@@ -81,7 +70,7 @@ Disk * removeFromFront(Disk * diskList){
 	
 	return(diskList);
 }
-int fits(Memory * memoryList, int size){
+int firstFit(Memory * memoryList, int size){
 	int  i;
 	int j;
 	
@@ -90,7 +79,7 @@ int fits(Memory * memoryList, int size){
 		if(memoryList->memoryArr[i] == NULL){
 			j++;
 			if(j == size){
-				return(i);
+				return(i-j);
 			}
 		}else{
 			j=0;
