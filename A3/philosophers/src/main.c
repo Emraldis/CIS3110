@@ -50,6 +50,9 @@ void * eat(void * ptr){
 	int i;
 	int phlID;
 	int loop;
+	
+	printf("\ntest");
+
 	Phl * data = (Phl *)ptr;
 	phlID = (int)data->ID;
 	loop = (int)data->	eatCount;
