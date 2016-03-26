@@ -220,5 +220,30 @@ int bestFit(Memory * memoryList, int size){
 }
 
 int worstFit(Memory * memoryList, int size){
-	return(0);
+	int i;
+	int j;
+	int differenceStore[2];
+	
+	differenceStore[0] = (memoryList->totalSize + 1);
+	differenceStore[1] = -1;
+	for(i=0;i < memoryList->totalSize;i++){
+		j=0;
+		if(memoryList->memoryArr[i] == NULL){
+			printf("\n for i = %d", i);
+			//getchar();
+			while(((j+i) < memoryList->totalSize) && (memoryList->memoryArr[j+i] == NULL)){
+				j++;
+			}
+			if((memoryList->memoryArr[j+i] != NULL) && (j >= size) && (j > differenceStore[0])){
+				differenceStore[0] = j;
+				differenceStore[1] = i;
+				i = (i+j);
+			}
+			if(((j+i) == memoryList->totalSize) && (j >= size)){
+				return(i);
+			}
+		}
+	}
+	printf("\nReturning %d", differenceStore[1]);
+	return(differenceStore[1]);
 }
