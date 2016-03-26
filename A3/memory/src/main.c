@@ -78,6 +78,8 @@ int main (int argc, char * argv[]) {
 							getchar();
 							if(currentProcess != NULL){
 								memory = insert(currentProcess,memory,loc,tick);
+								printf("test");
+								getchar();
 								statInfo->loads = tick;
 								statInfo = collectStats(memory,statInfo);
 								printf("\nPID %s Loaded, Number of Processes: %d, Number of Holes: %d, Percent of Memory Used: %-.1f, Average Amount of Memory Used: %-.1f",currentProcess->label,statInfo->numProcesses,statInfo->numHoles,statInfo->percentMem,statInfo->avgMem);
