@@ -81,7 +81,7 @@ int firstFit(Memory * memoryList, int size){
 		if(memoryList->memoryArr[i] == NULL){
 			j++;
 			if(j == size){
-				return(i-j);
+				return(i - j + 1);
 			}
 		}else{
 			j=0;

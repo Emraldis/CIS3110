@@ -19,9 +19,6 @@ int main (int argc, char * argv[]) {
 	
 	fileName = argv[1];
 	
-	printf("test1\n");
-	getchar();
-	
 	for(allocationMode=0;allocationMode<4;allocationMode++){	
 		memory = malloc(sizeof(memory));
 		memory->totalSize = 128;
