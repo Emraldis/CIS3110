@@ -4,7 +4,7 @@
 #include<semaphore.h>
 #include<string.h>
 
-void * eat(void * data[2]);
+void eat(void * data[2]);
 
 sem_t semaphr;
 
