@@ -296,7 +296,7 @@ Stat * collectStats(Memory * memoryList, Stat * statInfo){
 		}
 	}
 	printf("\nCount was: %d", count);
-	tempFloat = (float)(count/memoryList->totalSize);
+	tempFloat = (count/(float)memoryList->totalSize);
 	printf("\nMemory Usage should be: %f",tempFloat);
 	statInfo->numProcesses = countt;
 	statInfo->cumulativeProcesses = (statInfo->cumulativeProcesses + statInfo->numProcesses);
