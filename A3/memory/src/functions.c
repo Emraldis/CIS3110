@@ -211,7 +211,7 @@ int bestFit(Memory * memoryList, int size){
 				i = (i+j);
 			}
 			if((j+i) == memoryList->totalSize){
-				return(0);
+				return(i);
 			}
 		}
 	}
