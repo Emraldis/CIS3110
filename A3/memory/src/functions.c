@@ -210,6 +210,9 @@ int bestFit(Memory * memoryList, int size){
 				differenceStore[1] = i;
 				i = (i+j);
 			}
+			if(j = memoryList->totalSize){
+				return(0);
+			}
 		}
 	}
 	printf("\nReturning %d", differenceStore[1]);
