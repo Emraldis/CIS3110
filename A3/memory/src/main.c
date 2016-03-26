@@ -73,6 +73,7 @@ int main (int argc, char * argv[]) {
 				}else{
 					while(!(loc >= 0)){
 						printf("\nProcess %s doesn't fit.",currentProcess->label);
+						getchar();
 						memory = removeProcess(age,memory);
 						age++;
 						loc = firstFit(memory,currentProcess->memoryReq);
