@@ -46,6 +46,8 @@ Memory * insert(Process * prcIn, Memory * memoryList,int loc){
 	for(i=loc;i< prcIn->memoryReq;i++){
 		if(memoryList->memoryArr[i] == NULL){
 			memoryList->memoryArr[i] = copyProcess(prcIn);
+		}else{
+			printf("\nError allocating memory!");
 		}
 		//printf("\n%d",i);
 		//getchar();
