@@ -47,6 +47,8 @@ int main (int argc, char * argv[]) {
 			printf("test3.5\n");
 			getchar();
 			disk = addToBack(disk,copyProcess(tempProcess));
+			printf("test3.6\n");
+			getchar();
 		}
 		fclose(inputFile);
 		
