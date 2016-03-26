@@ -1,2 +1,2 @@
 all:
-	gcc src/main.c -Wall -pedantic -std=c99 -Iinclude -o bin/dine
+	gcc src/main.c -o bin/dine
