@@ -218,6 +218,7 @@ int bestFit(Memory * memoryList, int size){
 				if(j == memoryList->totalSize){
 					differenceStore[0] = j;
 					differenceStore[1] = 0;
+					return(difference[1]);
 				}
 				j = 0;
 				i++;
