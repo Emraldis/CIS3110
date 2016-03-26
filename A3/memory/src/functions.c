@@ -40,11 +40,12 @@ Disk * addToBack(Disk * diskList, Process * prcIn){
 	return(diskList);
 }
 
-Memory * insert(Process * prcIn, Memory * memoryList,int loc){
+Memory * insert(Process * prcIn, Memory * memoryList,int loc, int age){
 	int i;
 	
 	for(i=loc;i< (prcIn->memoryReq + loc);i++){
 		if(memoryList->memoryArr[i] == NULL){
+			prcIn->age = age;
 			memoryList->memoryArr[i] = copyProcess(prcIn);
 			printf("\nallocating memory to slot %d",i);
 		}else{
@@ -100,5 +101,15 @@ int firstFit(Memory * memoryList, int size){
 		printf("\n%d",i);
 	}
 	return(-1);
+}
+Memory * remove(int age, Memory * memoryList){
+	int i;
 	
+	for(i=0;i< memoryList->totalSize;i++){
+		if(memoryList->memoryArr[i]->age == age){
+			memoryList->memoryArr[i] = NULL;
+		}
+	}
+	
+	return(memoryList);
 }

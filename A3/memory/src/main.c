@@ -14,6 +14,7 @@ int main (int argc, char * argv[]) {
 	Process * tempProcess;
 	int tick;
 	int loc;
+	int age;
 
 	tempProcess = malloc(sizeof(Process));
 	
@@ -58,7 +59,8 @@ int main (int argc, char * argv[]) {
 				if(loc >= 0){
 					printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 					if(currentProcess != NULL){
-						memory = insert(currentProcess,memory,loc);
+						memory = insert(currentProcess,memory,loc,tick);
+						age = tick;
 						printf("\nadded to memory");
 						//getchar();
 						disk = removeFromFront(disk);
@@ -69,9 +71,8 @@ int main (int argc, char * argv[]) {
 						//getchar();
 					}
 				}else{
-					printf("\nProcess %s doesn't fit.",currentProcess->label);					
+					printf("\nProcess %s doesn't fit.",currentProcess->label);
 				}
-				
 				tick++;
 			}
 				break;
