@@ -75,6 +75,7 @@ int main (int argc, char * argv[]) {
 						loc = firstFit(memory,currentProcess->memoryReq);
 						if(loc >= 0){
 							printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
+							getchar();
 							if(currentProcess != NULL){
 								memory = insert(currentProcess,memory,loc,tick);
 								statInfo->loads = tick;
