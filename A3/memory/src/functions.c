@@ -209,12 +209,12 @@ int bestFit(Memory * memoryList, int size){
 				if((j >= size) && (j < differenceStore[0])){
 					differenceStore[0] = j;
 					differenceStore[1] = i;
+					i = j;
 					printf("\nStarting at %d the current difference is %d",differenceStore[1],differenceStore[0]);
 					getchar();
 				}
 				printf("\ntest");
 				getchar();
-				i = j;
 				j = 0;
 				i++;
 			}
