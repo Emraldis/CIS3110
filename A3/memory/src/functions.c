@@ -170,7 +170,7 @@ int nextFit(Memory * memoryList, int size,int loc){
 		loc = 0;
 	}
 	for(i=loc; i < memoryList->totalSize;i++){
-		printf("\nStarting search from %d",loc);
+		//printf("\nStarting search from %d",loc);
 		while((j < size) && ((j+i) < memoryList->totalSize)){
 			if(memoryList->memoryArr[j+i] == NULL){
 				j++;
@@ -205,6 +205,8 @@ int bestFit(Memory * memoryList, int size){
 				if((j >= size) && (j < differenceStore[0])){
 					differenceStore[0] = j;
 					differenceStore[1] = i;
+					printf("\nStarting at %d the current difference is %d",differenceStore[1],differenceStore[0]);
+					getchar();
 				}
 				j = 0;
 				i++;
