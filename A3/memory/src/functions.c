@@ -116,7 +116,7 @@ Memory * removeProcess(Memory * memoryList,Disk * diskList, int loc){
 	int age;
 	
 	age = -1;
-	printf("\nBeginning check for oldest Program");
+	//printf("\nBeginning check for oldest Program");
 	//getchar();
 	for(i=loc;i < memoryList->totalSize;i++){
 		if(memoryList->memoryArr[i] != NULL){
@@ -124,13 +124,13 @@ Memory * removeProcess(Memory * memoryList,Disk * diskList, int loc){
 				age = memoryList->memoryArr[i]->age;
 			}
 			if(memoryList->memoryArr[i]->age < age){
-				printf("\nNew oldest age was found:");
+				//printf("\nNew oldest age was found:");
 				age = memoryList->memoryArr[i]->age;
-				printf(" %d",age);
+				//printf(" %d",age);
 			}
 		}
 	}
-	printf("\nBeginning erase, searching for an age value of %d", age);
+	//printf("\nBeginning erase, searching for an age value of %d", age);
 	for(i=loc;i < memoryList->totalSize;i++){
 		if(memoryList->memoryArr[i] != NULL){
 			//printf("\n@slot %d, filled by process %s, whose age value is %d ",i,memoryList->memoryArr[i]->label,memoryList->memoryArr[i]->age);
@@ -153,7 +153,7 @@ Memory * removeProcess(Memory * memoryList,Disk * diskList, int loc){
 			}
 		}
 	}
-	printf("\nfinished!");
+	//printf("\nfinished!");
 	//getchar();
 	
 	return(memoryList);
