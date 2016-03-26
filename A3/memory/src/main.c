@@ -15,6 +15,7 @@ int main (int argc, char * argv[]) {
 	int tick;
 	int loc;
 	int locStore;
+	int i;
 
 	tempProcess = malloc(sizeof(Process));
 	
@@ -125,8 +126,12 @@ int main (int argc, char * argv[]) {
 		}
 		
 		printf("\n______________________________________________________________________________________________________________\n");
-		
-		free(memory->memoryArr);
+		for(i=0;i < memory->totalSize; i++){
+			free(memory->memoryArr[i]);	
+		}
+		while(disk->prcList != NULL){
+			disk = removeFromFront(disk);
+		}
 		free(disk->prcList);
 		free(input);
 		free(disk);
