@@ -19,7 +19,7 @@ int main (int argc, char * argv[]) {
 	
 	fileName = argv[1];
 	
-	printf("test\n");
+	printf("test1\n");
 	getchar();
 	
 	for(allocationMode=0;allocationMode<4;allocationMode++){	
@@ -30,12 +30,16 @@ int main (int argc, char * argv[]) {
 		memory->memoryArr = malloc(sizeof(Process *) * memory->totalSize);
 		disk->prcList = malloc(sizeof(Process));
 		
-		printf("test\n");
+		printf("test2\n");
 		getchar();
 		
 		inputFile = fopen(fileName, "r");
 		
 		disk->prcList = NULL;
+		
+		
+		printf("test3\n");
+		getchar();
 		
 		
 		while(fgets(input,256,inputFile) != NULL){
