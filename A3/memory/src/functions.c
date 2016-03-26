@@ -135,7 +135,7 @@ Memory * removeProcess(Memory * memoryList,Disk * diskList, int loc){
 		if(memoryList->memoryArr[i] != NULL){
 			//printf("\n@slot %d, filled by process %s, whose age value is %d ",i,memoryList->memoryArr[i]->label,memoryList->memoryArr[i]->age);
 			if(memoryList->memoryArr[i]->age == age){
-				printf("\nage value found, deleting");
+				//printf("\nage value found, deleting");
 				if(memoryList->memoryArr[i]->version == 0){
 					memoryList->memoryArr[i]->cycle--;
 					if(memoryList->memoryArr[i]->cycle > 0){
