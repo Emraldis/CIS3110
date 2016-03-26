@@ -8,7 +8,7 @@ typedef struct Philosopher{
 	int eatCount;
 }Phl;
 
-void eat(void * ptr);
+void * eat(void * ptr);
 
 sem_t semaphr;
 
@@ -31,7 +31,6 @@ int main (int argc, char * argv[]) {
 	for(i=0;i<numPhilosophers;i++){	
 		philoStruct->ID = (i+1);
 		pthread_create(&threads[i], NULL, eat, ((void *)philoStruct));
-		data = NULL;
 	}
 	
 	sem_destroy(&semaphr);
@@ -45,8 +44,8 @@ void * eat(void * ptr){
 	int phlID;
 	int loop;
 	
-	phlID = (int)ptr->ID;
-	loop = (int)ptr->eatCount;
+	phlID = (int)ptr.ID;
+	loop = (int)ptr.eatCount;
 	
 	for(i=0;i<loop;i++){
 		printf("\nPhilosopher %d is thinking.",phlID);
