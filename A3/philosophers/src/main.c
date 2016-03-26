@@ -26,7 +26,7 @@ int main (int argc, char * argv[]) {
 		sprintf(data,"%d",i);
 		strcat(data," ");
 		strcat(data,argv[2]);
-		pthread_create(&threads[i], NULL,eat, ((void *)data));
+		pthread_create(&threads[i], NULL,(void *)eat, ((void *)data));
 		data = NULL;
 	}
 	
@@ -36,7 +36,7 @@ int main (int argc, char * argv[]) {
 	
 }
 
-void * eat(void * data[2]){
+void eat(void * data[2]){
 	int i;
 	int phlID;
 	int loop;
