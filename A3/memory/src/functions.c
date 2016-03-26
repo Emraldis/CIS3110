@@ -237,7 +237,8 @@ int worstFit(Memory * memoryList, int size){
 				j++;
 			}
 			if((memoryList->memoryArr[j+i] != NULL) && (j >= size)){
-				if(j < differenceStore[0]){
+				if(j > differenceStore[0]){
+					printf("\n for i = %d", i);
 					differenceStore[0] = j;
 					differenceStore[1] = i;
 					i = (i+j);
