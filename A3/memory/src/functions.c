@@ -141,10 +141,10 @@ Memory * removeProcess(Memory * memoryList,Disk * diskList, int loc){
 					if(memoryList->memoryArr[i]->cycle > 0){
 						diskList = addToBack(diskList,memoryList->memoryArr[i]);
 						printf("\nProcess %s is being moved to disk.",memoryList->memoryArr[i]->label);
-						getchar();
+						//getchar();
 					}else{
 						printf("\nProcess %s has completed.",memoryList->memoryArr[i]->label);
-						getchar();
+						//getchar();
 					}
 					memoryList->memoryArr[i] = NULL;
 				}else {
