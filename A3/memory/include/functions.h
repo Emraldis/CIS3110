@@ -4,7 +4,7 @@
 Process * lineParse(char * input);	
 Disk * addToBack(Disk * diskList, Process * prcIn);
 Memory * insert(Process * prcIn, Memory * memoryList,int loc,int age);
-int * nextFit(Memory * memoryList, int size,int loc);
+int nextFit(Memory * memoryList, int size,int loc);
 Memory * bestFit();
 Memory * worstFit();
 Process * copyProcess(Process * prcIn);
