@@ -106,8 +106,10 @@ Memory * removeProcess(int age, Memory * memoryList){
 	int i;
 	
 	for(i=0;i< memoryList->totalSize;i++){
-		if(memoryList->memoryArr[i]->age == age){
-			memoryList->memoryArr[i] = NULL;
+		if(memoryList->memoryArr != NULL){
+			if(memoryList->memoryArr[i]->age == age){
+				memoryList->memoryArr[i] = NULL;
+			}
 		}
 	}
 	
