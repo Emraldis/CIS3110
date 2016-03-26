@@ -104,7 +104,7 @@ int main (int argc, char * argv[]) {
 						memory = removeProcess(memory,disk,0);
 						loc = nextFit(memory,currentProcess->memoryReq,locStore);
 						if(loc >= 0){
-							/printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
+							//printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 							if(currentProcess != NULL){
 								memory = insert(currentProcess,memory,loc,tick);
 								disk = removeFromFront(disk);
