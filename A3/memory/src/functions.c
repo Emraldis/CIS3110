@@ -25,18 +25,32 @@ Process * lineParse(char * input){
 }
 
 Disk * addToBack(Disk * diskList, Process * prcIn){
+	printf("test3.51\n");
+	getchar();
 	if(diskList->prcList != NULL){
+		printf("test3.52\n");
+		getchar();
 		diskList->last->next = prcIn;
 		diskList->last = diskList->last->next;
 	}else if(diskList->prcList == NULL){
+		printf("test3.53\n");
+		getchar();
 		if(prcIn != NULL){
+			printf("test3.54\n");
+			getchar();
 			diskList->prcList = prcIn;
 			diskList->last = diskList->prcList;
 		}else{
+			printf("test3.55\n");
+			getchar();
 			printf("\nProcess was NULL");
 			getchar();
 		}
+		printf("test3.56\n");
+		getchar();
 	}
+	printf("test3.57\n");
+	getchar();
 	return(diskList);
 }
 
