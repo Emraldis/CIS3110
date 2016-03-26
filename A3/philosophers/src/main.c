@@ -19,7 +19,7 @@ int main (int argc, char * argv[]) {
 	
 	for(i=0;i<numPhilosophers;i++){
 
-		pthread_create(&threads[i], NULL, eat, (void *)i, (void *) timesEat);
+		pthread_create(&threads[i], NULL, eat, ((void *)i, (void *)timesEat));
 	}
 	
 	sem_destroy(&semaphr);
