@@ -43,7 +43,7 @@ Disk * addToBack(Disk * diskList, Process * prcIn){
 Memory * insert(Process * prcIn, Memory * memoryList,int loc){
 	int i;
 	
-	for(i=loc;i< prcIn->memoryReq;i++){
+	for(i=loc;i< (prcIn->memoryReq + loc);i++){
 		if(memoryList->memoryArr[i] == NULL){
 			memoryList->memoryArr[i] = copyProcess(prcIn);
 			printf("\nallocating memory to slot %d",i);
