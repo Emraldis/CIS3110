@@ -104,9 +104,12 @@ int firstFit(Memory * memoryList, int size){
 }
 Memory * removeProcess(int age, Memory * memoryList){
 	int i;
-	
-	for(i=0;i< memoryList->totalSize;i++){
+	printf("\nBeginning erase");
+	getchar();
+	for(i=0;i < memoryList->totalSize;i++){
 		if(memoryList->memoryArr != NULL){
+			prnitf("\n@slot %d, filled by process %s, whose age value is %d ",i,memoryList->memoryArr[i]->label,memoryList->memoryArr[i]->age);
+			getchar();
 			if(memoryList->memoryArr[i]->age == age){
 				memoryList->memoryArr[i] = NULL;
 			}
