@@ -48,6 +48,8 @@ Memory * insert(Process * prcIn, Memory * memoryList,int loc){
 			memoryList->memoryArr[i] = copyProcess(prcIn);
 		}
 	}
+	
+	return(memoryList);
 }
 
 Process * copyProcess(Process * prcIn){
