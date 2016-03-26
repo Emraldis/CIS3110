@@ -19,6 +19,9 @@ int main (int argc, char * argv[]) {
 	
 	fileName = argv[1];
 	
+	printf("test\n");
+	getchar();
+	
 	for(allocationMode=0;allocationMode<4;allocationMode++){	
 		memory = malloc(sizeof(memory));
 		memory->totalSize = 128;
@@ -26,6 +29,9 @@ int main (int argc, char * argv[]) {
 		input = malloc(sizeof(char) * 256);
 		memory->memoryArr = malloc(sizeof(Process *) * memory->totalSize);
 		disk->prcList = malloc(sizeof(Process));
+		
+		printf("test\n");
+		getchar();
 		
 		inputFile = fopen(fileName, "r");
 		
