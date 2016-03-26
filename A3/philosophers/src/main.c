@@ -29,6 +29,8 @@ int main (int argc, char * argv[]) {
 		sprintf(data,"%d",i);
 		strcat(data," ");
 		strcat(data,argv[2]);
+		printf("\nInside a loop now");
+		getchar();
 		pthread_create(&threads[i], NULL,(void *)eat, ((void *)data));
 		data = NULL;
 	}
