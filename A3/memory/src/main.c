@@ -18,7 +18,7 @@ int main (int argc, char * argv[]) {
 	int i;
 	Stat * statInfo;
 
-	statInfo = malloc(sizeof(Stats));
+	statInfo = malloc(sizeof(Stat));
 	tempProcess = malloc(sizeof(Process));
 	
 	fileName = argv[1];

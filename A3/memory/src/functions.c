@@ -253,7 +253,7 @@ int worstFit(Memory * memoryList, int size){
 	//printf("\nReturning %d", differenceStore[1]);
 	return(differenceStore[1]);
 }
-Stat * collectStats(Memory * memoryList, Stats * statInfo){
+Stat * collectStats(Memory * memoryList, Stat * statInfo){
 	int count;
 	int countt;
 	int i;

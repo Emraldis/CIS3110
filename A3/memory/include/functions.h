@@ -11,4 +11,4 @@ Process * copyProcess(Process * prcIn);
 Disk * removeFromFront(Disk * diskList);
 int firstFit(Memory * memoryList, int size);
 Memory * removeProcess(Memory * memoryList, Disk * diskList,int loc);
-Stat * collectStats(Memory * memoryList, Stats * statInfo);
+Stat * collectStats(Memory * memoryList, Stat * statInfo);
