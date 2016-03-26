@@ -4,10 +4,10 @@
 Process * lineParse(char * input);	
 Disk * addToBack(Disk * diskList, Process * prcIn);
 Memory * insert(Process * prcIn, Memory * memoryList,int loc,int age);
-Memory * nextFit();
+int * nextFit(Memory * memoryList, int size,int loc);
 Memory * bestFit();
 Memory * worstFit();
 Process * copyProcess(Process * prcIn);
 Disk * removeFromFront(Disk * diskList);
 int firstFit(Memory * memoryList, int size);
-Memory * removeProcess(Memory * memoryList, Disk * diskList);
+Memory * removeProcess(Memory * memoryList, Disk * diskList,int loc);

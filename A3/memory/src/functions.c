@@ -111,14 +111,14 @@ int firstFit(Memory * memoryList, int size){
 	}
 	return(-1);
 }
-Memory * removeProcess(Memory * memoryList,Disk * diskList){
+Memory * removeProcess(Memory * memoryList,Disk * diskList, int loc){
 	int i;
 	int age;
 	
 	age = -1;
 	printf("\nBeginning check for oldest Program");
 	//getchar();
-	for(i=0;i < memoryList->totalSize;i++){
+	for(i=loc;i < memoryList->totalSize;i++){
 		if(memoryList->memoryArr[i] != NULL){
 			if(age == -1){
 				age = memoryList->memoryArr[i]->age;
@@ -131,7 +131,7 @@ Memory * removeProcess(Memory * memoryList,Disk * diskList){
 		}
 	}
 	printf("\nBeginning erase, searching for an age value of %d", age);
-	for(i=0;i < memoryList->totalSize;i++){
+	for(i=loc;i < memoryList->totalSize;i++){
 		if(memoryList->memoryArr[i] != NULL){
 			printf("\n@slot %d, filled by process %s, whose age value is %d ",i,memoryList->memoryArr[i]->label,memoryList->memoryArr[i]->age);
 			if(memoryList->memoryArr[i]->age == age){
@@ -157,4 +157,31 @@ Memory * removeProcess(Memory * memoryList,Disk * diskList){
 	//getchar();
 	
 	return(memoryList);
+}
+int nextFit(Memory * memoryList, int size,int loc){
+	int  i;
+	int j;
+	
+	j=0;
+	if((memoryList->totalSize - loc) < size){
+		loc = 0
+	}
+	for(i=loc; i < memoryList->totalSize;i++){
+		while((j < size) && ((j+i) < memoryList->totalSize)){
+			if(memoryList->memoryArr[j+i] == NULL){
+				j++;
+				//printf("\nLocation %d is unnocupied",(j+i));
+			}else{
+				//printf("\nLocation %d is occupied by %s",(j + i), memoryList->memoryArr[(j+i)]->label);
+				//getchar();
+				j=0;
+				i++;
+			}
+		}
+		if(j == size){
+			return(i);
+		}
+		//printf("\n%d",i);
+	}
+	return(-1);
 }

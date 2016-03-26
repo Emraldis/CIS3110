@@ -14,6 +14,7 @@ int main (int argc, char * argv[]) {
 	Process * tempProcess;
 	int tick;
 	int loc;
+	int locStore;
 
 	tempProcess = malloc(sizeof(Process));
 	
@@ -58,32 +59,20 @@ int main (int argc, char * argv[]) {
 					printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 					if(currentProcess != NULL){
 						memory = insert(currentProcess,memory,loc,tick);
-						printf("\nadded to memory");
-						//getchar();
 						disk = removeFromFront(disk);
-						printf("\nremoved front process");
-						//getchar();
 						currentProcess = disk->prcList;
-						printf("\njumped to next process");
-						//getchar();
 					}
 				}else{
 					while(!(loc >= 0)){
 						printf("\nProcess %s doesn't fit.",currentProcess->label);
-						memory = removeProcess(memory,disk);
+						memory = removeProcess(memory,disk,0);
 						loc = firstFit(memory,currentProcess->memoryReq);
 						if(loc >= 0){
 							printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 							if(currentProcess != NULL){
 								memory = insert(currentProcess,memory,loc,tick);
-								printf("\nadded to memory");
-								//getchar();
 								disk = removeFromFront(disk);
-								printf("\nremoved front process");
-								//getchar();
 								currentProcess = disk->prcList;
-								printf("\njumped to next process");
-								//getchar();
 							}
 						}
 					}
@@ -94,6 +83,38 @@ int main (int argc, char * argv[]) {
 				break;
 			case 1:
 			printf("\nNext Fit:\n");
+			locStore = 0;
+			while((disk->prcList != NULL) && (tick <200)){
+				printf("\n@tick: %d",tick);
+				printf("\nThe next process requires %d Megabytes of space.",currentProcess->memoryReq);
+				loc = nextFit(memory,currentProcess->memoryReq,locStore);
+				if(loc >= 0){
+					locStore = loc;
+					printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
+					if(currentProcess != NULL){
+						memory = insert(currentProcess,memory,loc,tick);
+						disk = removeFromFront(disk);
+						currentProcess = disk->prcList;
+					}
+				}else{
+					while(!(loc >= 0)){
+						locStore = loc;
+						printf("\nProcess %s doesn't fit.",currentProcess->label);
+						memory = removeProcess(memory,disk,0);
+						loc = nextFit(memory,currentProcess->memoryReq,locStore);
+						if(loc >= 0){
+							printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
+							if(currentProcess != NULL){
+								memory = insert(currentProcess,memory,loc,tick);
+								disk = removeFromFront(disk);
+								currentProcess = disk->prcList;
+							}
+						}
+					}
+				}
+				getchar();
+				tick++;
+			}
 				break;
 			case 2:
 			printf("\nBest Fit:\n");
