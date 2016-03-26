@@ -96,9 +96,9 @@ int firstFit(Memory * memoryList, int size){
 		while((j < size) && ((j+i) < memoryList->totalSize)){
 			if(memoryList->memoryArr[j+i] == NULL){
 				j++;
-				printf("\nLocation %d is unnocupied",(j+i));
+				//printf("\nLocation %d is unnocupied",(j+i));
 			}else{
-				printf("\nLocation %d is occupied by %s",(j + i), memoryList->memoryArr[(j+i)]->label);
+				//printf("\nLocation %d is occupied by %s",(j + i), memoryList->memoryArr[(j+i)]->label);
 				//getchar();
 				j=0;
 				i++;
@@ -137,7 +137,10 @@ Memory * removeProcess(Memory * memoryList,Disk * diskList){
 			if(memoryList->memoryArr[i]->age == age){
 				printf("\nage value found, deleting");
 				if(memoryList->memoryArr[i]->version == 0){
-					diskList = addToBack(diskList,memoryList->memoryArr[i]);
+					memoryList->memoryArr[i]->cycle--;
+					if(memoryList->memoryArr[i]->cycle > 0){
+						diskList = addToBack(diskList,memoryList->memoryArr[i]);
+					}
 					memoryList->memoryArr[i] = NULL;
 				}else {
 					memoryList->memoryArr[i] = NULL;
