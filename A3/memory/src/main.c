@@ -52,10 +52,9 @@ int main (int argc, char * argv[]) {
 			printf("\nFirst Fit:\n");
 			while((disk->prcList != NULL) && (tick <20)){
 				printf("\n@tick: %d",tick);
+				printf("\nThe next process requires %d Megabytes of space.",currentProcess->memoryReq);
 				getchar();
 				loc = firstFit(memory,currentProcess->memoryReq);
-				printf("test");
-				getchar();
 				if(loc >= 0){
 					printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 					if(currentProcess != NULL){
