@@ -220,6 +220,7 @@ int bestFit(Memory * memoryList, int size){
 			}
 		}
 	}
+	printf("\nReturning");
 	return(differenceStore[1]);
 }
 
