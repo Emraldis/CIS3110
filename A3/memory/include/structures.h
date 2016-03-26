@@ -30,7 +30,7 @@ typedef struct Stats{
 	float avgProcesses;
 	float avgHoles;
 	float percentMem;
-	float avgeMem;
+	float avgMem;
 	
 }Stat;
 #endif
