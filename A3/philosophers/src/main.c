@@ -61,5 +61,4 @@ void * eat(void * ptr){
 	}
 	
 	pthread_exit(NULL);
-	exit(0);
 }
