@@ -30,7 +30,7 @@ int main (int argc, char * argv[]) {
 	
 	for(i=0;i<numPhilosophers;i++){	
 		philoStruct->ID = (i+1);
-		pthread_create(&threads[i], NULL, eat, ((void *)philoStruct));
+		pthread_create(&threads[i], NULL, eat, ((void *)&philoStruct));
 	}
 	
 	sem_destroy(&semaphr);
