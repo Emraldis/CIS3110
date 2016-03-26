@@ -77,7 +77,7 @@ int firstFit(Memory * memoryList, int size){
 	int j;
 	
 	j=0;
-	printf("\n%d",i);
+	//printf("\n%d",i);
 	for(i=0; i < memoryList->totalSize;i++){
 		while((j < size) && ((j+i) < memoryList->totalSize)){
 			if(memoryList->memoryArr[j+i] == NULL){
