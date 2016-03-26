@@ -133,6 +133,7 @@ Memory * removeProcess(Memory * memoryList){
 		}
 	}
 	printf("\nfinished!");
+	getchar();
 	
 	return(memoryList);
 }
