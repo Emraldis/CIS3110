@@ -44,6 +44,8 @@ int main (int argc, char * argv[]) {
 		
 		while(fgets(input,256,inputFile) != NULL){
 			tempProcess = lineParse(input);
+			printf("test3.5\n");
+			getchar();
 			disk = addToBack(disk,copyProcess(tempProcess));
 		}
 		fclose(inputFile);
