@@ -43,9 +43,9 @@ void * eat(void * ptr){
 	int i;
 	int phlID;
 	int loop;
-	
-	phlID = (int)ptr->ID;
-	loop = (int)ptr->eatCount;
+	Phl * data = (Phl *)ptr;
+	phlID = (int)data->ID;
+	loop = (int)data->	eatCount;
 	
 	for(i=0;i<loop;i++){
 		printf("\nPhilosopher %d is thinking.",phlID);
