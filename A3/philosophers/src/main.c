@@ -10,7 +10,7 @@ typedef struct Philosopher{
 
 void * eat(void * ptr);
 
-sem_t semaphr;
+//sem_t semaphr;
 
 
 int main (int argc, char * argv[]) {
@@ -24,7 +24,7 @@ int main (int argc, char * argv[]) {
 	
 	numPhilosophers = atoi(argv[1]);
 	
-	sem_init(&semaphr,0,1);
+	//sem_init(&semaphr,0,1);
 	
 	philoStruct->eatCount = atoi(argv[2]);
 	
@@ -33,11 +33,13 @@ int main (int argc, char * argv[]) {
 	for(i=0;i<numPhilosophers;i++){	
 		philoStruct->ID = (i+1);
 		printf("\nCreating thread!");
-		pthread_create(&threads[i], NULL, eat, ((void *)&philoStruct));
+		if(pthread_create(&threads[i], NULL, eat, ((void *)&philoStruct)) != 0){
+			printf("\nError making thread");
+		}
 		printf("\nFinished creating thread!");
 	}
 	
-	sem_destroy(&semaphr);
+	//sem_destroy(&semaphr);
 	
 	return(0);
 	
@@ -54,9 +56,9 @@ void * eat(void * ptr){
 	
 	for(i=0;i<loop;i++){
 		printf("\nPhilosopher %d is thinking.",phlID);
-		sem_wait(&semaphr);
+		//sem_wait(&semaphr);
 		printf("\nPhilosopher %d is thinking.",phlID);
-		sem_post(&semaphr);
+		//sem_post(&semaphr);
 		printf("\nPhilosopher %d is thinking.",phlID);
 	}
 	
