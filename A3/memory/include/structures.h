@@ -20,4 +20,17 @@ typedef struct DiskInfo{
 	struct ProcessInfo * prcList;
 	struct ProcessInfo * last;
 }Disk;
+typedef struct Stats{
+	int numHoles;
+	int numProcesses;
+	int loads;
+	int cumulativeHoles;
+	int cumulativeProcesses;
+	float cumulativeMem;
+	float avgProcesses;
+	float avgHoles;
+	float percentMem;
+	float avgeMem;
+	
+}Stat;
 #endif
