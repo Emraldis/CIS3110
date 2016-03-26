@@ -198,10 +198,9 @@ int bestFit(Memory * memoryList, int size){
 	differenceStore[0] = (memoryList->totalSize + 1);
 	differenceStore[1] = -1;
 	for(i=0;i<memoryList->totalSize;i++){
-		printf("\ni@%d",i);
 		while((j+i) < memoryList->totalSize){
 			if(memoryList->memoryArr[j+i] == NULL){
-				printf("\nj@%d",j);
+				printf("\n@i = %d, and j = ",i,j);
 				j++;
 			}else{
 				if((j >= size) && (j < differenceStore[0])){
