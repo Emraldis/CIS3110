@@ -72,7 +72,7 @@ Process * copyProcess(Process * prcIn){
 	copy = malloc(sizeof(Process));
 	
 	copy->memoryReq = prcIn->memoryReq;
-	strcpy(copy->label,prcIn->label);
+	copy->label = prcIn->label;
 	copy->next = NULL;
 	copy->cycle = prcIn->cycle;
 	copy->age = prcIn->age;
