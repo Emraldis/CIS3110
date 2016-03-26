@@ -78,7 +78,6 @@ int main (int argc, char * argv[]) {
 						}
 					}
 				}
-				getchar();
 				tick++;
 			}
 				break;
@@ -113,7 +112,6 @@ int main (int argc, char * argv[]) {
 						}
 					}
 				}
-				getchar();
 				tick++;
 			}
 				break;
