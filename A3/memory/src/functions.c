@@ -259,7 +259,6 @@ Stat * collectStats(Memory * memoryList, Stat * statInfo){
 	int i;
 	int j;
 	
-	printf("\ntest1");
 	count = 0;
 	for(i=0;i< memoryList->totalSize; i++){
 		j=0;
@@ -274,48 +273,33 @@ Stat * collectStats(Memory * memoryList, Stat * statInfo){
 			}
 		}
 	}
-	printf("\ntest2");
 	statInfo->numHoles = count;
 	statInfo->cumulativeHoles = (statInfo->cumulativeHoles + statInfo->numHoles);
 	statInfo->avgHoles = (statInfo->cumulativeHoles / statInfo->loads);
 	count = 0;
 	countt = 0;
-	printf("\ntest3");
-	getchar();
 	for(i=0;i<memoryList->totalSize;i++){
 		if(memoryList->memoryArr[i] != NULL){
-			printf("\ntest3.1");
-			getchar();
 			count++;
 			if(i != 0){
-				printf("\ntest3.2");
-				getchar();
 				if(memoryList->memoryArr[i-1] != NULL){
 					if(strcmp(memoryList->memoryArr[i]->label,memoryList->memoryArr[(i-1)]->label) != 0){
-						printf("\ntest3.3");
-						getchar();
 						countt++;
 					}
 				}
 			}else{
 				if(memoryList->memoryArr[i] != NULL){
-					printf("\ntest3.3");
-					getchar();
 					countt++;
 				}
 			}
 		}
 	}
-	printf("\ntest4");
-	//getchar();
 	statInfo->numProcesses = countt;
 	statInfo->cumulativeProcesses = (statInfo->cumulativeProcesses + statInfo->numProcesses);
 	statInfo->avgProcesses = (statInfo->cumulativeProcesses / statInfo->loads);
 	statInfo->percentMem = ((count / memoryList->totalSize) * 100);
 	statInfo->cumulativeMem = (statInfo->cumulativeMem + statInfo->percentMem);
 	statInfo->avgMem = ((statInfo->cumulativeMem / statInfo->loads) * 100);
-	printf("\ntest5");
-	//getchar();
 	
 	return(statInfo);
 }
