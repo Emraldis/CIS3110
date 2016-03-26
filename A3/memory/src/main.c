@@ -89,6 +89,7 @@ int main (int argc, char * argv[]) {
 								currentProcess = disk->prcList;
 								printf("\njumped to next process");
 								//getchar();
+							}
 						}
 					}
 				}
