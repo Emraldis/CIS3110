@@ -153,7 +153,7 @@ int main (int argc, char * argv[]) {
 				printf("\n@tick: %d",tick);
 				printf("\nThe next process requires %d Megabytes of space.",currentProcess->memoryReq);
 				getchar();
-				loc = bestFit(memory,currentProcess->memoryReq);
+				loc = worstFit(memory,currentProcess->memoryReq);
 				if(loc >= 0){
 					printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 					if(currentProcess != NULL){
@@ -165,7 +165,7 @@ int main (int argc, char * argv[]) {
 					while(!(loc >= 0)){
 						//printf("\nProcess %s doesn't fit.",currentProcess->label);
 						memory = removeProcess(memory,disk,0);
-						loc = bestFit(memory,currentProcess->memoryReq);
+						loc = worstFit(memory,currentProcess->memoryReq);
 						if(loc >= 0){
 							printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 							if(currentProcess != NULL){
