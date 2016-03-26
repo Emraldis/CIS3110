@@ -17,4 +17,5 @@ void * eat(void * data[2]){
 	}
 	
 	pthread_exit();
+	exit();;
 }

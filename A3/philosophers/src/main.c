@@ -10,11 +10,12 @@ int main (int argc, char * argv[]) {
 	
 	char * data;
 	int i;
+	int numPhilosophers;
 	pthread_t threads[atoi(argv[1])];
 	
 	data = malloc(sizeof(char) * 256);
 	
-
+	numPhilosophers = atoi(argv[1]);
 	
 	sem_init(&semaphr,0,1);
 	
@@ -22,7 +23,7 @@ int main (int argc, char * argv[]) {
 		sprintf(data,"%d",i);
 		strcat(data," ");
 		strcat(data,argv[2]);
-		pthread_create(&threads[i], NULL, eat, ((void *)data));
+		pthread_create(&threads[i], NULL,(void *) &eat, ((void *)data));
 		data = NULL;
 	}
 	
