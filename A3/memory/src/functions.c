@@ -138,7 +138,7 @@ Memory * removeProcess(Memory * memoryList,Disk * diskList){
 				printf("\nage value found, deleting");
 				if(memoryList->memoryArr[i]->version == 0){
 					diskList = addToBack(diskList,memoryList->memoryArr[i]);
-					memoryList->memoryArr[i] - NULL;
+					memoryList->memoryArr[i] = NULL;
 				}else {
 					memoryList->memoryArr[i] = NULL;
 				}
