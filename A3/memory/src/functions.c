@@ -215,13 +215,13 @@ int bestFit(Memory * memoryList, int size){
 				printf("\ntest");
 				getchar();
 				i = j;
-				if(j == memoryList->totalSize){
-					differenceStore[0] = j;
-					differenceStore[1] = 0;
-					return(differenceStore[1]);
-				}
 				j = 0;
 				i++;
+			}
+			if(j == memoryList->totalSize){
+				differenceStore[0] = j;
+				differenceStore[1] = 0;
+				return(differenceStore[1]);
 			}
 		}
 	}
