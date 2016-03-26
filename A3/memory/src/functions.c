@@ -282,7 +282,7 @@ Stat * collectStats(Memory * memoryList, Stat * statInfo){
 		if(memoryList->memoryArr[i] != NULL){
 			count++;
 			if(i != 0){
-				if(strcmp(memoryList->memoryArr[i]->label,memoryList->memoryArr[(i-1)]) != 0){
+				if(strcmp(memoryList->memoryArr[i]->label,memoryList->memoryArr[(i-1)]->label) != 0){
 					countt++;
 				}
 			}else{
@@ -293,11 +293,11 @@ Stat * collectStats(Memory * memoryList, Stat * statInfo){
 		}
 	}
 	statInfo->numProcesses = countt;
-	statInfo->cumulativeProcesses = (statinfo->cumulativeProcesses + statInfo->numProcesses);
+	statInfo->cumulativeProcesses = (statInfo->cumulativeProcesses + statInfo->numProcesses);
 	statInfo->avgProcesses = (statInfo->cumulativeProcesses / statInfo->loads);
 	statInfo->percentMem = ((count / memoryList->totalSize) * 100);
 	statInfo->cumulativeMem = (statInfo->cumulativeMem + statInfo->percentMem);
-	statInfo->avgMem = ((statInfo->cumulativeMem / loads) * 100);
+	statInfo->avgMem = ((statInfo->cumulativeMem / statInfo->loads) * 100);
 	
 	return(statInfo);
 }
