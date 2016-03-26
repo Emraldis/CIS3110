@@ -303,3 +303,18 @@ Stat * collectStats(Memory * memoryList, Stat * statInfo){
 	
 	return(statInfo);
 }
+Stat * clearStats(Stat * statInfo){
+
+	statInfo->numHoles = 0;
+	statInfo->numProcesses = 0;
+	statInfo->loads = 0;
+	statInfo->cumulativeHoles = 0;
+	statInfo->cumulativeProcesses = 0;
+	statInfo->cumulativeMem = 0;
+	statInfo->avgProcesses = 0;
+	statInfo->avgHoles = 0;
+	statInfo->percentMem = 0;
+	statInfo->avgMem = 0;
+
+	return(statInfo);
+}

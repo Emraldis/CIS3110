@@ -12,3 +12,4 @@ Disk * removeFromFront(Disk * diskList);
 int firstFit(Memory * memoryList, int size);
 Memory * removeProcess(Memory * memoryList, Disk * diskList,int loc);
 Stat * collectStats(Memory * memoryList, Stat * statInfo);
+Stat * clearStats(Stat * statInfo);

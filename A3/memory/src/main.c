@@ -88,6 +88,7 @@ int main (int argc, char * argv[]) {
 				}
 				tick++;
 			}
+			statInfo = clearStats(statInfo);
 				break;
 			case 1:
 			printf("\nNext Fit:\n");
@@ -128,6 +129,7 @@ int main (int argc, char * argv[]) {
 				}
 				tick++;
 			}
+			statInfo = clearStats(statInfo);
 				break;
 			case 2:
 			printf("\nBest Fit:\n");
@@ -166,6 +168,7 @@ int main (int argc, char * argv[]) {
 				}
 				tick++;
 			}
+			statInfo = clearStats(statInfo);
 				break;
 			case 3:
 			printf("\nWorst Fit:\n");
@@ -204,6 +207,7 @@ int main (int argc, char * argv[]) {
 				}
 				tick++;
 			}
+			statInfo = clearStats(statInfo);
 				break;
 		}
 		
