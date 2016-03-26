@@ -200,8 +200,8 @@ int bestFit(Memory * memoryList, int size){
 	for(i=0;i < memoryList->totalSize;i++){
 		j=0;
 		if(memoryList->memoryArr[i] == NULL){
-			printf("\n for i = %d\n", i);
-			getchar();
+			printf("\n for i = %d", i);
+			//getchar();
 			while(((j+i) < memoryList->totalSize) && (memoryList->memoryArr[j+i] == NULL)){
 				j++;
 			}
