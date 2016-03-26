@@ -54,7 +54,7 @@ Memory * insert(Process * prcIn, Memory * memoryList,int loc, int age){
 			prcIn->version = j;
 			memoryList->memoryArr[i] = copyProcess(prcIn);
 			j++;
-			printf("\nallocating memory to slot %d",i);
+			//printf("\nallocating memory to slot %d",i);
 		}else{
 			printf("\nError allocating memory!");
 		}
@@ -133,7 +133,7 @@ Memory * removeProcess(Memory * memoryList,Disk * diskList, int loc){
 	printf("\nBeginning erase, searching for an age value of %d", age);
 	for(i=loc;i < memoryList->totalSize;i++){
 		if(memoryList->memoryArr[i] != NULL){
-			printf("\n@slot %d, filled by process %s, whose age value is %d ",i,memoryList->memoryArr[i]->label,memoryList->memoryArr[i]->age);
+			//printf("\n@slot %d, filled by process %s, whose age value is %d ",i,memoryList->memoryArr[i]->label,memoryList->memoryArr[i]->age);
 			if(memoryList->memoryArr[i]->age == age){
 				printf("\nage value found, deleting");
 				if(memoryList->memoryArr[i]->version == 0){
