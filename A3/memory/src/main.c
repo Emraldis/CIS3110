@@ -55,16 +55,15 @@ int main (int argc, char * argv[]) {
 			case 0:
 			printf("\nFirst Fit:\n");
 			while((disk->prcList != NULL) && (tick <200)){
-				printf("\n@tick: %d",tick);
-				getchar();
+				//printf("\n@tick: %d",tick);
 				//printf("\nThe next process requires %d Megabytes of space.",currentProcess->memoryReq);
 				loc = firstFit(memory,currentProcess->memoryReq);
 				if(loc >= 0){
 					//printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 					if(currentProcess != NULL){
 						memory = insert(currentProcess,memory,loc,tick);
-						statInfo = collectStats(memory,statInfo);
 						statInfo->loads = tick;
+						statInfo = collectStats(memory,statInfo);
 						printf("\nPID %s Loaded, Number of Processes: %d, Number of Holes: %d, Percent of Memory Used: %-.1f, Average Amount of Memory Used: %-.1f",currentProcess->label,statInfo->numProcesses,statInfo->numHoles,statInfo->percentMem,statInfo->avgMem);
 						disk = removeFromFront(disk);
 						currentProcess = disk->prcList;
@@ -78,8 +77,8 @@ int main (int argc, char * argv[]) {
 							//printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 							if(currentProcess != NULL){
 								memory = insert(currentProcess,memory,loc,tick);
-								statInfo = collectStats(memory,statInfo);
 								statInfo->loads = tick;
+								statInfo = collectStats(memory,statInfo);
 								printf("\nPID %s Loaded, Number of Processes: %d, Number of Holes: %d, Percent of Memory Used: %-.1f, Average Amount of Memory Used: %-.1f",currentProcess->label,statInfo->numProcesses,statInfo->numHoles,statInfo->percentMem,statInfo->avgMem);
 								disk = removeFromFront(disk);
 								currentProcess = disk->prcList;
@@ -102,8 +101,8 @@ int main (int argc, char * argv[]) {
 					//printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 					if(currentProcess != NULL){
 						memory = insert(currentProcess,memory,loc,tick);
-						statInfo = collectStats(memory,statInfo);
 						statInfo->loads = tick;
+						statInfo = collectStats(memory,statInfo);
 						printf("\nPID %s Loaded, Number of Processes: %d, Number of Holes: %d, Percent of Memory Used: %-.1f, Average Amount of Memory Used: %-.1f",currentProcess->label,statInfo->numProcesses,statInfo->numHoles,statInfo->percentMem,statInfo->avgMem);
 						disk = removeFromFront(disk);
 						currentProcess = disk->prcList;
@@ -118,8 +117,8 @@ int main (int argc, char * argv[]) {
 							//printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 							if(currentProcess != NULL){
 								memory = insert(currentProcess,memory,loc,tick);
-								statInfo = collectStats(memory,statInfo);
 								statInfo->loads = tick;
+								statInfo = collectStats(memory,statInfo);
 								printf("\nPID %s Loaded, Number of Processes: %d, Number of Holes: %d, Percent of Memory Used: %-.1f, Average Amount of Memory Used: %-.1f",currentProcess->label,statInfo->numProcesses,statInfo->numHoles,statInfo->percentMem,statInfo->avgMem);
 								disk = removeFromFront(disk);
 								currentProcess = disk->prcList;
@@ -141,8 +140,8 @@ int main (int argc, char * argv[]) {
 					//printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 					if(currentProcess != NULL){
 						memory = insert(currentProcess,memory,loc,tick);
-						statInfo = collectStats(memory,statInfo);
 						statInfo->loads = tick;
+						statInfo = collectStats(memory,statInfo);
 						printf("\nPID %s Loaded, Number of Processes: %d, Number of Holes: %d, Percent of Memory Used: %-.1f, Average Amount of Memory Used: %-.1f",currentProcess->label,statInfo->numProcesses,statInfo->numHoles,statInfo->percentMem,statInfo->avgMem);
 						disk = removeFromFront(disk);
 						currentProcess = disk->prcList;
@@ -156,8 +155,8 @@ int main (int argc, char * argv[]) {
 							//printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 							if(currentProcess != NULL){
 								memory = insert(currentProcess,memory,loc,tick);
-								statInfo = collectStats(memory,statInfo);
 								statInfo->loads = tick;
+								statInfo = collectStats(memory,statInfo);
 								printf("\nPID %s Loaded, Number of Processes: %d, Number of Holes: %d, Percent of Memory Used: %-.1f, Average Amount of Memory Used: %-.1f",currentProcess->label,statInfo->numProcesses,statInfo->numHoles,statInfo->percentMem,statInfo->avgMem);
 								disk = removeFromFront(disk);
 								currentProcess = disk->prcList;
@@ -179,8 +178,8 @@ int main (int argc, char * argv[]) {
 					//printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 					if(currentProcess != NULL){
 						memory = insert(currentProcess,memory,loc,tick);
-						statInfo = collectStats(memory,statInfo);
 						statInfo->loads = tick;
+						statInfo = collectStats(memory,statInfo);
 						printf("\nPID %s Loaded, Number of Processes: %d, Number of Holes: %d, Percent of Memory Used: %-.1f, Average Amount of Memory Used: %-.1f",currentProcess->label,statInfo->numProcesses,statInfo->numHoles,statInfo->percentMem,statInfo->avgMem);
 						disk = removeFromFront(disk);
 						currentProcess = disk->prcList;
@@ -194,8 +193,8 @@ int main (int argc, char * argv[]) {
 							//printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 							if(currentProcess != NULL){
 								memory = insert(currentProcess,memory,loc,tick);
-								statInfo = collectStats(memory,statInfo);
 								statInfo->loads = tick;
+								statInfo = collectStats(memory,statInfo);
 								printf("\nPID %s Loaded, Number of Processes: %d, Number of Holes: %d, Percent of Memory Used: %-.1f, Average Amount of Memory Used: %-.1f",currentProcess->label,statInfo->numProcesses,statInfo->numHoles,statInfo->percentMem,statInfo->avgMem);
 								disk = removeFromFront(disk);
 								currentProcess = disk->prcList;
