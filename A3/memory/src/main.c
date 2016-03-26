@@ -127,15 +127,11 @@ int main (int argc, char * argv[]) {
 		
 		printf("\n______________________________________________________________________________________________________________\n");
 		for(i=0;i < memory->totalSize; i++){
-			free(memory->memoryArr[i]);	
+			memory->memoryArr[i] = NULL;	
 		}
 		while(disk->prcList != NULL){
 			disk = removeFromFront(disk);
 		}
-		free(disk->prcList);
-		free(input);
-		free(disk);
-		free(memory);
 		
 	}
 	return(0);
