@@ -164,7 +164,7 @@ int nextFit(Memory * memoryList, int size,int loc){
 	
 	j=0;
 	if((memoryList->totalSize - loc) < size){
-		loc = 0
+		loc = 0;
 	}
 	for(i=loc; i < memoryList->totalSize;i++){
 		while((j < size) && ((j+i) < memoryList->totalSize)){
