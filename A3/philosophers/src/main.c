@@ -35,8 +35,9 @@ int main (int argc, char * argv[]) {
 		printf("\nCreating thread!");
 		if(pthread_create(&threads[i], NULL, eat, ((void *)&philoStruct)) != 0){
 			printf("\nError making thread");
+		}else{
+			printf("\nFinished creating thread!");
 		}
-		printf("\nFinished creating thread!");
 	}
 	
 	//sem_destroy(&semaphr);
