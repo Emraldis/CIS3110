@@ -201,27 +201,14 @@ int bestFit(Memory * memoryList, int size){
 		j=0;
 		printf("\n for i = %d\n", i);
 		getchar();
-		while((j+i) < memoryList->totalSize){
-			if(memoryList->memoryArr[j+i] == NULL){
-				printf("\tand j = %d\n",j);
+		if(memoryList->memoryArr[i] == NULL){
+			while(((j+i) < memoryList->totalSize) && (memoryList->memoryArr[j+i] == NULL)){
 				j++;
-			}else{
-				if((j >= size) && (j < differenceStore[0])){
-					differenceStore[0] = j;
-					differenceStore[1] = i;
-					i = j;
-					printf("\nStarting at %d the current difference is %d",differenceStore[1],differenceStore[0]);
-					getchar();
-				}
-				printf("\ntest");
-				getchar();
-				j = 0;
-				i++;
 			}
-			if(j == memoryList->totalSize){
+			if((memoryList->memoryArr[j+i] != NULL) && (j >= size) && (j < differenceStore[0])){
 				differenceStore[0] = j;
-				differenceStore[1] = 0;
-				return(differenceStore[1]);
+				differenceStore[1] = i;
+				i = (i+j);
 			}
 		}
 	}
