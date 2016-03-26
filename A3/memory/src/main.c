@@ -55,7 +55,7 @@ int main (int argc, char * argv[]) {
 				if(loc >= 0){
 					printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 					if(currentProcess != NULL){
-						insert(currentProcess,memory,loc);
+						memory = insert(currentProcess,memory,loc);
 						disk = removeFromFront(disk);
 						currentProcess = disk->prcList;
 					}
