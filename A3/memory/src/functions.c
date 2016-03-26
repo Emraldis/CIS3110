@@ -200,17 +200,20 @@ int bestFit(Memory * memoryList, int size){
 	for(i=0;i < memoryList->totalSize;i++){
 		j=0;
 		if(memoryList->memoryArr[i] == NULL){
-			printf("\n for i = %d", i);
 			//getchar();
 			while(((j+i) < memoryList->totalSize) && (memoryList->memoryArr[j+i] == NULL)){
 				j++;
 			}
-			if((memoryList->memoryArr[j+i] != NULL) && (j >= size) && (j < differenceStore[0])){
-				differenceStore[0] = j;
-				differenceStore[1] = i;
-				i = (i+j);
+			if((memoryList->memoryArr[j+i] != NULL) && (j >= size)){
+				printf("\n for i = %d", i);
+				if(j < differenceStore[0]){
+					differenceStore[0] = j;
+					differenceStore[1] = i;
+					i = (i+j);
+				}
 			}
 			if(((j+i) == memoryList->totalSize) && (j >= size)){
+				printf("\n for i = %d", i);
 				return(i);
 			}
 		}
@@ -229,17 +232,19 @@ int worstFit(Memory * memoryList, int size){
 	for(i=0;i < memoryList->totalSize;i++){
 		j=0;
 		if(memoryList->memoryArr[i] == NULL){
-			printf("\n for i = %d", i);
 			//getchar();
 			while(((j+i) < memoryList->totalSize) && (memoryList->memoryArr[j+i] == NULL)){
 				j++;
 			}
-			if((memoryList->memoryArr[j+i] != NULL) && (j >= size) && (j > differenceStore[0])){
-				differenceStore[0] = j;
-				differenceStore[1] = i;
-				i = (i+j);
+			if((memoryList->memoryArr[j+i] != NULL) && (j >= size)){
+				if(j < differenceStore[0]){
+					differenceStore[0] = j;
+					differenceStore[1] = i;
+					i = (i+j);
+				}
 			}
 			if(((j+i) == memoryList->totalSize) && (j >= size)){
+				printf("\n for i = %d", i);
 				return(i);
 			}
 		}
