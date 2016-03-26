@@ -72,6 +72,8 @@ int main (int argc, char * argv[]) {
 					}
 				}else{
 					printf("\nProcess %s doesn't fit.",currentProcess->label);
+					memory = removeProcess(age,memory);
+					age++;
 				}
 				tick++;
 			}
