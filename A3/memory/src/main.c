@@ -55,11 +55,11 @@ int main (int argc, char * argv[]) {
 			case 0:
 			printf("\nFirst Fit:\n");
 			while((disk->prcList != NULL) && (tick <200)){
-				//printf("\n@tick: %d",tick);
-				//printf("\nThe next process requires %d Megabytes of space.",currentProcess->memoryReq);
+				printf("\n@tick: %d",tick);
+				printf("\nThe next process requires %d Megabytes of space.",currentProcess->memoryReq);
 				loc = firstFit(memory,currentProcess->memoryReq);
 				if(loc >= 0){
-					//printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
+					printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 					if(currentProcess != NULL){
 						memory = insert(currentProcess,memory,loc,tick);
 						statInfo->loads = tick;
@@ -70,11 +70,11 @@ int main (int argc, char * argv[]) {
 					}
 				}else{
 					while(!(loc >= 0)){
-						//printf("\nProcess %s doesn't fit.",currentProcess->label);
+						printf("\nProcess %s doesn't fit.",currentProcess->label);
 						memory = removeProcess(memory,disk,0);
 						loc = firstFit(memory,currentProcess->memoryReq);
 						if(loc >= 0){
-							//printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
+							printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 							if(currentProcess != NULL){
 								memory = insert(currentProcess,memory,loc,tick);
 								statInfo->loads = tick;
