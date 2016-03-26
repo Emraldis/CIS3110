@@ -22,6 +22,9 @@ int main (int argc, char * argv[]) {
 	
 	sem_init(&semaphr,0,1);
 	
+	printf("\nGot here!");
+	getchar();
+	
 	for(i=0;i<numPhilosophers;i++){	
 		sprintf(data,"%d",i);
 		strcat(data," ");
