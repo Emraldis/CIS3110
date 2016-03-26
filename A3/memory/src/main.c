@@ -119,6 +119,35 @@ int main (int argc, char * argv[]) {
 				break;
 			case 2:
 			printf("\nBest Fit:\n");
+			while((disk->prcList != NULL) && (tick <200)){
+				printf("\n@tick: %d",tick);
+				printf("\nThe next process requires %d Megabytes of space.",currentProcess->memoryReq);
+				loc = bestFit(memory,currentProcess->memoryReq);
+				if(loc >= 0){
+					printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
+					if(currentProcess != NULL){
+						memory = insert(currentProcess,memory,loc,tick);
+						disk = removeFromFront(disk);
+						currentProcess = disk->prcList;
+					}
+				}else{
+					while(!(loc >= 0)){
+						//printf("\nProcess %s doesn't fit.",currentProcess->label);
+						memory = removeProcess(memory,disk,0);
+						loc = bestFit(memory,currentProcess->memoryReq);
+						if(loc >= 0){
+							printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
+							if(currentProcess != NULL){
+								memory = insert(currentProcess,memory,loc,tick);
+								disk = removeFromFront(disk);
+								currentProcess = disk->prcList;
+							}
+						}
+					}
+				}
+				getchar();
+				tick++;
+			}
 				break;
 			case 3:
 			printf("\nWorst Fit:\n");

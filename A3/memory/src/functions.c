@@ -163,8 +163,10 @@ int nextFit(Memory * memoryList, int size,int loc){
 	int j;
 	
 	j=0;
-	if((memoryList->totalSize - loc) < size){
+	if((memoryList->totalSize - loc) < size ){
 		printf("\nNot enough space in memory starting from here: %d", loc);
+		loc = 0;
+	}else if(loc = -1){
 		loc = 0;
 	}
 	for(i=loc; i < memoryList->totalSize;i++){
@@ -186,4 +188,32 @@ int nextFit(Memory * memoryList, int size,int loc){
 		//printf("\n%d",i);
 	}
 	return(-1);
+}
+
+int bestFit(Memory * memoryList, int size){
+	int i;
+	int j;
+	int differenceStore[2];
+	
+	differenceStore[0] = (memoryList->totalSize + 1);
+	differenceStore[1] = -1;
+	for(i=0;i<memoryList->totalSize;i++){
+		while((j+i) < memoryList->totalSize){
+			if(memoryList->memoryArr[j+i] == NULL){
+				j++;
+			}else{
+				if((j >= size) && (j < differenceStore[0])){
+					differenceStore[0] = j;
+					differenceStore[1] = i;
+				}
+				j = 0;
+				i++;
+			}
+		}
+	}
+	return(differenceStore[1]);
+}
+
+int worstFit(Memory * memoryList, int size){
+	return(loc);
 }
