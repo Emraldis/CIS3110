@@ -2,36 +2,35 @@
 #include<stdlib.h>
 #include<pthread.h>
 #include<semaphore.h>
-#include<string.h>
 
-void eat(void * data[2]);
+typedef struct Philosopher{
+	int ID;
+	int eatCount;
+}Phl;
+
+void eat(void * ptr);
 
 sem_t semaphr;
 
 
 int main (int argc, char * argv[]) {
 	
-	char * data;
 	int i;
 	int numPhilosophers;
+	Phl * philoStruct;
 	pthread_t threads[atoi(argv[1])];
 	
-	data = malloc(sizeof(char) * 256);
+	philoStruct = malloc(sizeof(Phl));
 	
 	numPhilosophers = atoi(argv[1]);
 	
 	sem_init(&semaphr,0,1);
 	
-	printf("\nGot here!");
-	getchar();
+	philoStruct->eatCount = atoi(argv[2]);
 	
 	for(i=0;i<numPhilosophers;i++){	
-		sprintf(data,"%d",i);
-		strcat(data," ");
-		strcat(data,argv[2]);
-		printf("\nInside a loop now");
-		getchar();
-		pthread_create(&threads[i], NULL,(void *)eat, ((void *)data));
+		philoStruct->ID = (i+1);
+		pthread_create(&threads[i], NULL, eat, ((void *)philoStruct));
 		data = NULL;
 	}
 	
@@ -41,20 +40,13 @@ int main (int argc, char * argv[]) {
 	
 }
 
-void eat(void * data[2]){
+void * eat(void * ptr){
 	int i;
 	int phlID;
 	int loop;
-	char * input;
 	
-	printf("\nGot into a thread!");
-	getchar();
-	
-	input = (char *) data;
-	
-	
-	phlID = atoi(strtok(input," "));
-	loop = atoi(input);
+	phlID = (int)ptr->ID;
+	loop = (int)ptr->eatCount;
 	
 	for(i=0;i<loop;i++){
 		printf("\nPhilosopher %d is thinking.",phlID);
