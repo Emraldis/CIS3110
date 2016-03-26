@@ -47,15 +47,20 @@ int main (int argc, char * argv[]) {
 			disk = addToBack(disk,copyProcess(tempProcess));
 		}
 		fclose(inputFile);
+		
+		printf("test4\n");
+		getchar();
+		
 		currentProcess = disk->prcList;
 		while(currentProcess != NULL){
 			printf("\nName: %s\nSize: %d\n",currentProcess->label,currentProcess->memoryReq);
 			currentProcess = currentProcess->next;
 		}
 		
-		tick = 0;
-		
+		printf("test5\n");
 		getchar();
+		
+		tick = 0;
 		
 		currentProcess = disk->prcList;
 		
