@@ -42,8 +42,9 @@ int main (int argc, char * argv[]) {
 		fclose(inputFile);
 		
 		currentProcess = disk->prcList;
+		printf("\nProcesses:\n");
 		while(currentProcess != NULL){
-			printf("\nName: %s\nSize: %d\n",currentProcess->label,currentProcess->memoryReq);
+			printf("\n\tName: %s\n\tSize: %d\n",currentProcess->label,currentProcess->memoryReq);
 			currentProcess = currentProcess->next;
 		}
 		
@@ -88,6 +89,7 @@ int main (int argc, char * argv[]) {
 				}
 				tick++;
 			}
+			printf("\nTotal Loads: %d, Average Number of Processes: %-.0f, Average Number of Holes: %-.0f, Average Memory Usage: %-.0f",statInfo->loads,statInfo->avgProcesses,statInfo->avgHoles,statInfo->avgMem);
 			statInfo = clearStats(statInfo);
 				break;
 			case 1:
@@ -129,6 +131,7 @@ int main (int argc, char * argv[]) {
 				}
 				tick++;
 			}
+			printf("\nTotal Loads: %d, Average Number of Processes: %-.0f, Average Number of Holes: %-.0f, Average Memory Usage: %-.0f",statInfo->loads,statInfo->avgProcesses,statInfo->avgHoles,statInfo->avgMem);
 			statInfo = clearStats(statInfo);
 				break;
 			case 2:
@@ -168,6 +171,7 @@ int main (int argc, char * argv[]) {
 				}
 				tick++;
 			}
+			printf("\nTotal Loads: %d, Average Number of Processes: %-.0f, Average Number of Holes: %-.0f, Average Memory Usage: %-.0f",statInfo->loads,statInfo->avgProcesses,statInfo->avgHoles,statInfo->avgMem);
 			statInfo = clearStats(statInfo);
 				break;
 			case 3:
@@ -207,6 +211,7 @@ int main (int argc, char * argv[]) {
 				}
 				tick++;
 			}
+			printf("\nTotal Loads: %d, Average Number of Processes: %-.0f, Average Number of Holes: %-.0f, Average Memory Usage: %-.0f",statInfo->loads,statInfo->avgProcesses,statInfo->avgHoles,statInfo->avgMem);
 			statInfo = clearStats(statInfo);
 				break;
 		}
