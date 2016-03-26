@@ -88,6 +88,7 @@ int firstFit(Memory * memoryList, int size){
 		if(j == size){
 			return(i);
 		}
+		printf("\n%d",i);
 	}
 	return(-1);
 	
