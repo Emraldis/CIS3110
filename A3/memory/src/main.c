@@ -52,19 +52,20 @@ int main (int argc, char * argv[]) {
 			printf("\nFirst Fit:\n");
 			while((disk->prcList != NULL) && (tick <20)){
 				printf("\n@tick: %d",tick);
+				getchar();
 				loc = firstFit(memory,currentProcess->memoryReq);
 				if(loc >= 0){
 					printf("\nProcess %s fits @ %d!",currentProcess->label,loc);
 					if(currentProcess != NULL){
 						memory = insert(currentProcess,memory,loc);
 						printf("\nadded to memory");
-						getchar();
+						//getchar();
 						disk = removeFromFront(disk);
-						printf("\removed front process");
-						getchar();
+						printf("\nremoved front process");
+						//getchar();
 						currentProcess = disk->prcList;
 						printf("\njumped to next process");
-						getchar();
+						//getchar();
 					}
 				}else{
 					printf("\nProcess %s doesn't fit.",currentProcess->label);					
