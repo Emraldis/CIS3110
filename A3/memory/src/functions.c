@@ -111,7 +111,7 @@ int firstFit(Memory * memoryList, int size){
 	}
 	return(-1);
 }
-Memory * removeProcess(Memory * memoryList){
+Memory * removeProcess(Memory * memoryList,Disk * diskList){
 	int i;
 	int age;
 	
@@ -137,7 +137,8 @@ Memory * removeProcess(Memory * memoryList){
 			if(memoryList->memoryArr[i]->age == age){
 				printf("\nage value found, deleting");
 				if(memoryList->memoryArr[i]->version == 0){
-					
+					diskList = addToBack(diskList,memoryList->memoryArr[i]);
+					memoryList->memoryArr[i] - NULL;
 				}else {
 					memoryList->memoryArr[i] = NULL;
 				}
