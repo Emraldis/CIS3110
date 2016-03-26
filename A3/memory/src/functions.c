@@ -166,7 +166,7 @@ int nextFit(Memory * memoryList, int size,int loc){
 	if((memoryList->totalSize - loc) < size ){
 		printf("\nNot enough space in memory starting from here: %d", loc);
 		loc = 0;
-	}else if(loc = -1){
+	}else if(loc == -1){
 		loc = 0;
 	}
 	for(i=loc; i < memoryList->totalSize;i++){
@@ -215,5 +215,5 @@ int bestFit(Memory * memoryList, int size){
 }
 
 int worstFit(Memory * memoryList, int size){
-	return(loc);
+	return(0);
 }
