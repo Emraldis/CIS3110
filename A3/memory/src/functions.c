@@ -20,6 +20,7 @@ Process * lineParse(char * input){
 	if (tempString != NULL){
 		newProcess->memoryReq = atoi(tempString);
 	}
+	newProcess->cycle = 3;
 	
 	return(newProcess);
 }
@@ -102,8 +103,16 @@ int firstFit(Memory * memoryList, int size){
 	}
 	return(-1);
 }
-Memory * removeProcess(int age, Memory * memoryList){
+Memory * removeProcess(Memory * memoryList){
 	int i;
+	int age;
+	
+	age = 0;
+	for(i=0;i < memoryList->totalSize;i++){
+		if(memoryList->memoryArr[i]->age < age){
+			age = memoryList->memoryArr[i]->age;
+		}
+	}
 	printf("\nBeginning erase, searching for an age value of %d", age);
 	getchar();
 	for(i=0;i < memoryList->totalSize;i++){
