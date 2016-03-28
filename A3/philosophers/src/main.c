@@ -25,7 +25,7 @@ int main (int argc, char * argv[]) {
 	
 	numPhilosophers = atoi(argv[1]);
 	
-	eatCount = atoi(argv[2])
+	eatCount = atoi(argv[2]);
 	
 	sem_init(&semaphr,0,1);
 	printf("\ntest");
