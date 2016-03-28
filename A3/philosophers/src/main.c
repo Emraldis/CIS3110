@@ -22,19 +22,16 @@ int main (int argc, char * argv[]) {
 	pthread_t threads[atoi(argv[1])];
 	
 	numPhilosophers = atoi(argv[1]);
+	eatCount = atoi(argv[2]);
 	
 	philoStruct = malloc(sizeof(Phl *) * numPhilosophers);
 	
 	
-	eatCount = atoi(argv[2]);
-	
 	sem_init(&semaphr,0,1);
-	printf("\ntest");
-	fflush(stdout);
 	for(i=0;i < numPhilosophers; i++){
 		printf("\ntesting1");
 		fflush(stdout);
-		philoStruct[i]->eatCount = eatCount;
+		philoStruct[i]->&eatCount = eatCount;
 		printf("\ntesting2");
 		fflush(stdout);
 	}
