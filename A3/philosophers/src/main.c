@@ -28,6 +28,7 @@ int main (int argc, char * argv[]) {
 	
 	philoStruct->eatCount = atoi(argv[2]);
 	
+	printf("\nEat count: %d",philoStruct->eatCount);
 	printf("\nNum of philosophers: %d", numPhilosophers);
 	
 	for(i=0;i<numPhilosophers;i++){	
