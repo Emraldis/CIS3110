@@ -25,9 +25,15 @@ int main (int argc, char * argv[]) {
 	numPhilosophers = atoi(argv[1]);
 	
 	sem_init(&semaphr,0,1);
+	printf("\ntest");
+	fflush(stdout);
 	for(i=0;i < numPhilosophers; i++){
+		printf("\ntesting");
+		fflush(stdout);
 		philoStruct[i]->eatCount = atoi(argv[2]);
 	}
+	printf("\ntest");
+	fflush(stdout);
 	
 	//printf("\nEat count: %d",philoStruct[]eatCount);
 	//printf("\nNum of philosophers: %d", numPhilosophers);
