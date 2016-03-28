@@ -53,7 +53,7 @@ void * eat(void * ptr){
 
 	Phl * data = (Phl *)ptr;
 	phlID = (int)data->ID;
-	loop = (int)data->	eatCount;
+	loop = (int)data->eatCount;
 	printf("\n%d",loop);
 	
 	for(i=0;i<loop;i++){
