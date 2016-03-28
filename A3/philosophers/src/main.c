@@ -31,9 +31,8 @@ int main (int argc, char * argv[]) {
 	for(i=0;i < numPhilosophers; i++){
 		printf("\ntesting1");
 		fflush(stdout);
-		if(philoStruct[i] != NULL){
-			philoStruct[i].eatCount = eatCount;
-		}
+		philoStruct[i].eatCount = eatCount;
+
 		printf("\ntesting2");
 		fflush(stdout);
 	}
@@ -46,15 +45,13 @@ int main (int argc, char * argv[]) {
 	for(i=0;i<numPhilosophers;i++){	
 		printf("\ntest");
 		fflush(stdout);
-		if(philoStruct[i] != NULL){
-			philoStruct[i].ID = (i+1);
-			printf("\nCreating thread, ID is %d||%d",(i+1),philoStruct[i].ID);
-			fflush(stdout);
-			if(pthread_create(&threads[i], NULL, eat, ((void *) philoStruct[i])) != 0){
-				printf("\nError making thread");
-			}else{
-				printf("\nFinished creating thread!");
-			}
+		philoStruct[i].ID = (i+1);
+		printf("\nCreating thread, ID is %d||%d",(i+1),philoStruct[i].ID);
+		fflush(stdout);
+		if(pthread_create(&threads[i], NULL, eat, ((void *) philoStruct)) != 0){
+			printf("\nError making thread");
+		}else{
+			printf("\nFinished creating thread!");
 		}
 	}
 	
