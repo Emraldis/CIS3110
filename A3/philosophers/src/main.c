@@ -31,7 +31,9 @@ int main (int argc, char * argv[]) {
 	for(i=0;i < numPhilosophers; i++){
 		printf("\ntesting1");
 		fflush(stdout);
-		*philoStruct[i]->eatCount = eatCount;
+		if(philoStruct[i] != NULL{
+			)philoStruct[i]->eatCount = eatCount;
+		}
 		printf("\ntesting2");
 		fflush(stdout);
 	}
