@@ -29,8 +29,8 @@ int main (int argc, char * argv[]) {
 		philoStruct[i].eatCount = atoi(argv[2]);
 	}
 	
-	printf("\nEat count: %d",philoStruct->eatCount);
-	printf("\nNum of philosophers: %d", numPhilosophers);
+	//printf("\nEat count: %d",philoStruct[]eatCount);
+	//printf("\nNum of philosophers: %d", numPhilosophers);
 	
 	for(i=0;i<numPhilosophers;i++){	
 		philoStruct[i].ID = (i+1);
