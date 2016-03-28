@@ -17,6 +17,7 @@ int main (int argc, char * argv[]) {
 	
 	int i;
 	int numPhilosophers;
+	int eatCount;
 	Phl ** philoStruct;
 	pthread_t threads[atoi(argv[1])];
 	
@@ -24,13 +25,15 @@ int main (int argc, char * argv[]) {
 	
 	numPhilosophers = atoi(argv[1]);
 	
+	eatCount = atoi(argv[2])
+	
 	sem_init(&semaphr,0,1);
 	printf("\ntest");
 	fflush(stdout);
 	for(i=0;i < numPhilosophers; i++){
 		printf("\ntesting1");
 		fflush(stdout);
-		philoStruct[i]->eatCount = atoi(argv[2]);
+		philoStruct[i]->eatCount = eatCount;
 		printf("\ntesting2");
 		fflush(stdout);
 	}
