@@ -65,10 +65,10 @@ void * eat(void * ptr){
 		printf("\nPhilosopher %d is thinking.",phlID);
 		fflush(stdout);
 		sem_wait(&semaphr);
-		printf("\nPhilosopher %d is thinking.",phlID);
+		printf("\nPhilosopher %d is eating.",phlID);
 		sem_post(&semaphr);
-		printf("\nPhilosopher %d is thinking.",phlID);
 	}
+	printf("\nPhilosopher %d is thinking.",phlID);
 	
 	pthread_exit(NULL);
 }
