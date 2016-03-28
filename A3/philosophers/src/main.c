@@ -29,24 +29,15 @@ int main (int argc, char * argv[]) {
 	
 	sem_init(&semaphr,0,1);
 	for(i=0;i < numPhilosophers; i++){
-		printf("\ntesting1");
-		fflush(stdout);
 		philoStruct[i].eatCount = eatCount;
-
-		printf("\ntesting2");
-		fflush(stdout);
 	}
-	printf("\ntest");
-	fflush(stdout);
 	
 	//printf("\nEat count: %d",philoStruct[]eatCount);
 	//printf("\nNum of philosophers: %d", numPhilosophers);
 	
 	for(i=0;i<numPhilosophers;i++){	
-		printf("\ntest");
-		fflush(stdout);
 		philoStruct[i].ID = (i+1);
-		printf("\nCreating thread, ID is %d||%d",(i+1),philoStruct[i].ID);
+		//printf("\nCreating thread, ID is %d||%d",(i+1),philoStruct[i].ID);
 		fflush(stdout);
 		if(pthread_create(&threads[i], NULL, eat, ((void *)&philoStruct[i])) != 0){
 			printf("\nError making thread");
