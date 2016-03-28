@@ -18,13 +18,13 @@ int main (int argc, char * argv[]) {
 	int i;
 	int numPhilosophers;
 	int eatCount;
-	Phl ** philoStruct;
+	Phl * philoStruct;
 	pthread_t threads[atoi(argv[1])];
 	
 	numPhilosophers = atoi(argv[1]);
 	eatCount = atoi(argv[2]);
 	
-	philoStruct = malloc(sizeof(Phl*) * numPhilosophers);
+	philoStruct = malloc(sizeof(Phl) * numPhilosophers);
 	
 	
 	sem_init(&semaphr,0,1);
@@ -46,7 +46,7 @@ int main (int argc, char * argv[]) {
 	for(i=0;i<numPhilosophers;i++){	
 		printf("\ntest");
 		fflush(stdout);
-		//if(philoStruct[i] != NULL){
+		if(philoStruct[i] != NULL){
 			philoStruct[i]->ID = (i+1);
 			printf("\nCreating thread, ID is %d||%d",(i+1),philoStruct[i]->ID);
 			fflush(stdout);
@@ -55,7 +55,7 @@ int main (int argc, char * argv[]) {
 			}else{
 				printf("\nFinished creating thread!");
 			}
-		//}
+		}
 	}
 	
 	sem_destroy(&semaphr);
