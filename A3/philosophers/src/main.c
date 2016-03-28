@@ -21,9 +21,10 @@ int main (int argc, char * argv[]) {
 	Phl ** philoStruct;
 	pthread_t threads[atoi(argv[1])];
 	
-	philoStruct = malloc(sizeof(Phl *) * (atoi(argv[1])));
-	
 	numPhilosophers = atoi(argv[1]);
+	
+	philoStruct = malloc(sizeof(Phl *) * numPhilosophers);
+	
 	
 	eatCount = atoi(argv[2]);
 	
