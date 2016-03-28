@@ -28,9 +28,11 @@ int main (int argc, char * argv[]) {
 	printf("\ntest");
 	fflush(stdout);
 	for(i=0;i < numPhilosophers; i++){
-		printf("\ntesting");
+		printf("\ntesting1");
 		fflush(stdout);
 		philoStruct[i]->eatCount = atoi(argv[2]);
+		printf("\ntesting2");
+		fflush(stdout);
 	}
 	printf("\ntest");
 	fflush(stdout);
