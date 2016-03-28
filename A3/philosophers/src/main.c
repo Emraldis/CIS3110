@@ -17,22 +17,23 @@ int main (int argc, char * argv[]) {
 	
 	int i;
 	int numPhilosophers;
-	Phl * philoStruct;
+	Phl ** philoStruct;
 	pthread_t threads[atoi(argv[1])];
 	
-	philoStruct = malloc(sizeof(Phl));
+	philoStruct = malloc(sizeof(Phl *) * (atoi(argv[1])));
 	
 	numPhilosophers = atoi(argv[1]);
 	
 	sem_init(&semaphr,0,1);
-	
-	philoStruct->eatCount = atoi(argv[2]);
+	for(i=0;i < numPhilosophers; i++){
+		philoStruct[i]->eatCount = atoi(argv[2]);
+	}
 	
 	printf("\nEat count: %d",philoStruct->eatCount);
 	printf("\nNum of philosophers: %d", numPhilosophers);
 	
 	for(i=0;i<numPhilosophers;i++){	
-		philoStruct->ID = (i+1);
+		philoStruct[i]->ID = (i+1);
 		printf("\nCreating thread, ID is %d||%d",(i+1),philoStruct->ID);
 		if(pthread_create(&threads[i], NULL, eat, ((void *) philoStruct)) != 0){
 			printf("\nError making thread");
