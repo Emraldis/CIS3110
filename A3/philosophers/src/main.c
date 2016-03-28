@@ -60,12 +60,9 @@ void * eat(void * ptr){
 	Phl * data = (Phl *)ptr;
 	phlID = (int)data->ID;
 	loop = (int)data->eatCount;
-	printf("\n%d",loop);
-	printf("\nID:%d",phlID);
 	
 	for(i=0;i<loop;i++){
 		printf("\nPhilosopher %d is thinking.",phlID);
-		printf("\ntest");
 		fflush(stdout);
 		sem_wait(&semaphr);
 		printf("\nPhilosopher %d is thinking.",phlID);
