@@ -51,16 +51,16 @@ void * eat(void * ptr){
 	int phlID;
 	int loop;
 	
-	printf("\ntest");
+	//printf("\ntest");
 
 	Phl * data = (Phl *)ptr;
 	phlID = (int)data->ID;
 	loop = (int)data->	eatCount;
-	printf("\ntest");
 	//fflush(stdout);
 	
 	for(i=0;i<loop;i++){
 		printf("\nPhilosopher %d is thinking.",phlID);
+		printf("\ntest");
 		sem_wait(&semaphr);
 		printf("\nPhilosopher %d is thinking.",phlID);
 		sem_post(&semaphr);
