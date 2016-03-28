@@ -33,7 +33,7 @@ int main (int argc, char * argv[]) {
 	
 	for(i=0;i<numPhilosophers;i++){	
 		philoStruct->ID = (i+1);
-		printf("\nCreating thread!");
+		printf("\nCreating thread, ID is %d||%d",(i+1),philoStruct->ID);
 		if(pthread_create(&threads[i], NULL, eat, ((void *) philoStruct)) != 0){
 			printf("\nError making thread");
 		}else{
