@@ -56,6 +56,7 @@ void * eat(void * ptr){
 	phlID = (int)data->ID;
 	loop = (int)data->eatCount;
 	printf("\n%d",loop);
+	printf("\nID:%d",phlID);
 	
 	for(i=0;i<loop;i++){
 		printf("\nPhilosopher %d is thinking.",phlID);
