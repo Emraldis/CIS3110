@@ -24,14 +24,14 @@ int main (int argc, char * argv[]) {
 	numPhilosophers = atoi(argv[1]);
 	eatCount = atoi(argv[2]);
 	
-	philoStruct = malloc(sizeof(Phl *) * numPhilosophers);
+	philoStruct = malloc(sizeof(Phl*) * numPhilosophers);
 	
 	
 	sem_init(&semaphr,0,1);
 	for(i=0;i < numPhilosophers; i++){
 		printf("\ntesting1");
 		fflush(stdout);
-		&philoStruct[i]->eatCount = eatCount;
+		*philoStruct[i]->eatCount = eatCount;
 		printf("\ntesting2");
 		fflush(stdout);
 	}
