@@ -41,8 +41,6 @@ int main (int argc, char * argv[]) {
 		fflush(stdout);
 		if(pthread_create(&threads[i], NULL, eat, ((void *)&philoStruct[i])) != 0){
 			printf("\nError making thread");
-		}else{
-			printf("\nFinished creating thread!");
 		}
 	}
 	
@@ -68,7 +66,7 @@ void * eat(void * ptr){
 		printf("\nPhilosopher %d is eating.",phlID);
 		sem_post(&semaphr);
 	}
-	printf("\nPhilosopher %d is thinking.",phlID);
+	printf("\nPhilosopher %d is thinking.\n",phlID);
 	
 	pthread_exit(NULL);
 }
