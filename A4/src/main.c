@@ -12,7 +12,7 @@ int main (void){
 	struct timeval start;
 	struct timeval end;
 
-	i = 10;
+	i = 100;
 	
 	temp = malloc(sizeof(char) * i);
 	do{
@@ -27,9 +27,9 @@ int main (void){
 		difference = timeEnd-timeStart;
 		printf("Start time: %f End time: %f Time elapsed: %f",timeStart, timeEnd, difference);
 		if(i<1000000){
-			i = (i*5);
+			i = (i + 100);	
 			temp = realloc(temp,(sizeof(char) * i));
-			getchar();
+			//getchar();
 		}else{
 			break;
 		}
