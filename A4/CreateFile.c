@@ -8,7 +8,7 @@ int main (void){
 
 	output = fopen("testfile.txt", "w");
 
-	for (i=0;i<1000000;i++){
+	for (i=0;i<10000000;i++){
 		fputs("a",output);
 	}
 

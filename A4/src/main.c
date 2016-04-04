@@ -14,7 +14,7 @@ int main (void){
 	struct timeval end;
 	char * outputString;
 
-	i = 100;
+	i = 1000;
 	outputString = malloc(sizeof(char) * 256);
 	temp = malloc(sizeof(char) * i);
 	outputFile = fopen("size.txt","w");
@@ -49,8 +49,8 @@ int main (void){
 		outputFile = fopen("difference.txt","a");
 		fputs(outputString,outputFile);
 		fclose(outputFile);
-		if(i<100000){
-			i = (i + 100);	
+		if(i<1000000){
+			i = (i + 1000);	
 			temp = realloc(temp,(sizeof(char) * i));
 			//getchar();
 		}else{
