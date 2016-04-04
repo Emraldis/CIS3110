@@ -29,6 +29,7 @@ int main (void){
 		if(i<1000000){
 			i = (i*10);
 			temp = realloc(temp,(sizeof(char) * i));
+			getchar();
 		}
 	}while(temp != NULL);
 
