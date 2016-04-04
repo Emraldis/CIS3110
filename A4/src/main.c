@@ -49,7 +49,7 @@ int main (void){
 		outputFile = fopen("difference.txt","a");
 		fputs(outputString,outputFile);
 		fclose(outputFile);
-		if(i<1000000){
+		if(i<100000){
 			i = (i + 100);	
 			temp = realloc(temp,(sizeof(char) * i));
 			//getchar();
