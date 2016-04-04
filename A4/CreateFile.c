@@ -4,15 +4,15 @@
 
 int main (void){
 
-FILE * output;
-int i;
+	FILE * output;
+	int i;
 
 
-output = fopen("testfile.txt", "w");
+	output = fopen("testfile.txt", "w");
 
-for (i=0,i<1000000;i++){
-	fputs("a",output);
-}
+	for (i=0,i<1000000;i++;){
+		fputs("a",output);
+	}
 
 
 	return(0);
