@@ -27,13 +27,14 @@ int main (void){
 		difference = timeEnd-timeStart;
 		printf("Start time: %f End time: %f Time elapsed: %f",timeStart, timeEnd, difference);
 		if(i<1000000){
-			i = (i*10);
+			i = (i*5);
 			temp = realloc(temp,(sizeof(char) * i));
 			getchar();
 		}else{
 			break;
 		}
 	}while(temp != NULL);
+	printf("\n");
 
 	return(0);
 }
