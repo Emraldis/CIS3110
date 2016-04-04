@@ -30,7 +30,9 @@ int main (void){
 			i = (i*10);
 			temp = realloc(temp,(sizeof(char) * i));
 			getchar();
-		}
+		}else{
+			break;
+		)
 	}while(temp != NULL);
 
 	return(0);
