@@ -6,14 +6,16 @@ int main (void){
 	int i;
 	char * temp;
 	FILE * inputFile;
+	FILE * outputFile;
 	double timeStart;
 	double timeEnd;
 	double difference;
 	struct timeval start;
 	struct timeval end;
+	char * outputString;
 
 	i = 100;
-	
+	outputString = malloc(sizeof(char) * 256);
 	temp = malloc(sizeof(char) * i);
 	do{
 		inputFile = fopen("testfile.txt","r");
@@ -25,6 +27,9 @@ int main (void){
 		timeStart = start.tv_sec + (double)start.tv_usec / 1000000.0;
 		timeEnd = end.tv_sec + (double)end.tv_usec / 1000000.0;
 		difference = timeEnd-timeStart;
+		outputFile = fopen("output.txt","a");
+		fputs("");
+		fclose(outputFile);
 		printf("Start time: %f End time: %f Time elapsed: %f",timeStart, timeEnd, difference);
 		if(i<1000000){
 			i = (i + 100);	
@@ -35,6 +40,8 @@ int main (void){
 		}
 	}while(temp != NULL);
 	printf("\n");
+	free(temp);
+	free(outputString);
 
 	return(0);
 }
