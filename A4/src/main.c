@@ -32,7 +32,7 @@ int main (void){
 			getchar();
 		}else{
 			break;
-		)
+		}
 	}while(temp != NULL);
 
 	return(0);
