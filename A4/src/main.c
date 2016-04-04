@@ -17,6 +17,8 @@ int main (void){
 	i = 100;
 	outputString = malloc(sizeof(char) * 256);
 	temp = malloc(sizeof(char) * i);
+	outputFile = fopen("output.txt","w");
+	fclose(outputFile);
 	do{
 		inputFile = fopen("testfile.txt","r");
 		gettimeofday(&start, NULL);
@@ -27,7 +29,7 @@ int main (void){
 		timeStart = start.tv_sec + (double)start.tv_usec / 1000000.0;
 		timeEnd = end.tv_sec + (double)end.tv_usec / 1000000.0;
 		difference = timeEnd-timeStart;
-		sprintf(outputString,"Start time: %f End time: %f Time elapsed: %f",timeStart, timeEnd, difference);
+		sprintf(outputString,"Read %d bytes: Start time: %f End time: %f Time elapsed: %f\n",i,timeStart, timeEnd, difference);
 		outputFile = fopen("output.txt","a");
 		fputs(outputString,outputFile);
 		fclose(outputFile);
