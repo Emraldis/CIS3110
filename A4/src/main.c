@@ -14,9 +14,10 @@ int main (void){
 
 	i = 10;
 	
+	temp = malloc(sizeof(char) * i);
 	do{
 		inputFile = fopen("testfile.txt","r");
-		inpugettimeofday(&start, NULL);
+		gettimeofday(&start, NULL);
 		fgets(temp,i,inputFile);
 		printf("\nread %d bytes",i);
 		gettimeofday(&end, NULL);
@@ -27,6 +28,7 @@ int main (void){
 		printf("Start time: %f End time: %f Time elapsed: %f",timeStart, timeEnd, difference);
 		if(i<1000000){
 			i = (i*10);
+			temp = realloc(temp,(sizeof(char) * i));
 		}
 	}while(temp != NULL);
 
