@@ -14,7 +14,7 @@ int main (void){
 	struct timeval end;
 	char * outputString;
 
-	i = 10000;
+	i = 1000;
 	outputString = malloc(sizeof(char) * 256);
 	temp = malloc(sizeof(char) * i);
 	outputFile = fopen("size.txt","w");
@@ -50,7 +50,7 @@ int main (void){
 		fputs(outputString,outputFile);
 		fclose(outputFile);
 		if(i<1000000){
-			i = (i + 10000);	
+			i = (i + 1000);	
 			temp = realloc(temp,(sizeof(char) * i));
 			//getchar();
 		}else{
