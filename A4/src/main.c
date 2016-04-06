@@ -23,9 +23,11 @@ int main (int argc, char * argv[]){
 	temp = malloc(sizeof(char) * i);
 	outputFile = fopen("size.txt","w");
 	fclose(outputFile);
-	outputFile = fopen("start.txt","w");
+	outputFile = fopen("occurence.txt","w");
 	fclose(outputFile);
-	outputFile = fopen("end.txt","w");
+	outputFile = fopen("difference2.txt","w");
+	fclose(outputFile);
+	outputFile = fopen("difference.txt","w");
 	fclose(outputFile);
 	do{
 		if(a == 1){
