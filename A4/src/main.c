@@ -55,6 +55,7 @@ int main (int argc, char * argv[]){
 			}
 		}else if(a == 2){
 			j++;
+			sleep(1);
 			inputFile = fopen("testfile.txt","r");
 			gettimeofday(&start, NULL);
 			fgets(temp,1000,inputFile);
