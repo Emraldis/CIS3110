@@ -79,7 +79,7 @@ int main (int argc, char * argv[]){
 			outputFile = fopen("difference2.txt","a");
 			fputs(outputString,outputFile);
 			fclose(outputFile);
-			if(j >= 100){
+			if(j >= 1000){
 				break;
 			}
 		}else{
