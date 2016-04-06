@@ -21,14 +21,17 @@ int main (int argc, char * argv[]){
 	j = 0;
 	outputString = malloc(sizeof(char) * 1000);
 	temp = malloc(sizeof(char) * i);
-	outputFile = fopen("size.txt","w");
-	fclose(outputFile);
-	outputFile = fopen("occurence.txt","w");
-	fclose(outputFile);
-	outputFile = fopen("difference2.txt","w");
-	fclose(outputFile);
-	outputFile = fopen("difference.txt","w");
-	fclose(outputFile);
+	if (a == 1){
+		outputFile = fopen("size.txt","w");
+		fclose(outputFile);
+		outputFile = fopen("difference.txt","w");
+		fclose(outputFile);
+	}else if(a == 2){
+		outputFile = fopen("occurence.txt","w");
+		fclose(outputFile);
+		outputFile = fopen("difference2.txt","w");
+		fclose(outputFile);
+	}
 	do{
 		if(a == 1){
 			inputFile = fopen("testfile.txt","r");
