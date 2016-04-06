@@ -19,7 +19,7 @@ int main (int argc, char * argv[]){
 	a = atoi(argv[1]);
 	i = 1000;
 	j = 0;
-	outputString = malloc(sizeof(char) * 256);
+	outputString = malloc(sizeof(char) * 1000);
 	temp = malloc(sizeof(char) * i);
 	outputFile = fopen("size.txt","w");
 	fclose(outputFile);
@@ -57,29 +57,7 @@ int main (int argc, char * argv[]){
 			j++;
 			inputFile = fopen("testfile.txt","r");
 			gettimeofday(&start, NULL);
-			fgets(temp,1,inputFile);
-			gettimeofday(&end, NULL);
-			fclose(inputFile);
-			timeStart = start.tv_sec + (double)start.tv_usec / 1000000.0;
-			timeEnd = end.tv_sec + (double)end.tv_usec / 1000000.0;
-			difference = timeEnd-timeStart;
-			sprintf(outputString,"%d\n",j);
-			outputFile = fopen("occurence.txt","a");
-			fputs(outputString,outputFile);
-			fclose(outputFile);
-			sprintf(outputString,"%f\n",difference);
-			outputFile = fopen("difference2.txt","a");
-			fputs(outputString,outputFile);
-			fclose(outputFile);
-			if(j >= 100){
-				a == 3;
-			}
-		}else if(a == 3){
-			j++;
-			inputFile = fopen("testfile.txt","r");
-			sleep(1);
-			gettimeofday(&start, NULL);
-			fgets(temp,100,inputFile);
+			fgets(temp,1000,inputFile);
 			gettimeofday(&end, NULL);
 			fclose(inputFile);
 			timeStart = start.tv_sec + (double)start.tv_usec / 1000000.0;
@@ -96,6 +74,7 @@ int main (int argc, char * argv[]){
 			if(j >= 100){
 				break;
 			}
+		}
 		}else{
 			printf("\nError encountered, Quitting\n");
 			return(0);
