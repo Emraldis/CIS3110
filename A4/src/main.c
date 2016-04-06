@@ -96,7 +96,7 @@ int main (int argc, char * argv[]){
 			if(j >= 100){
 				break;
 			}
-		}else{{
+		}else{
 			printf("\nError encountered, Quitting\n");
 			return(0);
 		}
